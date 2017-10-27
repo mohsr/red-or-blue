@@ -62,5 +62,5 @@ Network Trash Folder
 Temporary Items
 .apdisk
 
-/ProjectSettings/*
-/Library/*
+ProjectSettings/
+Library/
