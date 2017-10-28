@@ -5,35 +5,45 @@ using UnityEngine;
 public class PlayerController : MonoBehaviour {
 
 	public float speed = 5.0f;
-	public float jump = 500.0f;
-	public float colliderHeight = 0.25f;
-	[HideInInspector]
-	public bool grounded = true;
+	public float jumpSpeed = 5.0f;
+	public float colliderHeight = 0.30f;
+	public Vector2 moveDirection = Vector2.zero;
+	public Vector2 jumpDirection = Vector2.zero;
+	public bool isGrounded = false;
 
 	private Rigidbody2D rb2d;
+	private CapsuleCollider2D cc2d;
 
 	void Start()
 	{
 		rb2d = GetComponent<Rigidbody2D> ();
 	}
 
+	void OnCollisionStay2D(Collision2D coll) {
+		if (coll.gameObject.tag == "Ground" || coll.gameObject.tag == "Blue" || coll.gameObject.tag == "Red")
+			isGrounded = true;
+	}
+
+	void OnCollisionExit2D(Collision2D coll)
+	{
+		if (coll.gameObject.tag == "Ground" || coll.gameObject.tag == "Blue" || coll.gameObject.tag == "Red")
+			isGrounded = false;
+	}
+
 	void FixedUpdate()
 	{
 
-		/* Handles horizontal movement. */
-		float moveH = Input.GetAxis ("Horizontal");
-		transform.position += new Vector3(moveH * speed * Time.deltaTime, 0, 0);
-
-		/* Handles jumping. */
-		RaycastHit2D jump_check = Physics2D.Raycast(transform.position,
-			                      new Vector2(0, -1),
-			                      colliderHeight);
-
-		grounded = (jump_check.collider != null);
-
-		if (Input.GetKeyDown ("space") && true) {
-			rb2d.AddForce (new Vector2 (0, jump * 45.0f));
+		/* Check for horizontal movement */
+		if (Input.GetAxis("Horizontal") != 0) {
+			moveDirection = new Vector2(Input.GetAxisRaw("Horizontal"), 0);
 		}
+		/* Check for jumping */
+		if (Input.GetButtonDown ("Jump") && isGrounded) {
+			isGrounded = false;
+			rb2d.velocity = new Vector3(rb2d.velocity.x, jumpSpeed, rb2d.velocity.y);
+		}
+		/* Execute movement */
+		transform.Translate (moveDirection.normalized * speed * Time.deltaTime);
 	}
 
 }

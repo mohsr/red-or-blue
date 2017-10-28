@@ -198,155 +198,10 @@ Prefab:
       propertyPath: m_Constraints
       value: 4
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 61112612607266244, guid: 53f262ff48f3f4a5298b54610c4a3d67, type: 2}
   m_ParentPrefab: {fileID: 100100000, guid: 53f262ff48f3f4a5298b54610c4a3d67, type: 2}
   m_IsPrefabParent: 0
---- !u!1 &23083994
-GameObject:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  serializedVersion: 5
-  m_Component:
-  - component: {fileID: 23083996}
-  - component: {fileID: 23083995}
-  m_Layer: 0
-  m_Name: Grass_Bot_Left
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!212 &23083995
-SpriteRenderer:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 23083994}
-  m_Enabled: 1
-  m_CastShadows: 0
-  m_ReceiveShadows: 0
-  m_DynamicOccludee: 1
-  m_MotionVectors: 1
-  m_LightProbeUsage: 1
-  m_ReflectionProbeUsage: 1
-  m_Materials:
-  - {fileID: 10754, guid: 0000000000000000f000000000000000, type: 0}
-  m_StaticBatchInfo:
-    firstSubMesh: 0
-    subMeshCount: 0
-  m_StaticBatchRoot: {fileID: 0}
-  m_ProbeAnchor: {fileID: 0}
-  m_LightProbeVolumeOverride: {fileID: 0}
-  m_ScaleInLightmap: 1
-  m_PreserveUVs: 0
-  m_IgnoreNormalsForChartDetection: 0
-  m_ImportantGI: 0
-  m_StitchLightmapSeams: 0
-  m_SelectedEditorRenderState: 0
-  m_MinimumChartSize: 4
-  m_AutoUVMaxDistance: 0.5
-  m_AutoUVMaxAngle: 89
-  m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: 0
-  m_SortingLayer: 0
-  m_SortingOrder: 0
-  m_Sprite: {fileID: 21300114, guid: b30a302fe4d81493087462afd13695b2, type: 3}
-  m_Color: {r: 1, g: 1, b: 1, a: 1}
-  m_FlipX: 0
-  m_FlipY: 0
-  m_DrawMode: 0
-  m_Size: {x: 1, y: 1}
-  m_AdaptiveModeThreshold: 0.5
-  m_SpriteTileMode: 0
-  m_WasSpriteAssigned: 1
-  m_MaskInteraction: 0
---- !u!4 &23083996
-Transform:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 23083994}
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -6.986094, y: -3.4697337, z: 0.09223202}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_Children: []
-  m_Father: {fileID: 1320402636}
-  m_RootOrder: 3
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!1 &50190290
-GameObject:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  serializedVersion: 5
-  m_Component:
-  - component: {fileID: 50190292}
-  - component: {fileID: 50190291}
-  m_Layer: 0
-  m_Name: Grass_Top_Right
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!212 &50190291
-SpriteRenderer:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 50190290}
-  m_Enabled: 1
-  m_CastShadows: 0
-  m_ReceiveShadows: 0
-  m_DynamicOccludee: 1
-  m_MotionVectors: 1
-  m_LightProbeUsage: 1
-  m_ReflectionProbeUsage: 1
-  m_Materials:
-  - {fileID: 10754, guid: 0000000000000000f000000000000000, type: 0}
-  m_StaticBatchInfo:
-    firstSubMesh: 0
-    subMeshCount: 0
-  m_StaticBatchRoot: {fileID: 0}
-  m_ProbeAnchor: {fileID: 0}
-  m_LightProbeVolumeOverride: {fileID: 0}
-  m_ScaleInLightmap: 1
-  m_PreserveUVs: 0
-  m_IgnoreNormalsForChartDetection: 0
-  m_ImportantGI: 0
-  m_StitchLightmapSeams: 0
-  m_SelectedEditorRenderState: 0
-  m_MinimumChartSize: 4
-  m_AutoUVMaxDistance: 0.5
-  m_AutoUVMaxAngle: 89
-  m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: 0
-  m_SortingLayer: 0
-  m_SortingOrder: 0
-  m_Sprite: {fileID: 21300082, guid: b30a302fe4d81493087462afd13695b2, type: 3}
-  m_Color: {r: 1, g: 1, b: 1, a: 1}
-  m_FlipX: 0
-  m_FlipY: 0
-  m_DrawMode: 0
-  m_Size: {x: 1, y: 1}
-  m_AdaptiveModeThreshold: 0.5
-  m_SpriteTileMode: 0
-  m_WasSpriteAssigned: 1
-  m_MaskInteraction: 0
---- !u!4 &50190292
-Transform:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 50190290}
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -3.818831, y: -0.6732807, z: 0.09223202}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_Children: []
-  m_Father: {fileID: 1320402636}
-  m_RootOrder: 1
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &508943207
 Prefab:
   m_ObjectHideFlags: 0
@@ -385,6 +240,10 @@ Prefab:
     - target: {fileID: 4912664198435550, guid: 892e6e8c007124a848680c48796173db, type: 2}
       propertyPath: m_RootOrder
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1125238817953718, guid: 892e6e8c007124a848680c48796173db, type: 2}
+      propertyPath: m_TagString
+      value: Ground
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 892e6e8c007124a848680c48796173db, type: 2}
@@ -506,11 +365,15 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 4912664198435550, guid: 892e6e8c007124a848680c48796173db, type: 2}
       propertyPath: m_RootOrder
-      value: 5
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 1125238817953718, guid: 892e6e8c007124a848680c48796173db, type: 2}
       propertyPath: m_Name
       value: Grass_Top_Mid (2)
+      objectReference: {fileID: 0}
+    - target: {fileID: 1125238817953718, guid: 892e6e8c007124a848680c48796173db, type: 2}
+      propertyPath: m_TagString
+      value: Ground
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 892e6e8c007124a848680c48796173db, type: 2}
@@ -529,11 +392,11 @@ Prefab:
     m_Modifications:
     - target: {fileID: 4883917575916594, guid: 28d3476997aef4892ad3671b93610b42, type: 2}
       propertyPath: m_LocalPosition.x
-      value: -1.336751
+      value: -1.77
       objectReference: {fileID: 0}
     - target: {fileID: 4883917575916594, guid: 28d3476997aef4892ad3671b93610b42, type: 2}
       propertyPath: m_LocalPosition.y
-      value: 0.021306239
+      value: -0.6
       objectReference: {fileID: 0}
     - target: {fileID: 4883917575916594, guid: 28d3476997aef4892ad3671b93610b42, type: 2}
       propertyPath: m_LocalPosition.z
@@ -558,6 +421,10 @@ Prefab:
     - target: {fileID: 4883917575916594, guid: 28d3476997aef4892ad3671b93610b42, type: 2}
       propertyPath: m_RootOrder
       value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 1280183456523458, guid: 28d3476997aef4892ad3671b93610b42, type: 2}
+      propertyPath: m_TagString
+      value: Ground
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 28d3476997aef4892ad3671b93610b42, type: 2}
@@ -598,9 +465,6 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 759000306}
-  - {fileID: 50190292}
-  - {fileID: 1852088093}
-  - {fileID: 23083996}
   - {fileID: 2022374571}
   - {fileID: 1219795001}
   - {fileID: 1503055798}
@@ -650,88 +514,19 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 4912664198435550, guid: 892e6e8c007124a848680c48796173db, type: 2}
       propertyPath: m_RootOrder
-      value: 7
+      value: 4
       objectReference: {fileID: 0}
     - target: {fileID: 1125238817953718, guid: 892e6e8c007124a848680c48796173db, type: 2}
       propertyPath: m_Name
       value: Grass_Top_Mid (4)
       objectReference: {fileID: 0}
+    - target: {fileID: 1125238817953718, guid: 892e6e8c007124a848680c48796173db, type: 2}
+      propertyPath: m_TagString
+      value: Ground
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 892e6e8c007124a848680c48796173db, type: 2}
   m_IsPrefabParent: 0
---- !u!1 &1852088091
-GameObject:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  serializedVersion: 5
-  m_Component:
-  - component: {fileID: 1852088093}
-  - component: {fileID: 1852088092}
-  m_Layer: 0
-  m_Name: Grass_Bot_Right
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!212 &1852088092
-SpriteRenderer:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 1852088091}
-  m_Enabled: 1
-  m_CastShadows: 0
-  m_ReceiveShadows: 0
-  m_DynamicOccludee: 1
-  m_MotionVectors: 1
-  m_LightProbeUsage: 1
-  m_ReflectionProbeUsage: 1
-  m_Materials:
-  - {fileID: 10754, guid: 0000000000000000f000000000000000, type: 0}
-  m_StaticBatchInfo:
-    firstSubMesh: 0
-    subMeshCount: 0
-  m_StaticBatchRoot: {fileID: 0}
-  m_ProbeAnchor: {fileID: 0}
-  m_LightProbeVolumeOverride: {fileID: 0}
-  m_ScaleInLightmap: 1
-  m_PreserveUVs: 0
-  m_IgnoreNormalsForChartDetection: 0
-  m_ImportantGI: 0
-  m_StitchLightmapSeams: 0
-  m_SelectedEditorRenderState: 0
-  m_MinimumChartSize: 4
-  m_AutoUVMaxDistance: 0.5
-  m_AutoUVMaxAngle: 89
-  m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: 0
-  m_SortingLayer: 0
-  m_SortingOrder: 0
-  m_Sprite: {fileID: 21300118, guid: b30a302fe4d81493087462afd13695b2, type: 3}
-  m_Color: {r: 1, g: 1, b: 1, a: 1}
-  m_FlipX: 0
-  m_FlipY: 0
-  m_DrawMode: 0
-  m_Size: {x: 1, y: 1}
-  m_AdaptiveModeThreshold: 0.5
-  m_SpriteTileMode: 0
-  m_WasSpriteAssigned: 1
-  m_MaskInteraction: 0
---- !u!4 &1852088093
-Transform:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 1852088091}
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -4.032276, y: -3.5863318, z: 0.09223202}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_Children: []
-  m_Father: {fileID: 1320402636}
-  m_RootOrder: 2
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!4 &2022374571 stripped
 Transform:
   m_PrefabParentObject: {fileID: 4912664198435550, guid: 892e6e8c007124a848680c48796173db,
@@ -774,15 +569,39 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 4912664198435550, guid: 892e6e8c007124a848680c48796173db, type: 2}
       propertyPath: m_RootOrder
-      value: 6
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 1125238817953718, guid: 892e6e8c007124a848680c48796173db, type: 2}
       propertyPath: m_Name
       value: Grass_Top_Mid (3)
       objectReference: {fileID: 0}
+    - target: {fileID: 1125238817953718, guid: 892e6e8c007124a848680c48796173db, type: 2}
+      propertyPath: m_TagString
+      value: Ground
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 892e6e8c007124a848680c48796173db, type: 2}
   m_IsPrefabParent: 0
+--- !u!1 &2090736751 stripped
+GameObject:
+  m_PrefabParentObject: {fileID: 1415990194653224, guid: 53f262ff48f3f4a5298b54610c4a3d67,
+    type: 2}
+  m_PrefabInternal: {fileID: 12408492}
+--- !u!70 &2090736753
+CapsuleCollider2D:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 2090736751}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: -0.032450378, y: -0.0129801035}
+  m_Size: {x: 0.6235764, y: 0.9740398}
+  m_Direction: 0
 --- !u!1001 &2093858778
 Prefab:
   m_ObjectHideFlags: 0
@@ -820,11 +639,15 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 4912664198435550, guid: 892e6e8c007124a848680c48796173db, type: 2}
       propertyPath: m_RootOrder
-      value: 4
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 1125238817953718, guid: 892e6e8c007124a848680c48796173db, type: 2}
       propertyPath: m_Name
       value: Grass_Top_Mid (1)
+      objectReference: {fileID: 0}
+    - target: {fileID: 1125238817953718, guid: 892e6e8c007124a848680c48796173db, type: 2}
+      propertyPath: m_TagString
+      value: Ground
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 892e6e8c007124a848680c48796173db, type: 2}
