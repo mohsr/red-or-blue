@@ -9,6 +9,7 @@ public class PlayerController : MonoBehaviour {
 	public float colliderHeight = 0.30f;
 	public Vector2 moveDirection = Vector2.zero;
 	public Vector2 jumpDirection = Vector2.zero;
+	[HideInInspector]
 	public bool isGrounded = false;
 
 	private Rigidbody2D rb2d;
