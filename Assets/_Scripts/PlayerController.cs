@@ -11,9 +11,12 @@ public class PlayerController : MonoBehaviour {
 	public Vector2 jumpDirection = Vector2.zero;
 	[HideInInspector]
 	public bool isGrounded = false;
+	public float jumpBuffer = 0.15f;
 
 	private Rigidbody2D rb2d;
 	private CapsuleCollider2D cc2d;
+	private float buffer_counter = 0;
+	private bool isBufferedJump = false;
 
 	void Start()
 	{
@@ -38,10 +41,24 @@ public class PlayerController : MonoBehaviour {
 		if (Input.GetAxis("Horizontal") != 0) {
 			moveDirection = new Vector2(Input.GetAxisRaw("Horizontal"), 0);
 		}
+
+		if (isBufferedJump) {
+			buffer_counter += Time.deltaTime;
+			Debug.Log (buffer_counter);
+			if (buffer_counter > jumpBuffer)
+				isBufferedJump = false;
+		}
+
 		/* Check for jumping */
-		if (Input.GetButtonDown ("Jump") && isGrounded) {
+		if (((Input.GetButtonDown ("Jump")) || isBufferedJump) && isGrounded) {
 			isGrounded = false;
+			isBufferedJump = false;
 			rb2d.velocity = new Vector3(rb2d.velocity.x, jumpSpeed, rb2d.velocity.y);
+		}
+
+		if (Input.GetButtonDown ("Jump") && !isGrounded) {
+			isBufferedJump = true;
+			buffer_counter = 0;
 		}
 		/* Execute movement */
 		transform.Translate (moveDirection.normalized * speed * Time.deltaTime);
