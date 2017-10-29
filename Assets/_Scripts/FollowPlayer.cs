@@ -29,4 +29,12 @@ public class FollowPlayer : MonoBehaviour {
 				                                             transform.position.z) + offset,
                                                  speed * Time.deltaTime);
 	}
+
+	public void setCameraOnPlayer()
+	{
+		transform.position = new Vector3(player.transform.position.x,
+										 player.transform.position.y,
+										transform.position.z) + offset;
+
+	}
 }
