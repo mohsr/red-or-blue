@@ -12,9 +12,11 @@ public class Switch : MonoBehaviour {
 
 	private const string R = "Red";
 	private const string B = "Blue";
+	private Camera mainCamera;
 
 	void Start()
 	{
+		mainCamera = Camera.main;
 		SwitchColorsHelper (R, B);
 	}
 
@@ -28,8 +30,10 @@ public class Switch : MonoBehaviour {
 	{
 		if (red) {
 			SwitchColorsHelper (B, R);
+			mainCamera.backgroundColor = new Color32(255, 40, 33, 1);
 		} else if (blue) {
 			SwitchColorsHelper (R, B);
+			mainCamera.backgroundColor = new Color32(8, 182, 239, 1);
 		}
 	}
 

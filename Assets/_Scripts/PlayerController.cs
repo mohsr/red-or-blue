@@ -25,10 +25,12 @@ public class PlayerController : MonoBehaviour {
 //			rb2d.velocity = new Vector2 (0, rb2d.velocity.y);
 //		}
 
-		if (Input.GetAxis("Horizontal") != 0)
-			moveDirection = new Vector2(Input.GetAxisRaw("Horizontal"), 0);
+		if (Input.GetAxis ("Horizontal") != 0) {
+			moveDirection = new Vector2 (Input.GetAxisRaw ("Horizontal"), 0);
+			transform.Translate (moveDirection.normalized * speed * Time.deltaTime);
+		}
 
 		/* Execute movement. */
-		transform.Translate (moveDirection.normalized * speed * Time.deltaTime);
+
 	}
 }

@@ -8,7 +8,7 @@ public class Jumping : MonoBehaviour {
 	public float higherJumpTime = 0.07f;
 	public float higherJumpSpeed = 0.7f;
 	public int maxHigherJumps = 1;
-	[HideInInspector]
+//	[HideInInspector]
 	public bool isGrounded = false;
 	public float jumpBuffer = 0.15f;
 	public float fallingGravityScale = 1.1f;
@@ -41,7 +41,6 @@ public class Jumping : MonoBehaviour {
 		/* Check for buffered jumping. */
 		if (isBufferedJump) {
 			buffer_counter += Time.deltaTime;
-			Debug.Log (buffer_counter);
 			if (buffer_counter > jumpBuffer)
 				isBufferedJump = false;
 		}
