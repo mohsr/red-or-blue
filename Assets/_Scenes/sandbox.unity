@@ -193,27 +193,7 @@ Prefab:
       propertyPath: m_RootOrder
       value: 2
       objectReference: {fileID: 0}
-    - target: {fileID: 50790882809954728, guid: 53f262ff48f3f4a5298b54610c4a3d67,
-        type: 2}
-      propertyPath: m_Constraints
-      value: 4
-      objectReference: {fileID: 0}
-    - target: {fileID: 114650370012873804, guid: 53f262ff48f3f4a5298b54610c4a3d67,
-        type: 2}
-      propertyPath: jumpSpeed
-      value: 4.5
-      objectReference: {fileID: 0}
-    - target: {fileID: 114650370012873804, guid: 53f262ff48f3f4a5298b54610c4a3d67,
-        type: 2}
-      propertyPath: higherJumpSpeed
-      value: 0.7
-      objectReference: {fileID: 0}
-    - target: {fileID: 1296198437239124, guid: 53f262ff48f3f4a5298b54610c4a3d67, type: 2}
-      propertyPath: m_TagString
-      value: Untagged
-      objectReference: {fileID: 0}
-    m_RemovedComponents:
-    - {fileID: 61112612607266244, guid: 53f262ff48f3f4a5298b54610c4a3d67, type: 2}
+    m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 53f262ff48f3f4a5298b54610c4a3d67, type: 2}
   m_IsPrefabParent: 0
 --- !u!1001 &16381432
@@ -3276,26 +3256,6 @@ Prefab:
     - target: {fileID: 4207399881208638, guid: 18e4c7872996d49faa4edc0019dc8447, type: 2}
       propertyPath: m_RootOrder
       value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 20066457255089800, guid: 18e4c7872996d49faa4edc0019dc8447,
-        type: 2}
-      propertyPath: m_BackGroundColor.r
-      value: 0.03137255
-      objectReference: {fileID: 0}
-    - target: {fileID: 20066457255089800, guid: 18e4c7872996d49faa4edc0019dc8447,
-        type: 2}
-      propertyPath: m_BackGroundColor.g
-      value: 0.7137255
-      objectReference: {fileID: 0}
-    - target: {fileID: 20066457255089800, guid: 18e4c7872996d49faa4edc0019dc8447,
-        type: 2}
-      propertyPath: m_BackGroundColor.b
-      value: 0.93725497
-      objectReference: {fileID: 0}
-    - target: {fileID: 20066457255089800, guid: 18e4c7872996d49faa4edc0019dc8447,
-        type: 2}
-      propertyPath: m_ClearFlags
-      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 18e4c7872996d49faa4edc0019dc8447, type: 2}
@@ -10495,26 +10455,6 @@ Transform:
   m_PrefabParentObject: {fileID: 4958165560323330, guid: ea467213056174b97ad00dd21e241ea6,
     type: 2}
   m_PrefabInternal: {fileID: 1414317029}
---- !u!1 &2090736751 stripped
-GameObject:
-  m_PrefabParentObject: {fileID: 1415990194653224, guid: 53f262ff48f3f4a5298b54610c4a3d67,
-    type: 2}
-  m_PrefabInternal: {fileID: 12408492}
---- !u!70 &2090736753
-CapsuleCollider2D:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 2090736751}
-  m_Enabled: 1
-  m_Density: 1
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_UsedByEffector: 0
-  m_UsedByComposite: 0
-  m_Offset: {x: -0.032450378, y: -0.0129801035}
-  m_Size: {x: 0.6235764, y: 0.9740398}
-  m_Direction: 0
 --- !u!1001 &2110731076
 Prefab:
   m_ObjectHideFlags: 0

@@ -37,7 +37,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1236087745563224}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: -10}
+  m_LocalPosition: {x: 0, y: 0, z: -20}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
@@ -52,7 +52,7 @@ Camera:
   m_Enabled: 1
   serializedVersion: 2
   m_ClearFlags: 1
-  m_BackGroundColor: {r: 0.19215687, g: 0.3019608, b: 0.4745098, a: 0}
+  m_BackGroundColor: {r: 0.5058824, g: 0.7764706, b: 0.8666667, a: 0.003921569}
   m_NormalizedViewPortRect:
     serializedVersion: 2
     x: 0
@@ -96,9 +96,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8b82cc47a11b4481da9265f3d3853af0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  followPlayer: 1
   speed: 4.5
-  offset: {x: 3, y: 1, z: 0}
+  offset: {x: 15, y: 15, z: 0}
+  freezeX: 0
+  freezeY: 0
+  freezeZ: 1
 --- !u!124 &124055204426676494
 Behaviour:
   m_ObjectHideFlags: 1

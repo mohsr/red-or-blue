@@ -22,7 +22,7 @@ GameObject:
   - component: {fileID: 114494839995406356}
   m_Layer: 0
   m_Name: GameController
-  m_TagString: Untagged
+  m_TagString: GameController
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -52,5 +52,12 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   switcher: e
+  redBackground:
+    serializedVersion: 2
+    rgba: 24277684
+  blueBackground:
+    serializedVersion: 2
+    rgba: 31311489
+  backgroundFadeSpeed: 0.25
   red: 0
   blue: 1

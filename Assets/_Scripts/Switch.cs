@@ -5,6 +5,9 @@ using UnityEngine;
 public class Switch : MonoBehaviour {
 
 	public string switcher = "e";
+	public Color32 redBackground = new Color32(180, 114, 114, 1);
+	public Color32 blueBackground = new Color32(129, 198, 221, 1);
+	public float backgroundFadeSpeed = 0.25f;
 	[HideInInspector]
 	public bool red = false;
 	[HideInInspector]
@@ -12,28 +15,35 @@ public class Switch : MonoBehaviour {
 
 	private const string R = "Red";
 	private const string B = "Blue";
+	private Color32 nextColor;
 	private Camera mainCamera;
 
 	void Start()
 	{
 		mainCamera = Camera.main;
 		SwitchColorsHelper (R, B);
+		mainCamera.backgroundColor = blueBackground;
+		nextColor = blueBackground;
 	}
 
 	public void Update()
 	{
 		if (Input.GetKeyDown(switcher))
 			SwitchColors ();
+		/* Lerping background color. */
+		mainCamera.backgroundColor = Color.Lerp (mainCamera.backgroundColor,
+			                                     nextColor,
+			                                     Mathf.PingPong(Time.time, 1 * backgroundFadeSpeed));
 	}
 
 	public void SwitchColors()
 	{
 		if (red) {
 			SwitchColorsHelper (B, R);
-			mainCamera.backgroundColor = new Color32(255, 40, 33, 1);
+			nextColor = redBackground;
 		} else if (blue) {
 			SwitchColorsHelper (R, B);
-			mainCamera.backgroundColor = new Color32(8, 182, 239, 1);
+			nextColor = blueBackground;
 		}
 	}
 
