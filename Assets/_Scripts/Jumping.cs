@@ -18,8 +18,9 @@ public class Jumping : MonoBehaviour {
 	private float realGravity;
 	private bool isBufferedJump = false;
 	private int higherJumpCounter = 0;
+    public float speed = 5.0f;
 
-	void Start()
+    void Start()
 	{
 		rb2d = GetComponentInParent<Rigidbody2D> ();
 		realGravity = rb2d.gravityScale;
@@ -49,7 +50,8 @@ public class Jumping : MonoBehaviour {
 		if (((Input.GetButtonDown ("Jump")) || isBufferedJump) && isGrounded) {
 			isGrounded = false;
 			isBufferedJump = false;
-			rb2d.velocity = new Vector2(rb2d.velocity.x, jumpSpeed);
+            rb2d.velocity = new Vector2(rb2d.velocity.x, jumpSpeed);
+            rb2d.transform.Translate(new Vector2(0, 0.05f));
 			StartCoroutine (WaitForAddForce ());
 		}
 
