@@ -23,7 +23,7 @@ GameObject:
   - component: {fileID: 114650370012873804}
   m_Layer: 0
   m_Name: PlayerFeet
-  m_TagString: Player
+  m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -40,6 +40,7 @@ GameObject:
   - component: {fileID: 50790882809954728}
   - component: {fileID: 114952735218430460}
   - component: {fileID: 61469636421662310}
+  - component: {fileID: 70933289622235298}
   m_Layer: 0
   m_Name: Player
   m_TagString: Player
@@ -67,7 +68,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1415990194653224}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0.79, y: -1.92, z: 0}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 4111589788093298}
@@ -131,7 +132,7 @@ BoxCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: -0.019364327, y: -0.4668954}
+  m_Offset: {x: -0.021815665, y: -0.4668954}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0, y: 0}
@@ -142,8 +143,23 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 0.3733167, y: 0.0662092}
+  m_Size: {x: 0.5056892, y: 0.0662092}
   m_EdgeRadius: 0
+--- !u!70 &70933289622235298
+CapsuleCollider2D:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1415990194653224}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: -0.032450378, y: -0.0129801035}
+  m_Size: {x: 0.6235764, y: 0.9740398}
+  m_Direction: 0
 --- !u!114 &114650370012873804
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -155,16 +171,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6770d777a48704cc7a0c502e23154669, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  jumpSpeed: 4
-  colliderHeight: 0.3
-  moveDirection: {x: 0, y: 0}
-  jumpDirection: {x: 0, y: 0}
-  higherJumpTime: 0.07
-  higherJumpSpeed: 0.3
-  maxHigherJumps: 1
+  minJumpVelocity: 4
+  maxJumpVelocity: 6.5
   isGrounded: 0
   jumpBuffer: 0.15
   fallingGravityScale: 1.1
+  speed: 5
 --- !u!114 &114952735218430460
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -177,16 +189,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   speed: 5
-  jumpSpeed: 4
-  colliderHeight: 0.3
   moveDirection: {x: 0, y: 0}
-  jumpDirection: {x: 0, y: 0}
-  higherJumpTime: 0.07
-  higherJumpSpeed: 0.3
-  maxHigherJumps: 1
-  isGrounded: 0
-  jumpBuffer: 0.15
-  fallingGravityScale: 1.1
 --- !u!212 &212895087555278470
 SpriteRenderer:
   m_ObjectHideFlags: 1
