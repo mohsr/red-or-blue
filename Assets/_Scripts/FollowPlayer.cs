@@ -13,6 +13,7 @@ public class FollowPlayer : MonoBehaviour {
 	void Start()
 	{
 		player = GameObject.FindGameObjectWithTag ("Player");
+        offset = transform.position - player.transform.position;
 	}
 
 	void Update()
@@ -23,12 +24,14 @@ public class FollowPlayer : MonoBehaviour {
 		if (followPlayer == false)
 			return;
 
-		transform.position = Vector3.MoveTowards(transform.position,
-			                                     new Vector3(player.transform.position.x,
-				                                             player.transform.position.y,
-				                                             transform.position.z) + offset,
-                                                 speed * Time.deltaTime);
-	}
+        transform.position = player.transform.position + offset;
+
+        /*transform.position = Vector3.MoveTowards(transform.position,
+                                                 new Vector3(player.transform.position.x,
+                                                             player.transform.position.y,
+                                                             transform.position.z) + offset,
+                                                 speed * Time.deltaTime);*/
+    }
 
 	public void setCameraOnPlayer()
 	{

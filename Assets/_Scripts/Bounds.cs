@@ -17,7 +17,7 @@ public class Bounds : MonoBehaviour {
 	{
 		if (coll.gameObject.tag == "Player") {
 			//Die
-			player.transform.position = new Vector2 (0f, 0f);
+			player.transform.position = new Vector2 (player.transform.position.x - 5.0f, 0.0f);
 			followplayer.setCameraOnPlayer ();
 		}
 	}
