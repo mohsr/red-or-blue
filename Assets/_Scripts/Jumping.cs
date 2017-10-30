@@ -4,14 +4,12 @@ using UnityEngine;
 
 public class Jumping : MonoBehaviour {
 
-	public float jumpSpeed = 4.5f;
-	public float higherJumpTime = 0.07f;
-	public float higherJumpSpeed = 0.7f;
-	public int maxHigherJumps = 1;
-//	[HideInInspector]
+	public float minJumpVelocity = 4f;
+	public float maxJumpVelocity = 6.5f;
+	//	[HideInInspector]
 	public bool isGrounded = false;
 	public float jumpBuffer = 0.15f;
-	public float fallingGravityScale = 1.1f;
+	public float fallingGravityScale = 1.65f;
 
 	private Rigidbody2D rb2d;
 	private float buffer_counter = 0;
@@ -46,13 +44,17 @@ public class Jumping : MonoBehaviour {
 				isBufferedJump = false;
 		}
 
-		/* Check for jumping */
 		if (((Input.GetButtonDown ("Jump")) || isBufferedJump) && isGrounded) {
 			isGrounded = false;
 			isBufferedJump = false;
-            rb2d.velocity = new Vector2(rb2d.velocity.x, jumpSpeed);
             rb2d.transform.Translate(new Vector2(0, 0.05f));
-			StartCoroutine (WaitForAddForce ());
+            rb2d.velocity = new Vector2(rb2d.velocity.x, maxJumpVelocity);
+		}
+
+		if (Input.GetButtonUp ("Jump")) {
+			if (rb2d.velocity.y > minJumpVelocity) {
+				rb2d.velocity = new Vector2(rb2d.velocity.x, minJumpVelocity);
+			}
 		}
 
 		if (Input.GetButtonDown ("Jump") && !isGrounded) {
@@ -65,19 +67,5 @@ public class Jumping : MonoBehaviour {
 			rb2d.gravityScale = fallingGravityScale;
 		else
 			rb2d.gravityScale = realGravity;
-	}
-
-	private IEnumerator WaitForAddForce()
-	{
-		while (higherJumpCounter < maxHigherJumps) {
-			yield return new WaitForSeconds (higherJumpTime);
-			if (Input.GetButton ("Jump")) {
-				rb2d.velocity += new Vector2 (0, higherJumpSpeed);
-				higherJumpCounter++;
-			} else {
-				break;
-			}
-		}
-		higherJumpCounter = 0;
 	}
 }
