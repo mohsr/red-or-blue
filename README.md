@@ -1,2 +1,2 @@
 # comp50-final
-Final project for game design
+Acknowledgement: We are using u/prime31's 2D character movement script: https://github.com/prime31/CharacterController2D

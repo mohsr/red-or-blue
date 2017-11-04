@@ -24,17 +24,6 @@ public class Jumping : MonoBehaviour {
 		realGravity = rb2d.gravityScale;
 	}
 
-	void OnCollisionStay2D(Collision2D coll) {
-		if (coll.gameObject.tag == "Ground" || coll.gameObject.tag == "Blue" || coll.gameObject.tag == "Red")
-			isGrounded = true;
-	}
-
-	void OnCollisionExit2D(Collision2D coll)
-	{
-		if (coll.gameObject.tag == "Ground" || coll.gameObject.tag == "Blue" || coll.gameObject.tag == "Red")
-			isGrounded = false;
-	}
-
 	private void FixedUpdate()
 	{
 		/* Check for buffered jumping. */
