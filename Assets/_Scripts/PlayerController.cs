@@ -90,6 +90,8 @@ public class PlayerController : MonoBehaviour {
 		else if( Input.GetKey( KeyCode.LeftArrow ) )
 		{
 			normalizedHorizontalSpeed = -1;
+			if (_controller.isCollidingLeft && isCollidingWall && _velocity.y < 0)
+				isWallSliding = true;
 			if( transform.localScale.x > 0f )
 				transform.localScale = new Vector3( -transform.localScale.x, transform.localScale.y, transform.localScale.z );
 
@@ -105,7 +107,7 @@ public class PlayerController : MonoBehaviour {
 		}
 
 		//check if not wallsliding
-		if (isWallSliding && (!_controller.isCollidingRight || _controller.isGrounded))
+		if (isWallSliding && ((!_controller.isCollidingRight && !_controller.isCollidingLeft) || _controller.isGrounded))
 				isWallSliding = false;
 
 		// we can only jump whilst grounded
