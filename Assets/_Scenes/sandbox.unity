@@ -2916,7 +2916,7 @@ MonoBehaviour:
   jumpHeight: 3
   fallingGravModifier: 1.35
   wallJumpVelocity: {x: 10, y: 10}
-  wallsSlideModifier: 2.1
+  wallsSlideModifier: 1.4
   postWallJumpDelayBuffer: 0.5
   preWallJumpBuffer: 0.25
 --- !u!50 &1406930992
