@@ -5,31 +5,42 @@ using Prime31;
 
 public class PlayerController : MonoBehaviour {
 
-	public float speed = 5.0f;
+	public float speed = 7.0f;
 	public float gravity = -25f;
-	public float minJumpVelocity = 4f;
-	public float maxJumpVelocity = 6.5f;
+	public float MinJumpHeight = 0.6f;
+	public float MaxJumpHeight = 2.6f;
 	public float groundDamping = 20f; // how fast do we change direction? higher means faster
 	public float inAirDamping = 5f;
 	public float jumpBuffer = 0.15f;
 	public float jumpHeight = 3f;
-	public float wallsSlideModifier = 1.25f;
+	public float fallingGravModifier = 1.35f;
+
+	public Vector2 wallJumpVelocity = new Vector2(10, 10);
+	public float wallsSlideModifier = 2.1f;
+	public float postWallJumpDelayBuffer = 0.5f;
+	public float preWallJumpBuffer = 0.15f;
+
 
 	[HideInInspector]
-	// public float fallingGravityScale = 1.65f;
-	private float buffer_counter = 0;
+	private float postWallJumpDelayBuffer_counter = 0;
+	private float jump_buffer_counter = 0;
+
+	private float preWallJumpBuffer_counter = 0;
+	private bool isPreWallJumpBuffer = false;
+
+	private bool isPostWallJumpDelayBuffer = false;
+	private int postWallJumpDir = 0;
 	private bool isBufferedJump = false;
+
 	private bool isCollidingWall = false;
 	private bool isWallSliding = false;
+
 	private float normalizedHorizontalSpeed = 0;
 	private CharacterController2D _controller;
 	private Animator _animator;
 	private RaycastHit2D _lastControllerColliderHit;
 	private Vector3 _velocity;
 
-	/// <summary>
-	/// Awake is called when the script instance is being loaded.
-	/// </summary>
 	void Awake()
 	{
 		_controller = GetComponent<CharacterController2D>();
@@ -78,11 +89,25 @@ public class PlayerController : MonoBehaviour {
 		if( Input.GetKey( KeyCode.RightArrow ) )
 		{
 			normalizedHorizontalSpeed = 1;
-			if (_controller.isCollidingRight && isCollidingWall && _velocity.y < 0)
-				isWallSliding = true;
-			if( transform.localScale.x < 0f )
+
+			if (_controller.isCollidingRight && isCollidingWall && !_controller.isGrounded) {
+				checkWallJump (1);
+				if(_velocity.y < 0 && !isPreWallJumpBuffer) 
+					isWallSliding = true;
+			}
+			//flip sprite if necessary
+			if( transform.localScale.x < 0f)
 				transform.localScale = new Vector3( -transform.localScale.x, transform.localScale.y, transform.localScale.z );
 
+			//prevents infinite walljumping on same wall
+			if (isPostWallJumpDelayBuffer  && postWallJumpDir < 0)
+				normalizedHorizontalSpeed = 0.25f;
+
+			//(Doesnt work/not fully implemented) allows small window of time to wall jump in opposite direction of wall.
+			if (isPreWallJumpBuffer) {
+				isWallSliding = true;
+				normalizedHorizontalSpeed = 0;
+			}
 			// if( _controller.isGrounded )
 			// 	_animator.Play( Animator.StringToHash( "Run" ) );
 		}
@@ -90,11 +115,21 @@ public class PlayerController : MonoBehaviour {
 		else if( Input.GetKey( KeyCode.LeftArrow ) )
 		{
 			normalizedHorizontalSpeed = -1;
-			if (_controller.isCollidingLeft && isCollidingWall && _velocity.y < 0)
-				isWallSliding = true;
-			if( transform.localScale.x > 0f )
+
+			if (_controller.isCollidingLeft && isCollidingWall && !_controller.isGrounded) {
+				checkWallJump (-1);
+				if(_velocity.y < 0 && !isPreWallJumpBuffer) 
+					isWallSliding = true;
+			}
+			if( transform.localScale.x > 0f)
 				transform.localScale = new Vector3( -transform.localScale.x, transform.localScale.y, transform.localScale.z );
 
+			if (isPostWallJumpDelayBuffer && postWallJumpDir > 0)
+				normalizedHorizontalSpeed = -.25f;
+
+			if (isPreWallJumpBuffer) {
+				normalizedHorizontalSpeed = 0;
+			}
 			// if( _controller.isGrounded )
 			// 	_animator.Play( Animator.StringToHash( "Run" ) );
 		}
@@ -105,9 +140,12 @@ public class PlayerController : MonoBehaviour {
 			// if( _controller.isGrounded )
 			// 	_animator.Play( Animator.StringToHash( "Idle" ) );
 		}
-
+			
 		//check if not wallsliding
-		if (isWallSliding && ((!_controller.isCollidingRight && !_controller.isCollidingLeft) || _controller.isGrounded))
+		if (isWallSliding && 
+			(((!_controller.isCollidingRight && !_controller.isCollidingLeft)
+				|| Input.GetKeyUp( KeyCode.RightArrow ) || Input.GetKeyUp( KeyCode.LeftArrow ))
+				|| _controller.isGrounded) && !isPreWallJumpBuffer)
 				isWallSliding = false;
 
 		// we can only jump whilst grounded
@@ -116,28 +154,40 @@ public class PlayerController : MonoBehaviour {
 		// 	_velocity.y = Mathf.Sqrt( 2f * jumpHeight * -gravity );
 		// 	// _animator.Play( Animator.StringToHash( "Jump" ) );
 		// }
+		if (isPostWallJumpDelayBuffer) {
+			postWallJumpDelayBuffer_counter += Time.deltaTime;
+			if (postWallJumpDelayBuffer_counter > postWallJumpDelayBuffer) {
+				postWallJumpDelayBuffer_counter = 0;
+				isPostWallJumpDelayBuffer = false;
+			}
+		}
+
+		if (isPreWallJumpBuffer) {
+			preWallJumpBuffer_counter += Time.deltaTime;
+			if (preWallJumpBuffer_counter >= preWallJumpBuffer)
+				isPreWallJumpBuffer = false;
+		}
 
 		if (isBufferedJump) {
-			buffer_counter += Time.deltaTime;
-			if (buffer_counter > jumpBuffer)
+			jump_buffer_counter += Time.deltaTime;
+			if (jump_buffer_counter >= jumpBuffer)
 				isBufferedJump = false;
 		}
 
 		if (((Input.GetButtonDown ("Jump")) || isBufferedJump) && _controller.isGrounded) {
 			isBufferedJump = false;
-            //rb2d.transform.Translate(new Vector2(0, 0.05f));
-            _velocity = new Vector2(_velocity.x, maxJumpVelocity);
+			_velocity = new Vector2(_velocity.x, Mathf.Sqrt( 2f * MaxJumpHeight * -gravity ));
 		}
 
-		if (Input.GetButtonUp ("Jump")) {
-			if (_velocity.y > minJumpVelocity) {
-				_velocity = new Vector2(_velocity.x, minJumpVelocity);
+		if (Input.GetButtonUp ("Jump") && !isPostWallJumpDelayBuffer) {
+			if (_velocity.y > Mathf.Sqrt( 2f * MinJumpHeight * -gravity )) {
+				_velocity = new Vector2(_velocity.x, Mathf.Sqrt( 2f * MinJumpHeight * -gravity ));
 			}
 		}
 
 		if (Input.GetButtonDown ("Jump") && !_controller.isGrounded) {
 			isBufferedJump = true;
-			buffer_counter = 0;
+			jump_buffer_counter = 0;
 		}
 
 
@@ -145,9 +195,12 @@ public class PlayerController : MonoBehaviour {
 		var smoothedMovementFactor = _controller.isGrounded ? groundDamping : inAirDamping; // how fast do we change direction?
 		_velocity.x = Mathf.Lerp( _velocity.x, normalizedHorizontalSpeed * speed, Time.deltaTime * smoothedMovementFactor );
 
+		//modify gravity if falling
+		var grav = (_velocity.y < 0) ? gravity * fallingGravModifier : gravity;
+
 		// apply gravity before moving
 
-		_velocity.y += gravity * Time.deltaTime;
+		_velocity.y += grav * Time.deltaTime;
 
 		if (isWallSliding)
 			_velocity.y /= wallsSlideModifier;
@@ -156,5 +209,22 @@ public class PlayerController : MonoBehaviour {
 
 		// grab our current _velocity to use as a base for all calculations
 		_velocity = _controller.velocity;
+	}
+
+	void checkWallJump(int sign)
+	{
+		//attempts at making a preWallJumpBuffer
+//		if (!isPreWallJumpBuffer && ((Input.GetKeyDown (KeyCode.LeftArrow) && sign < 0) || (Input.GetKeyDown (KeyCode.RightArrow) && sign > 0))) {
+//			isPreWallJumpBuffer = true;
+//			preWallJumpBuffer_counter = 0;
+//		}
+
+		if (Input.GetButtonDown ("Jump")) {
+			_velocity.x = -sign * wallJumpVelocity.x;
+			_velocity.y = wallJumpVelocity.y;
+			isWallSliding = false;
+			isPostWallJumpDelayBuffer = true;
+			postWallJumpDir = -sign;
+		}
 	}
 }
