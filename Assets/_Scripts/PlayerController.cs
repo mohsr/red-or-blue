@@ -38,12 +38,15 @@ public class PlayerController : MonoBehaviour {
 	private float normalizedHorizontalSpeed = 0;
 	private CharacterController2D _controller;
 	private Animator _animator;
+	private Rigidbody2D _rigidbody2d;
 	private RaycastHit2D _lastControllerColliderHit;
 	private Vector3 _velocity;
 
 	void Awake()
 	{
 		_controller = GetComponent<CharacterController2D>();
+		_animator = GetComponent<Animator> ();
+		_rigidbody2d = GetComponent<Rigidbody2D> ();
 
 		// Subscribe to event listners
 		_controller.onControllerCollidedEvent += onControllerCollider;
@@ -88,6 +91,8 @@ public class PlayerController : MonoBehaviour {
 
 		if( Input.GetKey( KeyCode.RightArrow ) )
 		{
+			_animator.SetBool ("Idle", false);
+			_animator.SetBool ("Walking", true);
 			normalizedHorizontalSpeed = 1;
 
 			if (_controller.isCollidingRight && isCollidingWall && !_controller.isGrounded) {
@@ -114,6 +119,8 @@ public class PlayerController : MonoBehaviour {
 		
 		else if( Input.GetKey( KeyCode.LeftArrow ) )
 		{
+			_animator.SetBool ("Idle", false);
+			_animator.SetBool ("Walking", true);
 			normalizedHorizontalSpeed = -1;
 
 			if (_controller.isCollidingLeft && isCollidingWall && !_controller.isGrounded) {
@@ -135,6 +142,9 @@ public class PlayerController : MonoBehaviour {
 		}
 		else
 		{
+			_animator.SetBool ("Walking", false);
+			if (!_animator.GetBool ("Idle"))
+				_animator.SetBool ("Idle", true);
 			normalizedHorizontalSpeed = 0;
 
 			// if( _controller.isGrounded )
