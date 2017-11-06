@@ -143,12 +143,20 @@ public class PlayerController : MonoBehaviour {
 		else
 		{
 			_animator.SetBool ("Walking", false);
-			if (!_animator.GetBool ("Idle"))
+			if (!_animator.GetBool("Idle"))
 				_animator.SetBool ("Idle", true);
 			normalizedHorizontalSpeed = 0;
 
 			// if( _controller.isGrounded )
 			// 	_animator.Play( Animator.StringToHash( "Idle" ) );
+		}
+
+		if (_velocity.y != 0) {
+			_animator.SetBool ("Jumping", true);
+			_animator.SetBool ("Walking", false);
+			_animator.SetBool ("Idle", false);
+		} else {
+			_animator.SetBool ("Jumping", false);
 		}
 			
 		//check if not wallsliding
