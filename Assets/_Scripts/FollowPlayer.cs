@@ -4,8 +4,9 @@ using UnityEngine;
 
 public class FollowPlayer : MonoBehaviour {
 
-	public float speed = 2.0f;
-	public float maxDistanceFromPlayer = 0.5f;
+	public float speed = 4.5f;
+	public Vector2 maxDistanceFromPlayer = new Vector2(0.5f, 2.0f);
+//	public float maxXDistanceFromPlayer = 0.5f;
 	public Vector3 offset = new Vector3(0, 0, 0);
 
 	public bool freezeX = false;
@@ -28,13 +29,7 @@ public class FollowPlayer : MonoBehaviour {
 		if (player == null)
 			Start ();
 
-		float tempSpeed = speed;
-		if (Mathf.Abs (transform.position.x - player.transform.position.x) > maxDistanceFromPlayer)
-			tempSpeed = player.GetComponent<PlayerController> ().speed;
-
-		transform.position = new Vector3 (Vector2.MoveTowards(transform.position,
-			player.transform.position, tempSpeed * Time.deltaTime).x, player.transform.position.y, start.z);
-		transform.position += offset;
+		boxXCoord ();
 
 		/* Freeze positions. */
 		Vector3 frozen = new Vector3(transform.position.x,
@@ -54,7 +49,16 @@ public class FollowPlayer : MonoBehaviour {
 		transform.position = new Vector3(player.transform.position.x,
 										 player.transform.position.y,
 			                             transform.position.z);
-//		transform.position += offset;
+	}
 
+	private void boxXCoord()
+	{
+		float tempSpeed = speed;
+		if (Mathf.Abs (transform.position.x - player.transform.position.x) > maxDistanceFromPlayer.x)
+			tempSpeed = player.GetComponent<PlayerController> ().speed;
+
+		transform.position = new Vector3 (Vector2.MoveTowards(transform.position,
+			player.transform.position, tempSpeed * Time.deltaTime).x, player.transform.position.y, start.z);
+		transform.position += offset;
 	}
 }
