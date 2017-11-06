@@ -5,8 +5,8 @@ using UnityEngine;
 public class FollowPlayer : MonoBehaviour {
 
 	public float speed = 4.5f;
-	public Vector2 maxDistanceFromPlayer = new Vector2(0.5f, 2.0f);
-//	public float maxXDistanceFromPlayer = 0.5f;
+	public Vector2 maxDistanceFromPlayer = new Vector2(1.0f, 2.0f);
+	public float speedIncreaseUnit = 1.5f;
 	public Vector3 offset = new Vector3(0, 0, 0);
 
 	public bool freezeX = false;
@@ -15,21 +15,26 @@ public class FollowPlayer : MonoBehaviour {
 
 	private GameObject player;
 	private Vector3 start;
+	private float respawnTime;
 
 	void Start()
 	{
 		player = GameObject.FindGameObjectWithTag ("Player");
-        offset = transform.position - player.transform.position;
 		start = transform.position;
-
+		if (player != null)
+			respawnTime = player.GetComponent<PlayerDie> ().respawnTime;
 	}
 
 	void Update()
 	{
-		if (player == null)
+		if (player == null) {
 			Start ();
+			return;
+		}
 
-		boxXCoord ();
+		/* Get distance between camera and player and calculate speed multiplier. */
+		float dist = Vector2.Distance (transform.position, player.transform.position);
+		boxXCoord (dist);
 
 		/* Freeze positions. */
 		Vector3 frozen = new Vector3(transform.position.x,
@@ -51,14 +56,29 @@ public class FollowPlayer : MonoBehaviour {
 			                             transform.position.z);
 	}
 
-	private void boxXCoord()
+	private void centerFromFar()
+	{
+		float tempSpeed = player.GetComponent<PlayerController> ().speed * 3;
+
+		Vector2 moving = Vector2.MoveTowards (transform.position,
+			                                  player.transform.position,
+			                                  tempSpeed * Time.deltaTime);
+
+		transform.position = new Vector3 (moving.x, moving.y, start.z);
+	}
+
+	private void boxXCoord(float dist)
 	{
 		float tempSpeed = speed;
-		if (Mathf.Abs (transform.position.x - player.transform.position.x) > maxDistanceFromPlayer.x)
+		if (Mathf.Abs (transform.position.x - player.transform.position.x) > maxDistanceFromPlayer.x) {
 			tempSpeed = player.GetComponent<PlayerController> ().speed;
+			tempSpeed *= (dist / speedIncreaseUnit);
+		}
 
-		transform.position = new Vector3 (Vector2.MoveTowards(transform.position,
-			player.transform.position, tempSpeed * Time.deltaTime).x, player.transform.position.y, start.z);
-		transform.position += offset;
+		Vector2 moving = Vector2.MoveTowards (transform.position,
+			                                  player.transform.position + offset,
+			                                  tempSpeed * Time.deltaTime);
+
+		transform.position = new Vector3 (moving.x, moving.y, start.z);
 	}
 }
