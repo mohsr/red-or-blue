@@ -97,7 +97,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   speed: 4.5
-  offset: {x: 15, y: 15, z: 0}
+  maxDistanceFromPlayer: 0.75
   freezeX: 0
   freezeY: 0
   freezeZ: 1

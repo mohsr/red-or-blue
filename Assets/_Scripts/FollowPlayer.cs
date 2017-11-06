@@ -5,6 +5,7 @@ using UnityEngine;
 public class FollowPlayer : MonoBehaviour {
 
 	public float speed = 2.0f;
+	public float maxDistanceFromPlayer = 0.5f;
 	public Vector3 offset = new Vector3(0, 0, 0);
 
 	public bool freezeX = false;
@@ -27,14 +28,13 @@ public class FollowPlayer : MonoBehaviour {
 		if (player == null)
 			Start ();
 
-//        transform.position = player.transform.position + offset;
-		setCameraOnPlayer();
+		float tempSpeed = speed;
+		if (Mathf.Abs (transform.position.x - player.transform.position.x) > maxDistanceFromPlayer)
+			tempSpeed = player.GetComponent<PlayerController> ().speed;
 
-        /*transform.position = Vector3.MoveTowards(transform.position,
-                                                 new Vector3(player.transform.position.x,
-                                                             player.transform.position.y,
-                                                             transform.position.z) + offset,
-                                                 speed * Time.deltaTime);*/
+		transform.position = new Vector3 (Vector2.MoveTowards(transform.position,
+			player.transform.position, tempSpeed * Time.deltaTime).x, player.transform.position.y, start.z);
+		transform.position += offset;
 
 		/* Freeze positions. */
 		Vector3 frozen = new Vector3(transform.position.x,
@@ -54,7 +54,7 @@ public class FollowPlayer : MonoBehaviour {
 		transform.position = new Vector3(player.transform.position.x,
 										 player.transform.position.y,
 			                             transform.position.z);
-		transform.position += offset;
+//		transform.position += offset;
 
 	}
 }
