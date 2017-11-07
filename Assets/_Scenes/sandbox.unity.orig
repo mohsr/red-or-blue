@@ -3682,6 +3682,10 @@ Prefab:
       propertyPath: m_Layer
       value: 8
       objectReference: {fileID: 0}
+    - target: {fileID: 1028774248327230, guid: 8540edc24a9d64e4da607c3c0a251525, type: 2}
+      propertyPath: m_TagString
+      value: RedHor
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 8540edc24a9d64e4da607c3c0a251525, type: 2}
   m_IsPrefabParent: 0
@@ -3770,9 +3774,9 @@ Prefab:
       propertyPath: m_Layer
       value: 8
       objectReference: {fileID: 0}
-    - target: {fileID: 1028774248327230, guid: 8540edc24a9d64e4da607c3c0a251525, type: 2}
+    - target: {fileID: 1864189891073554, guid: ea467213056174b97ad00dd21e241ea6, type: 2}
       propertyPath: m_TagString
-      value: RedHor
+      value: BlueHor
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: ea467213056174b97ad00dd21e241ea6, type: 2}
@@ -3815,40 +3819,8 @@ CircleCollider2D:
   m_UsedByComposite: 0
   m_Offset: {x: -0.009821491, y: -0.115716815}
   serializedVersion: 2
-<<<<<<< HEAD
   m_Radius: 0.5015091
 --- !u!50 &1452968892
-=======
-  m_Size: {x: 0.5411408, y: 0.9699812}
-  m_EdgeRadius: 0
---- !u!114 &1406930991
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 114952735218430460, guid: 53f262ff48f3f4a5298b54610c4a3d67,
-    type: 2}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 1406930989}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 4afde218e0e464cc0bc6a5c06c58de28, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  speed: 7
-  gravity: -25
-  MinJumpHeight: 0.6
-  MaxJumpHeight: 2.6
-  groundDamping: 20
-  inAirDamping: 5
-  jumpBuffer: 0.15
-  jumpHeight: 3
-  fallingGravModifier: 1.35
-  wallJumpVelocity: {x: 10, y: 10}
-  wallsSlideModifier: 1.4
-  postWallJumpDelayBuffer: 0.5
-  preWallJumpBuffer: 0.25
-  allowSwitch: 1
---- !u!50 &1406930992
->>>>>>> made it so that you can only switch once after jumping. ALso added vertical red or blue prefabs that can be wall jumped on
 Rigidbody2D:
   serializedVersion: 4
   m_ObjectHideFlags: 0
@@ -3942,114 +3914,6 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 12
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-<<<<<<< HEAD
-=======
---- !u!114 &1406930995
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 1406930989}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 188ceb2bcb6d74cbd9dc26743c40e9ae, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  ignoreOneWayPlatformsThisFrame: 0
-  _skinWidth: 0.02
-  platformMask:
-    serializedVersion: 2
-    m_Bits: 256
-  triggerMask:
-    serializedVersion: 2
-    m_Bits: 0
-  oneWayPlatformMask:
-    serializedVersion: 2
-    m_Bits: 0
-  slopeLimit: 30
-  jumpingThreshold: 0.07
-  slopeSpeedMultiplier:
-    serializedVersion: 2
-    m_Curve:
-    - serializedVersion: 2
-      time: -90
-      value: 1.5
-      inSlope: 0
-      outSlope: 0
-      tangentMode: 0
-    - serializedVersion: 2
-      time: 0
-      value: 1
-      inSlope: 0
-      outSlope: 0
-      tangentMode: 0
-    - serializedVersion: 2
-      time: 90
-      value: 0
-      inSlope: 0
-      outSlope: 0
-      tangentMode: 0
-    m_PreInfinity: 2
-    m_PostInfinity: 2
-    m_RotationOrder: 4
-  totalHorizontalRays: 8
-  totalVerticalRays: 4
---- !u!1001 &1414317029
-Prefab:
-  m_ObjectHideFlags: 0
-  serializedVersion: 2
-  m_Modification:
-    m_TransformParent: {fileID: 698165896}
-    m_Modifications:
-    - target: {fileID: 4958165560323330, guid: ea467213056174b97ad00dd21e241ea6, type: 2}
-      propertyPath: m_LocalPosition.x
-      value: 13.81
-      objectReference: {fileID: 0}
-    - target: {fileID: 4958165560323330, guid: ea467213056174b97ad00dd21e241ea6, type: 2}
-      propertyPath: m_LocalPosition.y
-      value: 3
-      objectReference: {fileID: 0}
-    - target: {fileID: 4958165560323330, guid: ea467213056174b97ad00dd21e241ea6, type: 2}
-      propertyPath: m_LocalPosition.z
-      value: 20
-      objectReference: {fileID: 0}
-    - target: {fileID: 4958165560323330, guid: ea467213056174b97ad00dd21e241ea6, type: 2}
-      propertyPath: m_LocalRotation.x
-      value: -0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4958165560323330, guid: ea467213056174b97ad00dd21e241ea6, type: 2}
-      propertyPath: m_LocalRotation.y
-      value: -0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4958165560323330, guid: ea467213056174b97ad00dd21e241ea6, type: 2}
-      propertyPath: m_LocalRotation.z
-      value: -0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4958165560323330, guid: ea467213056174b97ad00dd21e241ea6, type: 2}
-      propertyPath: m_LocalRotation.w
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 4958165560323330, guid: ea467213056174b97ad00dd21e241ea6, type: 2}
-      propertyPath: m_RootOrder
-      value: 57
-      objectReference: {fileID: 0}
-    - target: {fileID: 1864189891073554, guid: ea467213056174b97ad00dd21e241ea6, type: 2}
-      propertyPath: m_Layer
-      value: 8
-      objectReference: {fileID: 0}
-    - target: {fileID: 1864189891073554, guid: ea467213056174b97ad00dd21e241ea6, type: 2}
-      propertyPath: m_TagString
-      value: BlueHor
-      objectReference: {fileID: 0}
-    m_RemovedComponents: []
-  m_ParentPrefab: {fileID: 100100000, guid: ea467213056174b97ad00dd21e241ea6, type: 2}
-  m_IsPrefabParent: 0
---- !u!4 &1443741196 stripped
-Transform:
-  m_PrefabParentObject: {fileID: 4777742353753280, guid: 8540edc24a9d64e4da607c3c0a251525,
-    type: 2}
-  m_PrefabInternal: {fileID: 1776179646}
->>>>>>> made it so that you can only switch once after jumping. ALso added vertical red or blue prefabs that can be wall jumped on
 --- !u!1001 &1474757335
 Prefab:
   m_ObjectHideFlags: 0
