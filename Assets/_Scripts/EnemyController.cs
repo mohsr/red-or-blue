@@ -32,6 +32,8 @@ public class EnemyController : MonoBehaviour {
         myTrans = transform;
         myBody = GetComponent<Rigidbody2D>();
         myWidth = GetComponent<SpriteRenderer>().bounds.extents.x;
+        int enemyLayer = LayerMask.NameToLayer("Enemy");
+        Physics2D.IgnoreLayerCollision(enemyLayer, enemyLayer);
     }
 
     private void FixedUpdate()

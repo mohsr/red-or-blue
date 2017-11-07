@@ -76,7 +76,7 @@ public class FollowPlayer : MonoBehaviour {
 		}
 
 		Vector2 moving = Vector2.MoveTowards (transform.position,
-			                                  player.transform.position + offset,
+			                                  player.transform.position,
 			                                  tempSpeed * Time.deltaTime);
 
 		transform.position = new Vector3 (moving.x, moving.y, start.z);
