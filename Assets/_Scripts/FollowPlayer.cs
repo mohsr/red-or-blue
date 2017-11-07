@@ -6,7 +6,7 @@ public class FollowPlayer : MonoBehaviour {
 
 	public float speed = 4.5f;
 	public Vector2 maxDistanceFromPlayer = new Vector2(1.0f, 2.0f);
-	public float speedIncreaseUnit = 1.5f;
+	public float speedIncreaseUnit = 2f;
 	public Vector3 offset = new Vector3(0, 0, 0);
 
 	public bool freezeX = false;
@@ -76,7 +76,7 @@ public class FollowPlayer : MonoBehaviour {
 		}
 
 		Vector2 moving = Vector2.MoveTowards (transform.position,
-			                                  player.transform.position,
+			                                  player.transform.position + offset,
 			                                  tempSpeed * Time.deltaTime);
 
 		transform.position = new Vector3 (moving.x, moving.y, start.z);
