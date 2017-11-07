@@ -75,19 +75,12 @@ public class PlayerController : MonoBehaviour {
 		else
 			isCollidingWall = false;
 
-        GameObject gameObject = hit.collider.gameObject;
-        if (gameObject.tag == "Enemy")
-        {
-            //gameObject.GetComponent<EnemyController>().stomped = true;
-        }
-
         // logs any collider hits if uncommented. it gets noisy so it is commented out for the demo
         //Debug.Log( "flags: " + _controller.collisionState + ", hit.normal: " + hit.normal );
     }
 
     IEnumerator Hurt()
     {
-
         Debug.Log("hurt");
         health--;
         if (health <= 0)
@@ -110,6 +103,7 @@ public class PlayerController : MonoBehaviour {
     private void OnCollisionEnter2D(Collision2D collision)
     {
         EnemyController enemy = collision.collider.GetComponent<EnemyController>();
+        bool alreadyHurt = false;
 
         if (enemy != null)
         {
@@ -122,7 +116,11 @@ public class PlayerController : MonoBehaviour {
                     enemy.stomped = true;
                 }
                 else {
-                    StartCoroutine(Hurt());
+                    if (!alreadyHurt)
+                    {
+                        StartCoroutine(Hurt());
+                        alreadyHurt = true;
+                    }
                 }
             }
         }

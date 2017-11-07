@@ -19,7 +19,10 @@ public class EnemyController : MonoBehaviour {
     Rigidbody2D myBody;
     Transform myTrans;
     float myWidth;
-    float horizontalRayLength = 0.02f;
+    float horiRayLen = 0.05f;
+    float directionChangeBuffer = 0.5f;
+    bool isChangingDirection = false;
+    float directionBufferCounter = 0;
 
     private void Start()
     {
@@ -61,15 +64,25 @@ public class EnemyController : MonoBehaviour {
             Vector2 lineCastPos = myTrans.position - myTrans.right * myWidth / 2;
             bool isGrounded = Physics2D.Linecast(lineCastPos, lineCastPos + Vector2.down, enemyMask);
             Debug.DrawLine(lineCastPos, lineCastPos + Vector2.down);
-            bool isBlocked = Physics2D.Linecast(myTrans.position, lineCastPos, enemyMask);
-            Debug.DrawLine(myTrans.position, lineCastPos);
+            // check if there are obstacles ahead
+            bool isBlocked = Physics2D.Linecast(lineCastPos, lineCastPos - myTrans.right.toVector2() * horiRayLen, enemyMask);
+            Debug.DrawLine(lineCastPos, lineCastPos - myTrans.right.toVector2() * horiRayLen);
 
-            // if there's no ground, turn around
-            if (!isGrounded || isBlocked)
+            if (isChangingDirection)
+            {
+                directionBufferCounter += Time.deltaTime;
+                if (directionBufferCounter >= directionChangeBuffer)
+                    isChangingDirection = false;
+            }
+
+            // if there's no ground or hit obstacle, turn around
+            if ((!isGrounded || isBlocked) && !isChangingDirection)
             {
                 Vector3 currRotation = myTrans.eulerAngles;
                 currRotation.y += 180;
                 myTrans.eulerAngles = currRotation;
+                isChangingDirection = true;
+                directionBufferCounter = 0;
             }
 
             // always move forward
