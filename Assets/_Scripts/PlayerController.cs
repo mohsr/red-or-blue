@@ -112,7 +112,10 @@ public class PlayerController : MonoBehaviour {
                 Debug.DrawLine(point.point, point.point + point.normal, Color.red, 10);
                 if (point.normal.y >= 0.9f)
                 {
-                    _velocity = new Vector2(_velocity.x, Mathf.Sqrt(2f * MaxJumpHeight * -gravity));
+					var jumpHeight = MinJumpHeight;
+					if (isBufferedJump || Input.GetButton ("Jump"))
+						jumpHeight = MaxJumpHeight;
+					_velocity = new Vector2(_velocity.x, Mathf.Sqrt(2f * jumpHeight * -gravity));
                     enemy.stomped = true;
                 }
                 else {
