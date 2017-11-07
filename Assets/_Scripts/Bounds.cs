@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class Bounds : MonoBehaviour {
 
@@ -16,9 +17,12 @@ public class Bounds : MonoBehaviour {
 	void OnCollisionStay2D(Collision2D coll)
 	{
 		if (coll.gameObject.tag == "Player") {
-			//Die
-			player.transform.position = new Vector2 (player.transform.position.x - 5.0f, 0.0f);
+            //Die
+            player.transform.position = new Vector2 (player.transform.position.x - 5.0f, 1.0f);
 			followplayer.setCameraOnPlayer ();
-		}
+		} else
+        {
+            Destroy(coll.gameObject);
+        }
 	}
 }

@@ -1,10 +1,10 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 using Prime31;
 
 public class PlayerController : MonoBehaviour {
-
 	public float speed = 7.0f;
 	public float gravity = -25f;
 	public float MinJumpHeight = 0.6f;
@@ -42,7 +42,14 @@ public class PlayerController : MonoBehaviour {
 	private RaycastHit2D _lastControllerColliderHit;
 	private Vector3 _velocity;
 
-	void Awake()
+    
+    // combat
+    public int health = 3;
+    public float invincibleTimeAfterHurt = 2;
+    [HideInInspector]
+    Collider2D[] myColliders;
+    
+    void Awake()
 	{
 		_controller = GetComponent<CharacterController2D>();
 		_animator = GetComponent<Animator> ();
@@ -52,26 +59,76 @@ public class PlayerController : MonoBehaviour {
 		_controller.onControllerCollidedEvent += onControllerCollider;
 		_controller.onTriggerEnterEvent += onTriggerEnterEvent;
 		_controller.onTriggerExitEvent += onTriggerExitEvent;
-	}
+        
+        myColliders = GetComponents<Collider2D>();
+    }
 
 	#region Event Listeners
 
 	void onControllerCollider( RaycastHit2D hit )
 	{
-		// bail out on plain old ground hits cause they arent very interesting
-		if( hit.normal.y == 1f )
+        // bail out on plain old ground hits cause they arent very interesting
+        if ( hit.normal.y == 1f )
 			return;
 		if (hit.collider.tag == "Ground")
 			isCollidingWall = true;
 		else
 			isCollidingWall = false;
 
-		// logs any collider hits if uncommented. it gets noisy so it is commented out for the demo
-		//Debug.Log( "flags: " + _controller.collisionState + ", hit.normal: " + hit.normal );
-	}
+        GameObject gameObject = hit.collider.gameObject;
+        if (gameObject.tag == "Enemy")
+        {
+            //gameObject.GetComponent<EnemyController>().stomped = true;
+        }
 
+        // logs any collider hits if uncommented. it gets noisy so it is commented out for the demo
+        //Debug.Log( "flags: " + _controller.collisionState + ", hit.normal: " + hit.normal );
+    }
 
-	void onTriggerEnterEvent( Collider2D col )
+    IEnumerator Hurt()
+    {
+
+        Debug.Log("hurt");
+        health--;
+        if (health <= 0)
+            SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
+        else
+        {
+            int enemyLayer = LayerMask.NameToLayer("Enemy");
+            int playerLayer = LayerMask.NameToLayer("Player");
+            Physics2D.IgnoreLayerCollision(enemyLayer, playerLayer);
+            foreach (Collider2D collider in myColliders)
+            {
+                collider.enabled = false;
+                collider.enabled = true;
+            }
+            yield return new WaitForSeconds(invincibleTimeAfterHurt);
+            Physics2D.IgnoreLayerCollision(enemyLayer, playerLayer, false);
+        }
+    }
+
+    private void OnCollisionEnter2D(Collision2D collision)
+    {
+        EnemyController enemy = collision.collider.GetComponent<EnemyController>();
+
+        if (enemy != null)
+        {
+            foreach (ContactPoint2D point in collision.contacts)
+            {
+                Debug.DrawLine(point.point, point.point + point.normal, Color.red, 10);
+                if (point.normal.y >= 0.9f)
+                {
+                    _velocity = new Vector2(_velocity.x, Mathf.Sqrt(2f * MaxJumpHeight * -gravity));
+                    enemy.stomped = true;
+                }
+                else {
+                    StartCoroutine(Hurt());
+                }
+            }
+        }
+    }
+
+    void onTriggerEnterEvent( Collider2D col )
 	{
 		Debug.Log( "onTriggerEnterEvent: " + col.gameObject.name );
 	}
@@ -223,11 +280,11 @@ public class PlayerController : MonoBehaviour {
 		if (isWallSliding)
 			_velocity.y /= wallsSlideModifier;
 
-		_controller.move( _velocity * Time.deltaTime );
+        _controller.move(_velocity * Time.deltaTime);
 
-		// grab our current _velocity to use as a base for all calculations
-		_velocity = _controller.velocity;
-	}
+        // grab our current _velocity to use as a base for all calculations
+        _velocity = _controller.velocity;
+    }
 
 	void checkWallJump(int sign)
 	{
