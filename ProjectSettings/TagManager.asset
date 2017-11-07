@@ -4,9 +4,12 @@
 TagManager:
   serializedVersion: 2
   tags:
-  - Red
-  - Blue
   - Ground
+  - RedHor
+  - RedVert
+  - BlueHor
+  - BlueVert
+  - Red
   - Enemy
   - RespawnCoordinator
   layers:
@@ -18,7 +21,7 @@ TagManager:
   - UI
   - 
   - 
-  - Ground
+  - Platform
   - Player
   - Enemy
   - Bound

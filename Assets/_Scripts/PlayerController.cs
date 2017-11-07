@@ -19,6 +19,7 @@ public class PlayerController : MonoBehaviour {
 	public float wallsSlideModifier = 2.1f;
 	public float postWallJumpDelayBuffer = 0.5f;
 	public float preWallJumpBuffer = 0.15f;
+	public bool allowSwitch = true;
 
 
 	[HideInInspector]
@@ -70,7 +71,7 @@ public class PlayerController : MonoBehaviour {
         // bail out on plain old ground hits cause they arent very interesting
         if ( hit.normal.y == 1f )
 			return;
-		if (hit.collider.tag == "Ground")
+		if (hit.collider.tag == "Ground" || hit.collider.tag == "RedVert" || hit.collider.tag == "BlueVert")
 			isCollidingWall = true;
 		else
 			isCollidingWall = false;
@@ -144,8 +145,10 @@ public class PlayerController : MonoBehaviour {
 
 	void Update()
 	{
-		if( _controller.isGrounded )
+		if( _controller.isGrounded ) {
 			_velocity.y = 0;
+			allowSwitch = true;
+		}
 
 		if( Input.GetKey( KeyCode.RightArrow ) )
 		{
@@ -251,6 +254,7 @@ public class PlayerController : MonoBehaviour {
 		}
 
 		if (((Input.GetButtonDown ("Jump")) || isBufferedJump) && _controller.isGrounded) {
+			allowSwitch = true;
 			isBufferedJump = false;
 			_velocity = new Vector2(_velocity.x, Mathf.Sqrt( 2f * MaxJumpHeight * -gravity ));
 		}
@@ -296,6 +300,7 @@ public class PlayerController : MonoBehaviour {
 //		}
 
 		if (Input.GetButtonDown ("Jump")) {
+			allowSwitch = true;
 			_velocity.x = -sign * wallJumpVelocity.x;
 			_velocity.y = wallJumpVelocity.y;
 			isWallSliding = false;

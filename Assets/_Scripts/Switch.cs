@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using Prime31;
 
 public class Switch : MonoBehaviour {
 
@@ -17,6 +18,7 @@ public class Switch : MonoBehaviour {
 	private const string B = "Blue";
 	private Color32 nextColor;
 	private Camera mainCamera;
+	private PlayerController _playerController;
 
 	void Start()
 	{
@@ -24,12 +26,15 @@ public class Switch : MonoBehaviour {
 		SwitchColorsHelper (R, B);
 		mainCamera.backgroundColor = blueBackground;
 		nextColor = blueBackground;
+		_playerController = GameObject.Find("Player").GetComponent<PlayerController>();
 	}
 
 	public void Update()
 	{
-		if (Input.GetKeyDown(switcher))
+		if (Input.GetKeyDown(switcher) && _playerController.allowSwitch) {
+			_playerController.allowSwitch = false;
 			SwitchColors ();
+		}
 		/* Lerping background color. */
 		mainCamera.backgroundColor = Color.Lerp (mainCamera.backgroundColor,
 			                                     nextColor,
@@ -49,9 +54,13 @@ public class Switch : MonoBehaviour {
 
 	private void SwitchColorsHelper(string new_on, string new_off)
 	{
-		foreach (GameObject i in GameObject.FindGameObjectsWithTag(new_on))
+		foreach (GameObject i in GameObject.FindGameObjectsWithTag(new_on + "Hor"))
 			ChangeState (i, true);
-		foreach (GameObject i in GameObject.FindGameObjectsWithTag(new_off))
+		foreach (GameObject i in GameObject.FindGameObjectsWithTag(new_on + "Vert"))
+			ChangeState (i, true);
+		foreach (GameObject i in GameObject.FindGameObjectsWithTag(new_off + "Hor"))
+			ChangeState (i, false);
+		foreach (GameObject i in GameObject.FindGameObjectsWithTag(new_off + "Vert"))
 			ChangeState (i, false);
 		red = !red;
 		blue = !blue;
