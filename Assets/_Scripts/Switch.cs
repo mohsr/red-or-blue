@@ -26,11 +26,15 @@ public class Switch : MonoBehaviour {
 		SwitchColorsHelper (R, B);
 		mainCamera.backgroundColor = blueBackground;
 		nextColor = blueBackground;
-		_playerController = GameObject.Find("Player").GetComponent<PlayerController>();
+		_playerController = GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerController>();
 	}
 
 	public void Update()
 	{
+		if (_playerController == null) {
+			_playerController = GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerController>();
+			return;
+		}
 		if (Input.GetKeyDown(switcher) && _playerController.allowSwitch) {
 			_playerController.allowSwitch = false;
 			SwitchColors ();
