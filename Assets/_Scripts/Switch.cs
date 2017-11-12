@@ -31,8 +31,13 @@ public class Switch : MonoBehaviour {
 
 	public void Update()
 	{
+		GameObject pl = GameObject.FindGameObjectWithTag ("Player");
+
+		if (pl == null)
+			return;
+		
 		if (_playerController == null) {
-			_playerController = GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerController>();
+			_playerController = pl.GetComponent<PlayerController>();
 			return;
 		}
 		if (Input.GetKeyDown(switcher) && _playerController.allowSwitch) {
