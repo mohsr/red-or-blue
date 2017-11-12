@@ -85,7 +85,7 @@ public class PlayerController : MonoBehaviour {
         Debug.Log("hurt");
         health--;
         if (health <= 0)
-            SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
+            GetComponent<PlayerDie>().Die();
         else
         {
             int enemyLayer = LayerMask.NameToLayer("Enemy");
