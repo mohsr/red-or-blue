@@ -49,6 +49,7 @@ public class PlayerController : MonoBehaviour {
     public float invincibleTimeAfterHurt = 2;
     [HideInInspector]
     Collider2D[] myColliders;
+    bool alreadyHurt = false;
     
     void Awake()
 	{
@@ -85,33 +86,40 @@ public class PlayerController : MonoBehaviour {
         Debug.Log("hurt");
         health--;
         if (health <= 0)
-            SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
+            GetComponent<PlayerDie>().Die();
         else
         {
             int enemyLayer = LayerMask.NameToLayer("Enemy");
             int playerLayer = LayerMask.NameToLayer("Player");
-            Physics2D.IgnoreLayerCollision(enemyLayer, playerLayer);
-            foreach (Collider2D collider in myColliders)
-            {
-                collider.enabled = false;
-                collider.enabled = true;
-            }
+            alreadyHurt = true;
             yield return new WaitForSeconds(invincibleTimeAfterHurt);
-            Physics2D.IgnoreLayerCollision(enemyLayer, playerLayer, false);
+            alreadyHurt = false;
         }
+    }
+
+    IEnumerator Knockback(float knockDur)
+    {
+        float timer = 0;
+
+        while (knockDur > timer)
+        {
+            timer += Time.deltaTime;
+            _velocity = new Vector2(_velocity.x * -10, (_velocity.y + 10) * 10);
+        }
+
+        yield return 0;
     }
 
     private void OnCollisionEnter2D(Collision2D collision)
     {
         EnemyController enemy = collision.collider.GetComponent<EnemyController>();
-        bool alreadyHurt = false;
 
         if (enemy != null)
         {
             foreach (ContactPoint2D point in collision.contacts)
             {
                 Debug.DrawLine(point.point, point.point + point.normal, Color.red, 10);
-                if (point.normal.y >= 0.9f)
+                if (point.normal.y >= 0.6f)
                 {
 					var jumpHeight = MinJumpHeight;
 					if (isBufferedJump || Input.GetButton ("Jump"))
@@ -124,6 +132,7 @@ public class PlayerController : MonoBehaviour {
                     {
                         StartCoroutine(Hurt());
                         alreadyHurt = true;
+                        StartCoroutine(Knockback(0.02f));
                     }
                 }
             }
