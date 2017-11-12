@@ -102,7 +102,7 @@ MonoBehaviour:
   lookAheadDstX: 3
   lookSmoothTimeX: 2
   verticalSmoothTime: 0
-  focusAreaSize: {x: 2, y: 3}
+  focusAreaSize: {x: 2, y: 3.5}
 --- !u!114 &114445537463679024
 MonoBehaviour:
   m_ObjectHideFlags: 1
