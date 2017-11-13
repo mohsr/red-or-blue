@@ -12,6 +12,8 @@ TagManager:
   - Red
   - Enemy
   - RespawnCoordinator
+  - RedEnemy
+  - BlueEnemy
   layers:
   - Default
   - TransparentFX

@@ -14,6 +14,7 @@ public class EnemyMoveOnSight : MonoBehaviour {
 
 	private bool falling;
 	private Rigidbody2D rb2d;
+	private Animator anim;
 
 	private void Start()
 	{
@@ -21,6 +22,7 @@ public class EnemyMoveOnSight : MonoBehaviour {
 		falling = false;
 		Physics2D.IgnoreLayerCollision (LayerMask.NameToLayer("Enemy"), LayerMask.NameToLayer("Enemy"));
 		rb2d = GetComponent<Rigidbody2D> ();
+		anim = GetComponent<Animator> ();
 	}
 
 	private void FixedUpdate()
@@ -79,12 +81,23 @@ public class EnemyMoveOnSight : MonoBehaviour {
 				transform.position.y + visionOffset.y));
 				
 			/* If player found, move. */
-			if (point.collider == null)
+			if (point.collider == null) {
+				if (!anim.GetBool ("Idle")) {
+					anim.SetBool ("Idle", true);
+					anim.SetBool ("Walking", false);
+				}
 				continue;
+			}
 			if (point.collider.tag == "Player") {
 				transform.position = Vector2.MoveTowards (transform.position, 
-															  point.collider.transform.position,
-						     						          speed * Time.deltaTime);
+					point.collider.transform.position,
+					speed * Time.deltaTime);
+				if (transform.localScale.x != -i)
+					transform.localScale = new Vector3 (-i, transform.localScale.y, transform.localScale.z);
+				if (!anim.GetBool ("Walking")) {
+					anim.SetBool ("Idle", false);
+					anim.SetBool ("Walking", true);
+				}
 				return;
 			}
 		}
