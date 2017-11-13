@@ -63,14 +63,27 @@ public class Switch : MonoBehaviour {
 
 	private void SwitchColorsHelper(string new_on, string new_off)
 	{
+		EnemySwitchReceiver currEnemy;
+
 		foreach (GameObject i in GameObject.FindGameObjectsWithTag(new_on + "Hor"))
 			ChangeState (i, true);
 		foreach (GameObject i in GameObject.FindGameObjectsWithTag(new_on + "Vert"))
 			ChangeState (i, true);
+		foreach (GameObject i in GameObject.FindGameObjectsWithTag(new_on + "Enemy")) {
+			currEnemy = i.GetComponent<EnemySwitchReceiver> ();
+			if (currEnemy != null)
+				currEnemy.SwitchEnemy (true);
+		}
 		foreach (GameObject i in GameObject.FindGameObjectsWithTag(new_off + "Hor"))
 			ChangeState (i, false);
 		foreach (GameObject i in GameObject.FindGameObjectsWithTag(new_off + "Vert"))
 			ChangeState (i, false);
+		foreach (GameObject i in GameObject.FindGameObjectsWithTag(new_off + "Enemy")) {
+			currEnemy = i.GetComponent<EnemySwitchReceiver> ();
+			if (currEnemy != null)
+				currEnemy.SwitchEnemy (false);
+		}
+
 		red = !red;
 		blue = !blue;
 	}
