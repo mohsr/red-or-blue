@@ -15,6 +15,11 @@ public class PlayerDie : MonoBehaviour {
 	private GameObject rc;
 	private RespawnCoordinator rc_comp;
 
+	public void Hurt()
+	{
+		Die ();
+	}
+
 	public void Die()
 	{
 		rc = Instantiate (respawnCoordinator, new Vector3(0, 0, 0), Quaternion.identity);
