@@ -12,7 +12,7 @@ public class EnemySwitchReceiver : MonoBehaviour {
 	private Collider2D col;
 	private EnemyMoveOnSight mov;
 
-	void Start()
+	void Awake()
 	{
 		anim = GetComponent<Animator> ();
 		mov = GetComponent<EnemyMoveOnSight> ();
