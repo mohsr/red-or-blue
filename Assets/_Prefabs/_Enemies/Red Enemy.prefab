@@ -24,6 +24,7 @@ GameObject:
   - component: {fileID: 61380349335591646}
   - component: {fileID: 95445982661170736}
   - component: {fileID: 114600824846179208}
+  - component: {fileID: 114990173161073864}
   m_Layer: 10
   m_Name: Red Enemy
   m_TagString: RedEnemy
@@ -125,6 +126,19 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 0
   visionOffset: {x: 0, y: 0, z: 0}
+--- !u!114 &114990173161073864
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1106502716399182}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4d84861ed0bc449319456184e2f232da, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  on: 1
+  offAnimParameter: Embarrased
 --- !u!212 &212733992185990024
 SpriteRenderer:
   m_ObjectHideFlags: 1
@@ -156,8 +170,8 @@ SpriteRenderer:
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: 0
-  m_SortingLayer: 0
+  m_SortingLayerID: 1943075123
+  m_SortingLayer: 1
   m_SortingOrder: 0
   m_Sprite: {fileID: 21300000, guid: 5d19eef72f61749009145627c4b3c5d6, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
