@@ -15,7 +15,7 @@ public class PlayerController : MonoBehaviour {
 	public float fallingGravModifier = 1.35f;
 
 	public Vector2 wallJumpVelocity = new Vector2(10, 10);
-	public float wallsSlideModifier = 2.1f;
+	public float wallsSlideModifier = 1.4f;
 	public float postWallJumpDelayBuffer = 0.5f;
 	public float preWallJumpBuffer = 0.15f;
 	public bool allowSwitch = true;
