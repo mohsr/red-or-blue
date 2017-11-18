@@ -49,6 +49,7 @@ public class PlayerController : MonoBehaviour {
     [HideInInspector]
     Collider2D[] myColliders;
     bool alreadyHurt = false;
+
     
     void Awake()
 	{
@@ -88,11 +89,11 @@ public class PlayerController : MonoBehaviour {
             GetComponent<PlayerDie>().Die();
         else
         {
-            int enemyLayer = LayerMask.NameToLayer("Enemy");
-            int playerLayer = LayerMask.NameToLayer("Player");
             alreadyHurt = true;
+            GetComponent<Animator>().SetLayerWeight(1, 1);
             yield return new WaitForSeconds(invincibleTimeAfterHurt);
             alreadyHurt = false;
+            GetComponent<Animator>().SetLayerWeight(1, 0);
         }
     }
 
@@ -103,7 +104,7 @@ public class PlayerController : MonoBehaviour {
         while (knockDur > timer)
         {
             timer += Time.deltaTime;
-            _velocity = new Vector2(_velocity.x * -10, (_velocity.y + 10) * 10);
+            _velocity = new Vector2(_velocity.x * -5, _velocity.y);
         }
 
         yield return 0;
@@ -111,9 +112,7 @@ public class PlayerController : MonoBehaviour {
 
     private void OnCollisionEnter2D(Collision2D collision)
     {
-        EnemyController enemy = collision.collider.GetComponent<EnemyController>();
-
-        if (enemy != null)
+        if (LayerMask.LayerToName(collision.collider.gameObject.layer) == "Enemy")
         {
             foreach (ContactPoint2D point in collision.contacts)
             {
@@ -124,7 +123,9 @@ public class PlayerController : MonoBehaviour {
 					if (isBufferedJump || Input.GetButton ("Jump"))
 						jumpHeight = MaxJumpHeight;
 					_velocity = new Vector2(_velocity.x, Mathf.Sqrt(2f * jumpHeight * -gravity));
-                    enemy.stomped = true;
+                    EnemyController enemy = collision.collider.GetComponent<EnemyController>();
+                    if (enemy != null)
+                        enemy.stomped = true;
                 }
                 else {
                     if (!alreadyHurt)
