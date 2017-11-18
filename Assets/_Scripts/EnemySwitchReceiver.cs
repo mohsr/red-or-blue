@@ -10,12 +10,12 @@ public class EnemySwitchReceiver : MonoBehaviour {
 
 	private Animator anim;
 	private Collider2D col;
-	private EnemyMoveOnSight mov;
+	private EnemyController mov;
 
 	void Awake()
 	{
 		anim = GetComponent<Animator> ();
-		mov = GetComponent<EnemyMoveOnSight> ();
+		mov = GetComponent<EnemyController> ();
 	}
 
 	public void SwitchEnemy(bool value)
@@ -26,6 +26,6 @@ public class EnemySwitchReceiver : MonoBehaviour {
 			anim.SetBool ("Idle", false);
 			anim.SetBool ("Walking", false);
 		}
-		mov.enabled = value;
+		mov.embarrassed = !value;
 	}
 }

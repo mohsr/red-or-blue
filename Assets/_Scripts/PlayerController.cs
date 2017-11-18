@@ -114,6 +114,7 @@ public class PlayerController : MonoBehaviour {
     {
         if (LayerMask.LayerToName(collision.collider.gameObject.layer) == "Enemy")
         {
+            EnemyController enemy = collision.collider.GetComponent<EnemyController>();
             foreach (ContactPoint2D point in collision.contacts)
             {
                 Debug.DrawLine(point.point, point.point + point.normal, Color.red, 10);
@@ -123,13 +124,11 @@ public class PlayerController : MonoBehaviour {
 					if (isBufferedJump || Input.GetButton ("Jump"))
 						jumpHeight = MaxJumpHeight;
 					_velocity = new Vector2(_velocity.x, Mathf.Sqrt(2f * jumpHeight * -gravity));
-                    EnemyController enemy = collision.collider.GetComponent<EnemyController>();
                     if (enemy != null)
                         enemy.stomped = true;
                 }
                 else {
-                    if (!alreadyHurt)
-                    {
+                    if (!alreadyHurt && !enemy.embarrassed) {
                         StartCoroutine(Hurt());
                         alreadyHurt = true;
                         StartCoroutine(Knockback(0.02f));
