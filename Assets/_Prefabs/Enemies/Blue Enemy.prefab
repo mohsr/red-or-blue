@@ -137,7 +137,7 @@ MonoBehaviour:
   fallSpeedMultiplier: 1.1
   enemyMask:
     serializedVersion: 2
-    m_Bits: 0
+    m_Bits: 256
   visionOffset: {x: 0, y: 0, z: 0}
   embarrassed: 0
   moveOnSight: 1

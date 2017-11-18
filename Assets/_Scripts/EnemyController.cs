@@ -32,10 +32,11 @@ public class EnemyController : MonoBehaviour {
     {
         stomped = false;
         falling = false;
-        enemyMask = LayerMask.NameToLayer("Enemy");
-        Physics2D.IgnoreLayerCollision(enemyMask, enemyMask);
+        int enemyLayer = LayerMask.NameToLayer("Enemy");
+        Physics2D.IgnoreLayerCollision(enemyLayer, enemyLayer);
         anim = GetComponent<Animator>();
         myBody = GetComponent<Rigidbody2D>();
+        myTrans = transform;
         myWidth = GetComponent<SpriteRenderer>().bounds.extents.x;
     }
 
@@ -59,6 +60,11 @@ public class EnemyController : MonoBehaviour {
             {
                 AutoTurn();
             }
+        } else
+        {
+            Vector2 myVelocity = myBody.velocity;
+            myVelocity.x = 0;
+            myBody.velocity = myVelocity;
         }
     }
 
@@ -137,6 +143,11 @@ public class EnemyController : MonoBehaviour {
 
     private void AutoTurn()
     {
+        if (!anim.GetBool("Walking"))
+        {
+            anim.SetBool("Idle", false);
+            anim.SetBool("Walking", true);
+        }
         // check to see if there's ground in front of us before moving forward
         Vector2 lineCastPos = myTrans.position - myTrans.right * myWidth / 2;
         bool isGrounded = Physics2D.Linecast(lineCastPos, lineCastPos + Vector2.down, enemyMask);
