@@ -64,7 +64,7 @@ Camera:
   far clip plane: 1000
   field of view: 60
   orthographic: 1
-  orthographic size: 5
+  orthographic size: 8
   m_Depth: -1
   m_CullingMask:
     serializedVersion: 2
@@ -98,11 +98,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   target: {fileID: 0}
-  verticalOffset: 0
+  verticalOffset: -2
   lookAheadDstX: 0
   lookSmoothTimeX: 2
   verticalSmoothTime: 0
-  focusAreaSize: {x: 2, y: 3.5}
+  focusAreaSize: {x: 2, y: 4}
 --- !u!114 &114445537463679024
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -120,7 +120,7 @@ MonoBehaviour:
   offset: {x: 0, y: 2.5, z: 0}
   freezeX: 0
   freezeY: 0
-  freezeZ: 1
+  freezeZ: 0
 --- !u!124 &124055204426676494
 Behaviour:
   m_ObjectHideFlags: 1
