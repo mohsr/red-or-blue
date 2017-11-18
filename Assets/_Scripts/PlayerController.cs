@@ -97,14 +97,14 @@ public class PlayerController : MonoBehaviour {
         }
     }
 
-    IEnumerator Knockback(float knockDur)
+    IEnumerator Knockback(float knockDur, float knockBack)
     {
         float timer = 0;
 
         while (knockDur > timer)
         {
             timer += Time.deltaTime;
-            _velocity = new Vector2(_velocity.x * -5, _velocity.y);
+            _velocity = new Vector2(knockBack, _velocity.y);
         }
 
         yield return 0;
@@ -131,7 +131,11 @@ public class PlayerController : MonoBehaviour {
                     if (!alreadyHurt && !enemy.embarrassed) {
                         StartCoroutine(Hurt());
                         alreadyHurt = true;
-                        StartCoroutine(Knockback(0.02f));
+                        float knockBack = 20;
+                        Vector3 dir = (collision.gameObject.transform.position - transform.position).normalized;
+                        if (dir.x > 0)
+                            knockBack = -knockBack;
+                        StartCoroutine(Knockback(0.02f, knockBack));
                     }
                 }
             }
