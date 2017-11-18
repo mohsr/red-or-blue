@@ -23,8 +23,8 @@ GameObject:
   - component: {fileID: 50738760320654194}
   - component: {fileID: 61681047388591442}
   - component: {fileID: 95759750583562456}
-  - component: {fileID: 114219707843150460}
   - component: {fileID: 114018837401053612}
+  - component: {fileID: 114535353451687822}
   m_Layer: 10
   m_Name: Blue Enemy
   m_TagString: BlueEnemy
@@ -120,7 +120,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   on: 1
   offAnimParameter: Embarrased
---- !u!114 &114219707843150460
+--- !u!114 &114535353451687822
 MonoBehaviour:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
@@ -128,7 +128,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 1745897030972288}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 523b9f02aa1d54d56bb9a20107e3fde6, type: 3}
+  m_Script: {fileID: 11500000, guid: 289cfdaaf13fc734aa8d794f3325a8d0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   viewDistance: 4
@@ -139,6 +139,8 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 0
   visionOffset: {x: 0, y: 0, z: 0}
+  embarrassed: 0
+  moveOnSight: 1
 --- !u!212 &212625760304391578
 SpriteRenderer:
   m_ObjectHideFlags: 1
