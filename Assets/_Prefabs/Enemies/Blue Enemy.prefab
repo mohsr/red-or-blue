@@ -21,10 +21,10 @@ GameObject:
   - component: {fileID: 4052270666320586}
   - component: {fileID: 212625760304391578}
   - component: {fileID: 50738760320654194}
-  - component: {fileID: 61681047388591442}
   - component: {fileID: 95759750583562456}
   - component: {fileID: 114018837401053612}
   - component: {fileID: 114535353451687822}
+  - component: {fileID: 68468765469297838}
   m_Layer: 10
   m_Name: Blue Enemy
   m_TagString: BlueEnemy
@@ -39,7 +39,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1745897030972288}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -2.851329, y: -0.4724409, z: 0}
+  m_LocalPosition: {x: 25.99, y: 3.67, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
@@ -65,8 +65,8 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 4
---- !u!61 &61681047388591442
-BoxCollider2D:
+--- !u!68 &68468765469297838
+EdgeCollider2D:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
@@ -77,19 +77,16 @@ BoxCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0.024371147, y: -0.07920563}
-  m_SpriteTilingProperty:
-    border: {x: 0, y: 0, z: 0, w: 0}
-    pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 1, y: 1}
-    newSize: {x: 1, y: 1}
-    adaptiveTilingThreshold: 0.5
-    drawMode: 0
-    adaptiveTiling: 0
-  m_AutoTiling: 0
-  serializedVersion: 2
-  m_Size: {x: 0.45165348, y: 0.84158874}
+  m_Offset: {x: 0, y: 0}
   m_EdgeRadius: 0
+  m_Points:
+  - {x: 0.2876587, y: 0.49965906}
+  - {x: -0.2135334, y: 0.49976206}
+  - {x: -0.20741653, y: -0.46356463}
+  - {x: -0.03014946, y: -0.5015738}
+  - {x: 0.1849842, y: -0.49723434}
+  - {x: 0.28406906, y: -0.15337944}
+  - {x: 0.28486824, y: 0.503129}
 --- !u!95 &95759750583562456
 Animator:
   serializedVersion: 3
@@ -140,7 +137,6 @@ MonoBehaviour:
     m_Bits: 256
   visionOffset: {x: 0, y: 0, z: 0}
   embarrassed: 0
-  moveOnSight: 1
 --- !u!212 &212625760304391578
 SpriteRenderer:
   m_ObjectHideFlags: 1

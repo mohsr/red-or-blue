@@ -21,10 +21,10 @@ GameObject:
   - component: {fileID: 4598918389988998}
   - component: {fileID: 212733992185990024}
   - component: {fileID: 50405441199055262}
-  - component: {fileID: 61380349335591646}
   - component: {fileID: 95445982661170736}
   - component: {fileID: 114990173161073864}
   - component: {fileID: 114195615177542644}
+  - component: {fileID: 68855971043380228}
   m_Layer: 10
   m_Name: Red Enemy
   m_TagString: RedEnemy
@@ -39,7 +39,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1106502716399182}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -20.4, y: 2.7, z: 0}
+  m_LocalPosition: {x: 17.96358, y: 3.6365714, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
@@ -65,8 +65,8 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 4
---- !u!61 &61380349335591646
-BoxCollider2D:
+--- !u!68 &68855971043380228
+EdgeCollider2D:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
@@ -77,19 +77,16 @@ BoxCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0.024371147, y: -0.07920563}
-  m_SpriteTilingProperty:
-    border: {x: 0, y: 0, z: 0, w: 0}
-    pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 1, y: 1}
-    newSize: {x: 1, y: 1}
-    adaptiveTilingThreshold: 0.5
-    drawMode: 0
-    adaptiveTiling: 0
-  m_AutoTiling: 0
-  serializedVersion: 2
-  m_Size: {x: 0.45165348, y: 0.84158874}
+  m_Offset: {x: 0, y: 0}
   m_EdgeRadius: 0
+  m_Points:
+  - {x: 0.2542553, y: 0.49957132}
+  - {x: -0.21499634, y: 0.5004859}
+  - {x: -0.2154274, y: -0.44543338}
+  - {x: -0.034812927, y: -0.4994223}
+  - {x: 0.15195465, y: -0.501328}
+  - {x: 0.25554276, y: -0.34918833}
+  - {x: 0.2525711, y: 0.49993324}
 --- !u!95 &95445982661170736
 Animator:
   serializedVersion: 3
@@ -127,7 +124,6 @@ MonoBehaviour:
     m_Bits: 256
   visionOffset: {x: 0, y: 0, z: 0}
   embarrassed: 0
-  moveOnSight: 1
 --- !u!114 &114990173161073864
 MonoBehaviour:
   m_ObjectHideFlags: 1
