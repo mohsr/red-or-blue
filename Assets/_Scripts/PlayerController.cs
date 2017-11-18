@@ -5,12 +5,11 @@ using UnityEngine.SceneManagement;
 using Prime31;
 
 public class PlayerController : MonoBehaviour {
-	public float speed = 7.0f;
+	public float speed = 6.0f;
 	public float gravity = -25f;
 	public float MinJumpHeight = 0.6f;
 	public float MaxJumpHeight = 2.6f;
-	public float groundDamping = 20f; // how fast do we change direction? higher means faster
-	public float inAirDamping = 5f;
+
 	public float jumpBuffer = 0.15f;
 	public float jumpHeight = 3f;
 	public float fallingGravModifier = 1.35f;
@@ -280,9 +279,7 @@ public class PlayerController : MonoBehaviour {
 		}
 
 
-		// TODO: apply horizontal speed smoothing it. dont really do this with Lerp. Use SmoothDamp or something that provides more control
-		var smoothedMovementFactor = _controller.isGrounded ? groundDamping : inAirDamping; // how fast do we change direction?
-		_velocity.x = Mathf.Lerp( _velocity.x, normalizedHorizontalSpeed * speed, Time.deltaTime * smoothedMovementFactor );
+		_velocity.x = Vector2.MoveTowards(new Vector2 (_velocity.x, 0f), new Vector2 (normalizedHorizontalSpeed * speed, 0f), 1f ).x;
 
 		//modify gravity if falling
 		var grav = (_velocity.y < 0) ? gravity * fallingGravModifier : gravity;
