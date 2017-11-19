@@ -55,7 +55,6 @@
      <Compile Include="Assets\_Scripts\CharacterController2D.cs" />
      <Compile Include="Assets\_Scripts\Checkpoint.cs" />
      <Compile Include="Assets\_Scripts\EnemyController.cs" />
-     <Compile Include="Assets\_Scripts\EnemyMoveOnSight.cs" />
      <Compile Include="Assets\_Scripts\EnemySwitchReceiver.cs" />
      <Compile Include="Assets\_Scripts\ExtensionMethods.cs" />
      <Compile Include="Assets\_Scripts\FollowPlayer.cs" />
