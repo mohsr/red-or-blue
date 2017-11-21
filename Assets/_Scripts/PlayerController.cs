@@ -67,6 +67,7 @@ public class PlayerController : MonoBehaviour {
 
 	#region Event Listeners
 
+//	This function handles collider hits
 	void onControllerCollider( RaycastHit2D hit )
 	{
         // bail out on plain old ground hits cause they arent very interesting
