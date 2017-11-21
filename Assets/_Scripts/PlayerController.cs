@@ -131,7 +131,9 @@ public class PlayerController : MonoBehaviour {
                         enemy.stomped = true;
                 }
                 else {
-                    if (!alreadyHurt && !enemy.embarrassed) {
+                    if (!alreadyHurt) {
+						if (enemy != null && enemy.embarrassed)
+							return;
                         StartCoroutine(Hurt());
                         alreadyHurt = true;
                         float knockBack = 20;
@@ -143,6 +145,11 @@ public class PlayerController : MonoBehaviour {
                 }
             }
         }
+		if (collision.transform.name.ToUpper().Contains("PLATE"))
+			Destroy(collision.gameObject);
+//		ColliderOffOnHurtOther off = collision.transform.GetComponent<ColliderOffOnHurtOther> ();
+//		if (off != null)
+//			collision.transform.GetComponent<Collider2D> ().enabled = false;
     }
 
     void onTriggerEnterEvent( Collider2D col )
