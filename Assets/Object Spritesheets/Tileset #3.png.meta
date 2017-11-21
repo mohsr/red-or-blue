@@ -1,4 +1,5 @@
 fileFormatVersion: 2
+<<<<<<< HEAD
 guid: 69b32405efe034ac483cd4c69aad12f9
 timeCreated: 1511298165
 licenseType: Free
@@ -78,6 +79,13 @@ TextureImporter:
     21300142: 'Tileset #3_71'
     21300144: 'Tileset #3_72'
     21300146: 'Tileset #3_73'
+=======
+guid: 8097d0bd1b3a44fa0bc7035b375ced35
+timeCreated: 1511298305
+licenseType: Free
+TextureImporter:
+  fileIDToRecycleName: {}
+>>>>>>> dd9a6f4b95a6accc14f2c3b86dbf95c9b5516ad5
   externalObjects: {}
   serializedVersion: 4
   mipmaps:
@@ -105,7 +113,11 @@ TextureImporter:
   maxTextureSize: 2048
   textureSettings:
     serializedVersion: 2
+<<<<<<< HEAD
     filterMode: 0
+=======
+    filterMode: -1
+>>>>>>> dd9a6f4b95a6accc14f2c3b86dbf95c9b5516ad5
     aniso: -1
     mipBias: -1
     wrapU: 1
@@ -114,13 +126,21 @@ TextureImporter:
   nPOTScale: 0
   lightmap: 0
   compressionQuality: 50
+<<<<<<< HEAD
   spriteMode: 2
+=======
+  spriteMode: 1
+>>>>>>> dd9a6f4b95a6accc14f2c3b86dbf95c9b5516ad5
   spriteExtrude: 1
   spriteMeshType: 1
   alignment: 0
   spritePivot: {x: 0.5, y: 0.5}
   spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+<<<<<<< HEAD
   spritePixelsToUnits: 32
+=======
+  spritePixelsToUnits: 100
+>>>>>>> dd9a6f4b95a6accc14f2c3b86dbf95c9b5516ad5
   alphaUsage: 1
   alphaIsTransparency: 1
   spriteTessellationDetail: -1
@@ -134,6 +154,7 @@ TextureImporter:
     maxTextureSize: 2048
     resizeAlgorithm: 0
     textureFormat: -1
+<<<<<<< HEAD
     textureCompression: 0
     compressionQuality: 50
     crunchedCompression: 0
@@ -162,12 +183,16 @@ TextureImporter:
     resizeAlgorithm: 0
     textureFormat: -1
     textureCompression: 0
+=======
+    textureCompression: 1
+>>>>>>> dd9a6f4b95a6accc14f2c3b86dbf95c9b5516ad5
     compressionQuality: 50
     crunchedCompression: 0
     allowsAlphaSplitting: 0
     overridden: 0
   spriteSheet:
     serializedVersion: 2
+<<<<<<< HEAD
     sprites:
     - serializedVersion: 2
       name: 'Tileset #3_0'
@@ -1205,6 +1230,9 @@ TextureImporter:
       outline: []
       physicsShape: []
       tessellationDetail: 0
+=======
+    sprites: []
+>>>>>>> dd9a6f4b95a6accc14f2c3b86dbf95c9b5516ad5
     outline: []
     physicsShape: []
   spritePackingTag: 
