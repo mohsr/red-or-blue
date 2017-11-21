@@ -97,5 +97,10 @@ public class Switch : MonoBehaviour {
 			spr.enabled = state;
 		if (col != null)
 			col.enabled = state;
+
+		int numChildren = obj.transform.childCount;
+		for (int i = 0; i < numChildren; i++) {
+			obj.transform.GetChild (i).gameObject.SetActive (state);
+		}
 	}
 }
