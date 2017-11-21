@@ -172,7 +172,9 @@ public class PlayerController : MonoBehaviour {
 			allowSwitch = true;
 		}
 
-		if( Input.GetKey( KeyCode.RightArrow ) )
+		float horAxis = Input.GetAxisRaw( "Horizontal" );
+
+		if( horAxis > 0 )
 		{
 			if (_controller.isGrounded) {
 				_animator.SetBool ("Idle", false);
@@ -202,7 +204,7 @@ public class PlayerController : MonoBehaviour {
 			// 	_animator.Play( Animator.StringToHash( "Run" ) );
 		}
 		
-		else if( Input.GetKey( KeyCode.LeftArrow ) )
+		else if(horAxis < 0)
 		{
 			if (_controller.isGrounded) {
 				_animator.SetBool ("Idle", false);
