@@ -9,6 +9,8 @@ public class PlayerController : MonoBehaviour {
 	public float gravity = -25f;
 	public float MinJumpHeight = 0.6f;
 	public float MaxJumpHeight = 2.6f;
+	public float groundDamping = 20f; // how fast do we change direction? higher means faster
+ 	public float inAirDamping = 5f;
 
 	public float jumpBuffer = 0.15f;
 	public float jumpHeight = 3f;
@@ -165,8 +167,10 @@ public class PlayerController : MonoBehaviour {
 
 		if( Input.GetKey( KeyCode.RightArrow ) )
 		{
-			_animator.SetBool ("Idle", false);
-			_animator.SetBool ("Walking", true);
+			if (_controller.isGrounded) {
+				_animator.SetBool ("Idle", false);
+				_animator.SetBool ("Walking", true);
+			}
 			normalizedHorizontalSpeed = 1;
 
 			if (_controller.isCollidingRight && isCollidingWall && !_controller.isGrounded) {
@@ -193,8 +197,10 @@ public class PlayerController : MonoBehaviour {
 		
 		else if( Input.GetKey( KeyCode.LeftArrow ) )
 		{
-			_animator.SetBool ("Idle", false);
-			_animator.SetBool ("Walking", true);
+			if (_controller.isGrounded) {
+				_animator.SetBool ("Idle", false);
+				_animator.SetBool ("Walking", true);
+			}
 			normalizedHorizontalSpeed = -1;
 
 			if (_controller.isCollidingLeft && isCollidingWall && !_controller.isGrounded) {
@@ -225,7 +231,7 @@ public class PlayerController : MonoBehaviour {
 			// 	_animator.Play( Animator.StringToHash( "Idle" ) );
 		}
 
-		if (_velocity.y != 0) {
+		if (_velocity.y > 0) {
 			_animator.SetBool ("Jumping", true);
 			_animator.SetBool ("Walking", false);
 			_animator.SetBool ("Idle", false);
@@ -283,7 +289,9 @@ public class PlayerController : MonoBehaviour {
 			jump_buffer_counter = 0;
 		}
 
-
+// TODO: apply horizontal speed smoothing it. dont really do this with Lerp. Use SmoothDamp or something that provides more control
+ 		var smoothedMovementFactor = _controller.isGrounded ? groundDamping : inAirDamping; // how fast do we change direction?
+ 		//_velocity.x = Mathf.Lerp( _velocity.x, normalizedHorizontalSpeed * speed, Time.deltaTime * smoothedMovementFactor );
 		_velocity.x = Vector2.MoveTowards(new Vector2 (_velocity.x, 0f), new Vector2 (normalizedHorizontalSpeed * speed, 0f), 1f ).x;
 
 		//modify gravity if falling
