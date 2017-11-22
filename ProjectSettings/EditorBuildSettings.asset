@@ -4,4 +4,10 @@
 EditorBuildSettings:
   m_ObjectHideFlags: 0
   serializedVersion: 2
-  m_Scenes: []
+  m_Scenes:
+  - enabled: 1
+    path: Assets/_Scenes/Vent2.unity
+    guid: c1b0da68551394e71bc4695704ad2c3f
+  - enabled: 1
+    path: Assets/_Scenes/Cafeteria.unity
+    guid: 9ceb0bbc12ba5479a8faf0d3081c03fa
