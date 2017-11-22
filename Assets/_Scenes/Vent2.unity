@@ -6770,16 +6770,6 @@ Prefab:
       propertyPath: m_RootOrder
       value: 5
       objectReference: {fileID: 0}
-    - target: {fileID: 114494839995406356, guid: 7ae5876d6386f404787e7390a1b25343,
-        type: 2}
-      propertyPath: redBackground.rgba
-      value: 4284046552
-      objectReference: {fileID: 0}
-    - target: {fileID: 114494839995406356, guid: 7ae5876d6386f404787e7390a1b25343,
-        type: 2}
-      propertyPath: blueBackground.rgba
-      value: 4293833475
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 7ae5876d6386f404787e7390a1b25343, type: 2}
   m_IsPrefabParent: 0
