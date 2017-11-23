@@ -54,10 +54,11 @@ MonoBehaviour:
   switcher: e
   redBackground:
     serializedVersion: 2
-    rgba: 24277684
+    rgba: 4285032666
   blueBackground:
     serializedVersion: 2
-    rgba: 31311489
+    rgba: 4293833475
   backgroundFadeSpeed: 0.25
   red: 0
   blue: 1
+  initialRed: 1

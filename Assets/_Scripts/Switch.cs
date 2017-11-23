@@ -10,9 +10,10 @@ public class Switch : MonoBehaviour {
 	public Color32 blueBackground = new Color32(129, 198, 221, 1);
 	public float backgroundFadeSpeed = 0.25f;
 	[HideInInspector]
-	public bool red = false;
+	public bool red = true;
 	[HideInInspector]
-	public bool blue = true;
+	public bool blue = false;
+	public bool initialRed = true;
 
 	private const string R = "Red";
 	private const string B = "Blue";
@@ -97,5 +98,10 @@ public class Switch : MonoBehaviour {
 			spr.enabled = state;
 		if (col != null)
 			col.enabled = state;
+
+		int numChildren = obj.transform.childCount;
+		for (int i = 0; i < numChildren; i++) {
+			obj.transform.GetChild (i).gameObject.SetActive (state);
+		}
 	}
 }
