@@ -5,8 +5,8 @@ using UnityEngine;
 public class Background : MonoBehaviour {
 
 	public int numberOfTiles = 3;
-	private Vector3 playerLocation; 
-	private Transform playerTransform;
+	private Transform cameraTransform;
+	private Vector3 prevCameraLocation;
 	private MeshRenderer [] backgroundMesh = new MeshRenderer[3];
 	public float scrollSpeed = 20;
 	private int startToMoveTile = 0;
@@ -20,17 +20,17 @@ public class Background : MonoBehaviour {
 			backgroundMesh [k] = toBeScrolled [k].GetComponent<MeshRenderer> ();
 		} 
 
-		playerTransform = GameObject.FindGameObjectWithTag ("Player").GetComponent<Transform> ();
-		playerLocation = playerTransform.position;
+		cameraTransform = GameObject.FindGameObjectWithTag ("MainCamera").GetComponent<Transform> ();
+		prevCameraLocation = cameraTransform.position;
 	}
 
 	public void Update () {
-		if (playerTransform == null) {
-			playerTransform = GameObject.FindGameObjectWithTag ("Player").GetComponent<Transform> ();
+		if (cameraTransform == null) {
+			cameraTransform = GameObject.FindGameObjectWithTag ("MainCamera").GetComponent<Transform> ();
 		}
 
-		float displacement = playerTransform.position.x - playerLocation.x;
-		playerLocation = playerTransform.position;
+		float displacement = cameraTransform.position.x - prevCameraLocation.x;
+		prevCameraLocation = cameraTransform.position;
 		for (int k = 0; k < backgroundMesh.Length; k++) {
 			if (backgroundMesh [k].CompareTag ("ScrollingBackground")) {
 				Material mat = backgroundMesh [k].material;
