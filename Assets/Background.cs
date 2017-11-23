@@ -11,15 +11,20 @@ public class Background : MonoBehaviour {
 	public float scrollSpeed = 20;
 	private int startToMoveTile = 0;
 	private GameObject[] toBeScrolled;
+	private GameObject currentTile;
+	private float currentTileMinX;
+	private float currentTileMaxX;
 
 	// Use this for initialization
 	void Start () {
 		toBeScrolled = GameObject.FindGameObjectsWithTag ("ScrollingBackground");
+		currentTile = toBeScrolled[1];
+		currentTileMinX = transform.position.x + currentTile.GetComponent<MeshRenderer>().bounds.min.x;
+		currentTileMaxX = transform.position.x + currentTile.GetComponent<MeshRenderer>().bounds.max.x;
 
 		for (int k = 0; k < toBeScrolled.Length; k++) {
 			backgroundMesh [k] = toBeScrolled [k].GetComponent<MeshRenderer> ();
 		} 
-
 		cameraTransform = GameObject.FindGameObjectWithTag ("MainCamera").GetComponent<Transform> ();
 		prevCameraLocation = cameraTransform.position;
 	}
@@ -38,14 +43,11 @@ public class Background : MonoBehaviour {
 			}
 		}
 
-//		if (playerTransform.position.x >= toBeScrolled [startToMoveTile].transform.position.x) {
+//		if (playerTransform.position.x >= currentTileMaxX) {
 //			Debug.Log ("HELLO");
 //			startToMoveTile = (startToMoveTile + 1) % numberOfTiles;
 //			float newPos = toBeScrolled [startToMoveTile ].transform.position.x + toBeScrolled [startToMoveTile ].transform.localScale.x;
 //			toBeScrolled [startToMoveTile].transform.position.Set (newPos, toBeScrolled [startToMoveTile].transform.position.y, toBeScrolled [startToMoveTile].transform.position.z);
 //		}
-//		Debug.Log ("0: " + backgroundMesh [0]);
-//		Debug.Log ("1: " + backgroundMesh [1]);
-//		Debug.Log ("2: " + backgroundMesh [2]);
 	}
 }

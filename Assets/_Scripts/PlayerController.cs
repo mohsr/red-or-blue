@@ -9,27 +9,19 @@ public class PlayerController : MonoBehaviour {
 	public float gravity = -25f;
 	public float MinJumpHeight = 0.6f;
 	public float MaxJumpHeight = 2.6f;
-	public float groundDamping = 20f; // how fast do we change direction? higher means faster
+	public float groundDamping = 20f;
  	public float inAirDamping = 5f;
-
 	public float jumpBuffer = 0.15f;
-	public float jumpHeight = 3f;
+	public float jumpHeight;
 	public float fallingGravModifier = 1.35f;
-
 	public Vector2 wallJumpVelocity = new Vector2(10, 10);
-	public float wallsSlideModifier = 1.4f;
 	public float postWallJumpDelayBuffer = 0.5f;
-	public float preWallJumpBuffer = 0.15f;
+	public float wallJumpHandicap = 0.25f;
+	public float wallsSlideModifier = 1.4f;
 	public bool allowSwitch = true;
 
-
-	[HideInInspector]
-	private float postWallJumpDelayBuffer_counter = 0;
 	private float jump_buffer_counter = 0;
-
-	private float preWallJumpBuffer_counter = 0;
-	private bool isPreWallJumpBuffer = false;
-
+	private float postWallJumpDelayBuffer_counter = 0;
 	private bool isPostWallJumpDelayBuffer = false;
 	private int postWallJumpDir = 0;
 	private bool isBufferedJump = false;
@@ -43,7 +35,7 @@ public class PlayerController : MonoBehaviour {
 	private Rigidbody2D _rigidbody2d;
 	private RaycastHit2D _lastControllerColliderHit;
 	private Vector3 _velocity;
-
+	private float xVel = 0.0F;
     
     // combat
     public int health = 3;
@@ -180,28 +172,20 @@ public class PlayerController : MonoBehaviour {
 				_animator.SetBool ("Idle", false);
 				_animator.SetBool ("Walking", true);
 			}
-			normalizedHorizontalSpeed = 1;
+			normalizedHorizontalSpeed = horAxis;
 
 			if (_controller.isCollidingRight && isCollidingWall && !_controller.isGrounded) {
 				checkWallJump (1);
-				if(_velocity.y < 0 && !isPreWallJumpBuffer) 
+				if(_velocity.y < 0) 
 					isWallSliding = true;
 			}
 			//flip sprite if necessary
 			if( transform.localScale.x < 0f)
 				transform.localScale = new Vector3( -transform.localScale.x, transform.localScale.y, transform.localScale.z );
-
+			
 			//prevents infinite walljumping on same wall
-			if (isPostWallJumpDelayBuffer  && postWallJumpDir < 0)
-				normalizedHorizontalSpeed = 0.25f;
-
-			//(Doesnt work/not fully implemented) allows small window of time to wall jump in opposite direction of wall.
-			if (isPreWallJumpBuffer) {
-				isWallSliding = true;
-				normalizedHorizontalSpeed = 0;
-			}
-			// if( _controller.isGrounded )
-			// 	_animator.Play( Animator.StringToHash( "Run" ) );
+			if (isPostWallJumpDelayBuffer && postWallJumpDir < 0)
+				normalizedHorizontalSpeed = wallJumpHandicap;
 		}
 		
 		else if(horAxis < 0)
@@ -210,22 +194,19 @@ public class PlayerController : MonoBehaviour {
 				_animator.SetBool ("Idle", false);
 				_animator.SetBool ("Walking", true);
 			}
-			normalizedHorizontalSpeed = -1;
+			normalizedHorizontalSpeed = horAxis;
 
 			if (_controller.isCollidingLeft && isCollidingWall && !_controller.isGrounded) {
 				checkWallJump (-1);
-				if(_velocity.y < 0 && !isPreWallJumpBuffer) 
+				if(_velocity.y < 0) 
 					isWallSliding = true;
 			}
 			if( transform.localScale.x > 0f)
 				transform.localScale = new Vector3( -transform.localScale.x, transform.localScale.y, transform.localScale.z );
-
+			
 			if (isPostWallJumpDelayBuffer && postWallJumpDir > 0)
-				normalizedHorizontalSpeed = -.25f;
+				normalizedHorizontalSpeed = - wallJumpHandicap;
 
-			if (isPreWallJumpBuffer) {
-				normalizedHorizontalSpeed = 0;
-			}
 			// if( _controller.isGrounded )
 			// 	_animator.Play( Animator.StringToHash( "Run" ) );
 		}
@@ -252,27 +233,15 @@ public class PlayerController : MonoBehaviour {
 		if (isWallSliding && 
 			(((!_controller.isCollidingRight && !_controller.isCollidingLeft)
 				|| Input.GetKeyUp( KeyCode.RightArrow ) || Input.GetKeyUp( KeyCode.LeftArrow ))
-				|| _controller.isGrounded) && !isPreWallJumpBuffer)
+				|| _controller.isGrounded))
 				isWallSliding = false;
 
-		// we can only jump whilst grounded
-		// if( _controller.isGrounded && Input.GetKeyDown( KeyCode.Space ) )
-		// {
-		// 	_velocity.y = Mathf.Sqrt( 2f * jumpHeight * -gravity );
-		// 	// _animator.Play( Animator.StringToHash( "Jump" ) );
-		// }
 		if (isPostWallJumpDelayBuffer) {
 			postWallJumpDelayBuffer_counter += Time.deltaTime;
 			if (postWallJumpDelayBuffer_counter > postWallJumpDelayBuffer) {
 				postWallJumpDelayBuffer_counter = 0;
 				isPostWallJumpDelayBuffer = false;
 			}
-		}
-
-		if (isPreWallJumpBuffer) {
-			preWallJumpBuffer_counter += Time.deltaTime;
-			if (preWallJumpBuffer_counter >= preWallJumpBuffer)
-				isPreWallJumpBuffer = false;
 		}
 
 		if (isBufferedJump) {
@@ -298,10 +267,12 @@ public class PlayerController : MonoBehaviour {
 			jump_buffer_counter = 0;
 		}
 
-// TODO: apply horizontal speed smoothing it. dont really do this with Lerp. Use SmoothDamp or something that provides more control
  		var smoothedMovementFactor = _controller.isGrounded ? groundDamping : inAirDamping; // how fast do we change direction?
  		//_velocity.x = Mathf.Lerp( _velocity.x, normalizedHorizontalSpeed * speed, Time.deltaTime * smoothedMovementFactor );
-		_velocity.x = Vector2.MoveTowards(new Vector2 (_velocity.x, 0f), new Vector2 (normalizedHorizontalSpeed * speed, 0f), 1f ).x;
+		 _velocity.x = Mathf.SmoothDamp(_velocity.x, normalizedHorizontalSpeed * speed, ref xVel, Time.deltaTime * smoothedMovementFactor);
+		 if (_velocity.x > 0.1)
+		 	Debug.Log("damp: " + _velocity.x + "time: " + Time.time);
+		//_velocity.x = Mathf.MoveTowards(_velocity.x, normalizedHorizontalSpeed * speed, 1f );
 
 		//modify gravity if falling
 		var grav = (_velocity.y < 0) ? gravity * fallingGravModifier : gravity;
@@ -321,12 +292,6 @@ public class PlayerController : MonoBehaviour {
 
 	void checkWallJump(int sign)
 	{
-		//attempts at making a preWallJumpBuffer
-//		if (!isPreWallJumpBuffer && ((Input.GetKeyDown (KeyCode.LeftArrow) && sign < 0) || (Input.GetKeyDown (KeyCode.RightArrow) && sign > 0))) {
-//			isPreWallJumpBuffer = true;
-//			preWallJumpBuffer_counter = 0;
-//		}
-
 		if (Input.GetButtonDown ("Jump")) {
 			allowSwitch = true;
 			_velocity.x = -sign * wallJumpVelocity.x;

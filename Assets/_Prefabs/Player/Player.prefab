@@ -40,7 +40,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1779883190055022}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -55.12, y: 0.11, z: 0}
+  m_LocalPosition: {x: -55, y: -3.52, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
@@ -89,7 +89,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 0.38, y: 0.93}
+  m_Size: {x: 0.38, y: 0.94}
   m_EdgeRadius: 0
 --- !u!95 &95787169761372492
 Animator:
@@ -119,19 +119,19 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4afde218e0e464cc0bc6a5c06c58de28, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speed: 6
-  gravity: -25
-  MinJumpHeight: 0.6
+  speed: 5
+  gravity: -24
+  MinJumpHeight: 0.4
   MaxJumpHeight: 2.6
-  groundDamping: 20
-  inAirDamping: 5
+  groundDamping: 4
+  inAirDamping: 10
   jumpBuffer: 0.15
   jumpHeight: 3
   fallingGravModifier: 1.35
-  wallJumpVelocity: {x: 13, y: 9}
-  wallsSlideModifier: 1.25
+  wallJumpVelocity: {x: 10, y: 10}
   postWallJumpDelayBuffer: 0.5
-  preWallJumpBuffer: 0.15
+  wallJumpHandicap: 0.3
+  wallsSlideModifier: 1.25
   allowSwitch: 1
   health: 3
   invincibleTimeAfterHurt: 2
