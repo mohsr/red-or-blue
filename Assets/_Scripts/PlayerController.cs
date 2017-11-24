@@ -270,8 +270,6 @@ public class PlayerController : MonoBehaviour {
  		var smoothedMovementFactor = _controller.isGrounded ? groundDamping : inAirDamping; // how fast do we change direction?
  		//_velocity.x = Mathf.Lerp( _velocity.x, normalizedHorizontalSpeed * speed, Time.deltaTime * smoothedMovementFactor );
 		 _velocity.x = Mathf.SmoothDamp(_velocity.x, normalizedHorizontalSpeed * speed, ref xVel, Time.deltaTime * smoothedMovementFactor);
-		 if (_velocity.x > 0.1)
-		 	Debug.Log("damp: " + _velocity.x + "time: " + Time.time);
 		//_velocity.x = Mathf.MoveTowards(_velocity.x, normalizedHorizontalSpeed * speed, 1f );
 
 		//modify gravity if falling
