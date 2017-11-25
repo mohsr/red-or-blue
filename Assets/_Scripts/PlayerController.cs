@@ -32,7 +32,6 @@ public class PlayerController : MonoBehaviour {
 	private float normalizedHorizontalSpeed = 0;
 	private CharacterController2D _controller;
 	private Animator _animator;
-	private Rigidbody2D _rigidbody2d;
 	private RaycastHit2D _lastControllerColliderHit;
 	private Vector3 _velocity;
 	private float xVel = 0.0F;
@@ -41,7 +40,6 @@ public class PlayerController : MonoBehaviour {
     public int health = 3;
     public float invincibleTimeAfterHurt = 2;
     [HideInInspector]
-    Collider2D[] myColliders;
     bool alreadyHurt = false;
 
     
@@ -49,14 +47,11 @@ public class PlayerController : MonoBehaviour {
 	{
 		_controller = GetComponent<CharacterController2D>();
 		_animator = GetComponent<Animator> ();
-		_rigidbody2d = GetComponent<Rigidbody2D> ();
 
 		// Subscribe to event listners
 		_controller.onControllerCollidedEvent += onControllerCollider;
 		_controller.onTriggerEnterEvent += onTriggerEnterEvent;
 		_controller.onTriggerExitEvent += onTriggerExitEvent;
-        
-        myColliders = GetComponents<Collider2D>();
     }
 
 	#region Event Listeners

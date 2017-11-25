@@ -10,7 +10,6 @@ public class Background : MonoBehaviour {
 	private Vector3 prevCameraLocation;
 	private MeshRenderer [] backgroundMesh = new MeshRenderer[3];
 	public float scrollSpeed = 20;
-	private int startToMoveTile = 0;
 	private GameObject[] toBeScrolled;
 	private GameObject currentTile;
 	private float currentTileMinX;

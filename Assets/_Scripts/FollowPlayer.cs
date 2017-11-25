@@ -15,14 +15,11 @@ public class FollowPlayer : MonoBehaviour {
 
 	private GameObject player;
 	private Vector3 start;
-	private float respawnTime;
 
 	void Start()
 	{
 		player = GameObject.FindGameObjectWithTag ("Player");
 		start = transform.position;
-		if (player != null)
-			respawnTime = player.GetComponent<PlayerDie> ().respawnTime;
 	}
 
 	void Update()

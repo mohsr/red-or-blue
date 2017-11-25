@@ -759,16 +759,6 @@ Prefab:
       propertyPath: m_RootOrder
       value: 11
       objectReference: {fileID: 0}
-    - target: {fileID: 50133223157888152, guid: de4367565dddb4b5abc33eb543234a09,
-        type: 2}
-      propertyPath: m_Simulated
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 212790735313458316, guid: de4367565dddb4b5abc33eb543234a09,
-        type: 2}
-      propertyPath: m_DrawMode
-      value: 0
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: de4367565dddb4b5abc33eb543234a09, type: 2}
   m_IsPrefabParent: 0
@@ -20739,9 +20729,7 @@ Prefab:
       propertyPath: m_RootOrder
       value: 0
       objectReference: {fileID: 0}
-    m_RemovedComponents:
-    - {fileID: 114311013716011514, guid: ec75e55bf08d64b8e9a1d4d731781ea1, type: 2}
-    - {fileID: 114520050985899408, guid: ec75e55bf08d64b8e9a1d4d731781ea1, type: 2}
+    m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: ec75e55bf08d64b8e9a1d4d731781ea1, type: 2}
   m_IsPrefabParent: 0
 --- !u!1001 &1741446980
@@ -21414,26 +21402,6 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 4207399881208638, guid: 18e4c7872996d49faa4edc0019dc8447, type: 2}
       propertyPath: m_RootOrder
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 20066457255089800, guid: 18e4c7872996d49faa4edc0019dc8447,
-        type: 2}
-      propertyPath: m_BackGroundColor.r
-      value: 0.011764706
-      objectReference: {fileID: 0}
-    - target: {fileID: 20066457255089800, guid: 18e4c7872996d49faa4edc0019dc8447,
-        type: 2}
-      propertyPath: m_BackGroundColor.g
-      value: 0.7019608
-      objectReference: {fileID: 0}
-    - target: {fileID: 20066457255089800, guid: 18e4c7872996d49faa4edc0019dc8447,
-        type: 2}
-      propertyPath: m_BackGroundColor.b
-      value: 0.93333334
-      objectReference: {fileID: 0}
-    - target: {fileID: 20066457255089800, guid: 18e4c7872996d49faa4edc0019dc8447,
-        type: 2}
-      propertyPath: m_BackGroundColor.a
       value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
