@@ -48,6 +48,8 @@ public class PlayerController : MonoBehaviour {
 		_controller = GetComponent<CharacterController2D>();
 		_animator = GetComponent<Animator> ();
 
+		health = 3;
+
 		// Subscribe to event listners
 		_controller.onControllerCollidedEvent += onControllerCollider;
 		_controller.onTriggerEnterEvent += onTriggerEnterEvent;
@@ -75,8 +77,10 @@ public class PlayerController : MonoBehaviour {
     {
         Debug.Log("hurt");
         health--;
-        if (health <= 0)
-            GetComponent<PlayerDie>().Die();
+		if (health <= 0) {
+			Debug.Log ("dead");
+			GetComponent<PlayerDie> ().Die ();
+		}
         else
         {
             alreadyHurt = true;

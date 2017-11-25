@@ -101,6 +101,7 @@ public class Switch : MonoBehaviour {
 
 		int numChildren = obj.transform.childCount;
 		for (int i = 0; i < numChildren; i++) {
+			//ChangeState(obj.transform.GetChild (i), state);
 			obj.transform.GetChild (i).gameObject.SetActive (state);
 		}
 	}
