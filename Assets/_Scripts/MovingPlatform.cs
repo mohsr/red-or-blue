@@ -9,8 +9,6 @@ public class MovingPlatform : MonoBehaviour {
 	public float waitAtEndsTime = 2.0f;
 	public bool oneWay = false;
 
-	private Rigidbody2D rb2d;
-
 	private Vector3 initLoc;
 	private Vector3 currLoc;
 	private int currSpot = 0;
@@ -21,7 +19,6 @@ public class MovingPlatform : MonoBehaviour {
 
 	void Start()
 	{
-		rb2d = GetComponent<Rigidbody2D> ();
 		ascending = true;
 
 		movementPath [0] = new Vector3 (0, 0, 0);
@@ -90,5 +87,21 @@ public class MovingPlatform : MonoBehaviour {
 		moving = false;
 		yield return new WaitForSeconds (waitAtEndsTime);
 		moving = true;
+	}
+
+	void OnDrawGizmos()
+	{
+		int i;
+		Vector3 start, end;
+
+		for (i = 0; i < movementPath.Length - 1; i++) {
+			if (i == 0)
+				start = transform.position;
+			else
+				start = transform.position + movementPath [i];
+			end = transform.position + movementPath [i + 1];
+
+			Gizmos.DrawLine (start, end);
+		}
 	}
 }
