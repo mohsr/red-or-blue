@@ -68,7 +68,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1391436649276232}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 19.5, y: 5.2717795, z: 0}
+  m_LocalPosition: {x: 29.5, y: 5.31, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 4425042334904512}
@@ -151,6 +151,8 @@ MonoBehaviour:
     type: 2}
   timeBetweenSpawns: 0.6
   spawnOffset: {x: 0, y: -0.8, z: 0}
+  ignoreGravity: 0
+  directionAndForce: {x: 0, y: 0}
 --- !u!212 &212294435229554118
 SpriteRenderer:
   m_ObjectHideFlags: 1
