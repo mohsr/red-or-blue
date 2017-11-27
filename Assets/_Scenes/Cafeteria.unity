@@ -60348,23 +60348,29 @@ Prefab:
     - target: {fileID: 212695600788042928, guid: cc4137fd2e5f246d4a420766447b25b7,
         type: 2}
       propertyPath: m_Color.r
-      value: 0.2647059
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 212695600788042928, guid: cc4137fd2e5f246d4a420766447b25b7,
         type: 2}
       propertyPath: m_Color.g
-      value: 0.2647059
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 212695600788042928, guid: cc4137fd2e5f246d4a420766447b25b7,
         type: 2}
       propertyPath: m_Color.b
-      value: 0.2647059
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 114898066362705558, guid: cc4137fd2e5f246d4a420766447b25b7,
         type: 2}
       propertyPath: movementPath.Array.data[4].x
       value: -20
       objectReference: {fileID: 0}
+    - target: {fileID: 212695600788042928, guid: cc4137fd2e5f246d4a420766447b25b7,
+        type: 2}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 21300014, guid: 92766a55f97784ce385c91c786db10e9,
+        type: 3}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: cc4137fd2e5f246d4a420766447b25b7, type: 2}
   m_IsPrefabParent: 0
