@@ -18,12 +18,22 @@ public class MovingPlatform : MonoBehaviour {
 	private bool fin = false;
 	private bool moving = true;
 
+	private LineRenderer lr;
+
 	void Start()
 	{
 		ascending = true;
 
 		movementPath [0] = new Vector3 (0, 0, 0);
 		initLoc = transform.position;
+
+		lr = GetComponent<LineRenderer> ();
+		if (lr != null) {
+			lr.SetVertexCount (movementPath.Length);
+			for (int i = 0; i < movementPath.Length; i++) {
+				lr.SetPosition (i, movementPath [i] + transform.position);
+			}
+		}
 	}
 
 	void Update()
