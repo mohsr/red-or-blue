@@ -147,8 +147,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   movementPath: []
   speed: 2
-  waitAtEndsTime: 2
+  waitAtEndsTime: 3
   oneWay: 0
+  loop: 0
 --- !u!212 &212695600788042928
 SpriteRenderer:
   m_ObjectHideFlags: 1

@@ -8,8 +8,7 @@ public class MovingPlatform : MonoBehaviour {
 	public float speed = 2.0f;
 	public float waitAtEndsTime = 2.0f;
 	public bool oneWay = false;
-
-	private Rigidbody2D rb2d;
+	public bool loop = false;
 
 	private Vector3 initLoc;
 	private Vector3 currLoc;
@@ -21,7 +20,6 @@ public class MovingPlatform : MonoBehaviour {
 
 	void Start()
 	{
-		rb2d = GetComponent<Rigidbody2D> ();
 		ascending = true;
 
 		movementPath [0] = new Vector3 (0, 0, 0);
@@ -30,6 +28,7 @@ public class MovingPlatform : MonoBehaviour {
 
 	void Update()
 	{
+		/* Handle edge cases. */
 		if (movementPath.Length == 0)
 			return;
 		if (oneWay) {
@@ -40,10 +39,18 @@ public class MovingPlatform : MonoBehaviour {
 					fin = true;
 			}
 		}
-
+			
 		currLoc = transform.position;
 
-		if (ascending) {
+		/* Check for loop or shifts in direction. */
+		/* TODO: The following chunk of code isn't great and is not modular.
+		 *       Fix later when I have more time.
+		 */
+		if (loop) {
+			if (currSpot == movementPath.Length - 1) {
+				nextSpot = 0;
+			}
+		} else if (ascending) {
 			if (moving) {
 				if (currSpot == movementPath.Length - 1) {
 					SwitchDirection (false);
@@ -66,11 +73,27 @@ public class MovingPlatform : MonoBehaviour {
 				return;
 			}
 		}
-
+			
+		/* Check if next element in path has been traversed. */
 		if (currLoc == (initLoc + movementPath [nextSpot])) {
 			currSpot = nextSpot;
+		} 
+
+		/* Check for end-of-path for loops and moving to next loop path element. */
+		if (loop) {
+			if (nextSpot == 0) {
+				if (currLoc == initLoc) {
+					currSpot = nextSpot;
+				}
+			}
+			if (nextSpot == currSpot) {
+				nextSpot++;
+				if (nextSpot == movementPath.Length)
+					nextSpot = 0;
+			}
 		}
 
+		/* Perform the move B) */
 		transform.position = Vector2.MoveTowards (currLoc, initLoc + movementPath [nextSpot], speed * Time.deltaTime);
 	}
 
@@ -90,5 +113,24 @@ public class MovingPlatform : MonoBehaviour {
 		moving = false;
 		yield return new WaitForSeconds (waitAtEndsTime);
 		moving = true;
+	}
+
+	/* TODO: Lines currently move in scene view with gameObject.
+	 *       Fix when I have more time.
+	 */
+	void OnDrawGizmos()
+	{
+		int i;
+		Vector3 start, end;
+
+		for (i = 0; i < movementPath.Length - 1; i++) {
+			if (i == 0)
+				start = transform.position;
+			else
+				start = transform.position + movementPath [i];
+			end = transform.position + movementPath [i + 1];
+
+			Gizmos.DrawLine (start, end);
+		}
 	}
 }
