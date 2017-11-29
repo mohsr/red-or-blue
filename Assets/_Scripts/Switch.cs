@@ -5,9 +5,9 @@ using Prime31;
 
 public class Switch : MonoBehaviour {
 
-	public string switcher = "e";
-	public Color32 redBackground = new Color32(180, 114, 114, 1);
-	public Color32 blueBackground = new Color32(129, 198, 221, 1);
+	public string switcher = "switch";
+	public Color32 redBackground = new Color32(218, 104, 104, 1);
+	public Color32 blueBackground = new Color32(3, 179, 238, 1);
 	public float backgroundFadeSpeed = 0.25f;
 	[HideInInspector]
 	public bool red = true;
@@ -20,6 +20,7 @@ public class Switch : MonoBehaviour {
 	private Color32 nextColor;
 	private Camera mainCamera;
 	private PlayerController _playerController;
+	private int last_trigger = 0;
 
 	void Start()
 	{
@@ -41,7 +42,9 @@ public class Switch : MonoBehaviour {
 			_playerController = pl.GetComponent<PlayerController>();
 			return;
 		}
-		if (Input.GetKeyDown(switcher) && _playerController.allowSwitch) {
+
+		Debug.Log (_playerController.allowSwitch);
+		if ((Input.GetButtonDown(switcher) || (last_trigger != 1 && Mathf.Round(Input.GetAxisRaw(switcher)) == 1)) && _playerController.allowSwitch) {
 			_playerController.allowSwitch = false;
 			SwitchColors ();
 		}
@@ -49,6 +52,7 @@ public class Switch : MonoBehaviour {
 		mainCamera.backgroundColor = Color.Lerp (mainCamera.backgroundColor,
 			                                     nextColor,
 			                                     Mathf.PingPong(Time.time, 1 * backgroundFadeSpeed));
+		last_trigger = (int) Mathf.Round (Input.GetAxisRaw (switcher));
 	}
 
 	public void SwitchColors()
