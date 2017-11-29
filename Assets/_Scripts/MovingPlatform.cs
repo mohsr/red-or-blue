@@ -9,6 +9,7 @@ public class MovingPlatform : MonoBehaviour {
 	public float waitAtEndsTime = 2.0f;
 	public bool oneWay = false;
 	public bool loop = false;
+	public bool startOnPlayerTouch = false;
 
 	private Vector3 initLoc;
 	private Vector3 currLoc;
@@ -18,10 +19,10 @@ public class MovingPlatform : MonoBehaviour {
 	private bool fin = false;
 	private bool moving = true;
 
-	private LineRenderer lr;
-
 	void Start()
 	{
+		LineRenderer lr;
+
 		ascending = true;
 
 		movementPath [0] = new Vector3 (0, 0, 0);
@@ -29,7 +30,7 @@ public class MovingPlatform : MonoBehaviour {
 
 		lr = GetComponent<LineRenderer> ();
 		if (lr != null) {
-			lr.SetVertexCount (movementPath.Length);
+			lr.positionCount = movementPath.Length;
 			for (int i = 0; i < movementPath.Length; i++) {
 				lr.SetPosition (i, movementPath [i] + transform.position);
 			}
