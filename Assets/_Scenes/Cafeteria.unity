@@ -31956,6 +31956,31 @@ Prefab:
     - target: {fileID: 114494839995406356, guid: 7ae5876d6386f404787e7390a1b25343,
         type: 2}
       propertyPath: initialRed
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 114494839995406356, guid: 7ae5876d6386f404787e7390a1b25343,
+        type: 2}
+      propertyPath: switcher
+      value: switch
+      objectReference: {fileID: 0}
+    - target: {fileID: 114494839995406356, guid: 7ae5876d6386f404787e7390a1b25343,
+        type: 2}
+      propertyPath: redBackground.rgba
+      value: 23619802
+      objectReference: {fileID: 0}
+    - target: {fileID: 114494839995406356, guid: 7ae5876d6386f404787e7390a1b25343,
+        type: 2}
+      propertyPath: blueBackground.rgba
+      value: 32420611
+      objectReference: {fileID: 0}
+    - target: {fileID: 114494839995406356, guid: 7ae5876d6386f404787e7390a1b25343,
+        type: 2}
+      propertyPath: red
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 114494839995406356, guid: 7ae5876d6386f404787e7390a1b25343,
+        type: 2}
+      propertyPath: blue
       value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
