@@ -18,6 +18,7 @@ public class MovingPlatform : MonoBehaviour {
 	private bool ascending;
 	private bool fin = false;
 	private bool moving = true;
+	private bool playerOn = false;
 
 	void Start()
 	{
@@ -35,10 +36,36 @@ public class MovingPlatform : MonoBehaviour {
 				lr.SetPosition (i, movementPath [i] + transform.position);
 			}
 		}
+
+		if (startOnPlayerTouch) {
+			waitAtEndsTime = 0.0f;
+			oneWay = false;
+			loop = false;
+		}
 	}
 
 	void Update()
 	{
+		if (startOnPlayerTouch)
+			playerOn = (GetComponentInChildren<MovePlayerWith> ().playerOn);
+
+		if (startOnPlayerTouch) {
+			if (!playerOn) {
+				if (currLoc == initLoc) {
+					return;
+				}
+				ascending = false;
+				if (transform.position == initLoc + movementPath [nextSpot]) {
+					nextSpot = currSpot - 1;
+				} else {
+					nextSpot = currSpot;
+				}
+			} else {
+				ascending = true;
+				nextSpot = currSpot + 1;
+			}
+		}
+
 		/* Handle edge cases. */
 		if (movementPath.Length == 0)
 			return;
@@ -52,6 +79,10 @@ public class MovingPlatform : MonoBehaviour {
 		}
 			
 		currLoc = transform.position;
+
+		if (startOnPlayerTouch && !playerOn) {
+			ascending = false;
+		}
 
 		/* Check for loop or shifts in direction. */
 		/* TODO: The following chunk of code isn't great and is not modular.
@@ -74,12 +105,16 @@ public class MovingPlatform : MonoBehaviour {
 			}
 		} else {
 			if (moving) {
-				if (currSpot == 0) {
+				if (currLoc == initLoc) {
 					SwitchDirection (true);
 					StartCoroutine (WaitAtEnd ());
 					return;
 				}
-				nextSpot = currSpot - 1;
+				if (startOnPlayerTouch && !playerOn) {
+					nextSpot = currSpot;
+				} else {
+					nextSpot = currSpot - 1;
+				}
 			} else {
 				return;
 			}

@@ -489,6 +489,7 @@ MonoBehaviour:
   waitAtEndsTime: 0
   oneWay: 0
   loop: 0
+  startOnPlayerTouch: 0
 --- !u!120 &72174945
 LineRenderer:
   m_ObjectHideFlags: 0
@@ -711,6 +712,108 @@ Prefab:
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: ea467213056174b97ad00dd21e241ea6, type: 2}
   m_IsPrefabParent: 0
+--- !u!1001 &118496164
+Prefab:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 114050222522249276, guid: d4458adf525334b30a3016aff2c79822,
+        type: 2}
+      propertyPath: movementPath.Array.size
+      value: 6
+      objectReference: {fileID: 0}
+    - target: {fileID: 4999942046721198, guid: d4458adf525334b30a3016aff2c79822, type: 2}
+      propertyPath: m_LocalPosition.x
+      value: 14
+      objectReference: {fileID: 0}
+    - target: {fileID: 4999942046721198, guid: d4458adf525334b30a3016aff2c79822, type: 2}
+      propertyPath: m_LocalPosition.y
+      value: 37.87
+      objectReference: {fileID: 0}
+    - target: {fileID: 4999942046721198, guid: d4458adf525334b30a3016aff2c79822, type: 2}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4999942046721198, guid: d4458adf525334b30a3016aff2c79822, type: 2}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4999942046721198, guid: d4458adf525334b30a3016aff2c79822, type: 2}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4999942046721198, guid: d4458adf525334b30a3016aff2c79822, type: 2}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4999942046721198, guid: d4458adf525334b30a3016aff2c79822, type: 2}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4999942046721198, guid: d4458adf525334b30a3016aff2c79822, type: 2}
+      propertyPath: m_RootOrder
+      value: 146
+      objectReference: {fileID: 0}
+    - target: {fileID: 114050222522249276, guid: d4458adf525334b30a3016aff2c79822,
+        type: 2}
+      propertyPath: movementPath.Array.data[1].x
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 114050222522249276, guid: d4458adf525334b30a3016aff2c79822,
+        type: 2}
+      propertyPath: movementPath.Array.data[1].y
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 114050222522249276, guid: d4458adf525334b30a3016aff2c79822,
+        type: 2}
+      propertyPath: movementPath.Array.data[2].x
+      value: 6
+      objectReference: {fileID: 0}
+    - target: {fileID: 114050222522249276, guid: d4458adf525334b30a3016aff2c79822,
+        type: 2}
+      propertyPath: movementPath.Array.data[3].x
+      value: 9
+      objectReference: {fileID: 0}
+    - target: {fileID: 114050222522249276, guid: d4458adf525334b30a3016aff2c79822,
+        type: 2}
+      propertyPath: movementPath.Array.data[3].y
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 114050222522249276, guid: d4458adf525334b30a3016aff2c79822,
+        type: 2}
+      propertyPath: movementPath.Array.data[4].x
+      value: 12
+      objectReference: {fileID: 0}
+    - target: {fileID: 114050222522249276, guid: d4458adf525334b30a3016aff2c79822,
+        type: 2}
+      propertyPath: movementPath.Array.data[5].x
+      value: 15
+      objectReference: {fileID: 0}
+    - target: {fileID: 114050222522249276, guid: d4458adf525334b30a3016aff2c79822,
+        type: 2}
+      propertyPath: movementPath.Array.data[5].y
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 114050222522249276, guid: d4458adf525334b30a3016aff2c79822,
+        type: 2}
+      propertyPath: loop
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 114050222522249276, guid: d4458adf525334b30a3016aff2c79822,
+        type: 2}
+      propertyPath: startOnPlayerTouch
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 120908081981637312, guid: d4458adf525334b30a3016aff2c79822,
+        type: 2}
+      propertyPath: m_Loop
+      value: 0
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_ParentPrefab: {fileID: 100100000, guid: d4458adf525334b30a3016aff2c79822, type: 2}
+  m_IsPrefabParent: 0
 --- !u!1 &122331229 stripped
 GameObject:
   m_PrefabParentObject: {fileID: 1947723207091418, guid: 85861a2dc8a754babaa430df4e05a105,
@@ -734,6 +837,7 @@ MonoBehaviour:
   waitAtEndsTime: 0
   oneWay: 0
   loop: 0
+  startOnPlayerTouch: 0
 --- !u!120 &122331231
 LineRenderer:
   m_ObjectHideFlags: 0
@@ -1756,6 +1860,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: da6b8cf2f402748378ed0ac08143da1e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  playerOn: 0
 --- !u!61 &340796485
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -2187,6 +2292,7 @@ MonoBehaviour:
   waitAtEndsTime: 3
   oneWay: 0
   loop: 0
+  startOnPlayerTouch: 0
 --- !u!120 &429692016
 LineRenderer:
   m_ObjectHideFlags: 0
@@ -3344,6 +3450,7 @@ MonoBehaviour:
   waitAtEndsTime: 0
   oneWay: 0
   loop: 0
+  startOnPlayerTouch: 0
 --- !u!120 &648066807
 LineRenderer:
   m_ObjectHideFlags: 0
@@ -3551,6 +3658,7 @@ MonoBehaviour:
   waitAtEndsTime: 0
   oneWay: 0
   loop: 0
+  startOnPlayerTouch: 0
 --- !u!120 &713891317
 LineRenderer:
   m_ObjectHideFlags: 0
@@ -59565,6 +59673,60 @@ Tilemap:
       m_ObjectToInstantiate: {fileID: 0}
       m_TileFlags: 1
       m_ColliderType: 1
+  - first: {x: 8, y: 38, z: 0}
+    second:
+      m_TileIndex: 13
+      m_TileSpriteIndex: 5
+      m_TileMatrixIndex: 0
+      m_TileColorIndex: 0
+      m_ObjectToInstantiate: {fileID: 0}
+      m_TileFlags: 1
+      m_ColliderType: 1
+  - first: {x: 9, y: 38, z: 0}
+    second:
+      m_TileIndex: 13
+      m_TileSpriteIndex: 5
+      m_TileMatrixIndex: 0
+      m_TileColorIndex: 0
+      m_ObjectToInstantiate: {fileID: 0}
+      m_TileFlags: 1
+      m_ColliderType: 1
+  - first: {x: 7, y: 39, z: 0}
+    second:
+      m_TileIndex: 10
+      m_TileSpriteIndex: 10
+      m_TileMatrixIndex: 0
+      m_TileColorIndex: 0
+      m_ObjectToInstantiate: {fileID: 0}
+      m_TileFlags: 1
+      m_ColliderType: 1
+  - first: {x: 8, y: 39, z: 0}
+    second:
+      m_TileIndex: 10
+      m_TileSpriteIndex: 10
+      m_TileMatrixIndex: 0
+      m_TileColorIndex: 0
+      m_ObjectToInstantiate: {fileID: 0}
+      m_TileFlags: 1
+      m_ColliderType: 1
+  - first: {x: 9, y: 39, z: 0}
+    second:
+      m_TileIndex: 10
+      m_TileSpriteIndex: 10
+      m_TileMatrixIndex: 0
+      m_TileColorIndex: 0
+      m_ObjectToInstantiate: {fileID: 0}
+      m_TileFlags: 1
+      m_ColliderType: 1
+  - first: {x: 10, y: 39, z: 0}
+    second:
+      m_TileIndex: 10
+      m_TileSpriteIndex: 10
+      m_TileMatrixIndex: 0
+      m_TileColorIndex: 0
+      m_ObjectToInstantiate: {fileID: 0}
+      m_TileFlags: 1
+      m_ColliderType: 1
   m_AnimatedTiles: {}
   m_TileAssetArray:
   - m_RefCount: 48
@@ -59587,13 +59749,13 @@ Tilemap:
     m_Data: {fileID: 11400000, guid: 0b23cd528189f4e45abb932ac5ebaadb, type: 2}
   - m_RefCount: 34
     m_Data: {fileID: 11400000, guid: b3aed338abfed44d198cd18893b27c52, type: 2}
-  - m_RefCount: 16
+  - m_RefCount: 20
     m_Data: {fileID: 11400000, guid: e031f635c4e61464ab0df9d9a83b65fe, type: 2}
   - m_RefCount: 1
     m_Data: {fileID: 11400000, guid: 8f2a9e482e16145a095a5167fcea6efe, type: 2}
   - m_RefCount: 45
     m_Data: {fileID: 11400000, guid: db0c16e89d0eb4f5d980499e2c1a199c, type: 2}
-  - m_RefCount: 22
+  - m_RefCount: 24
     m_Data: {fileID: 11400000, guid: 813a9c4c611a24472bf85c77480b23d7, type: 2}
   m_TileSpriteArray:
   - m_RefCount: 48
@@ -59606,7 +59768,7 @@ Tilemap:
     m_Data: {fileID: 0}
   - m_RefCount: 0
     m_Data: {fileID: 0}
-  - m_RefCount: 22
+  - m_RefCount: 24
     m_Data: {fileID: 21300040, guid: b30a302fe4d81493087462afd13695b2, type: 3}
   - m_RefCount: 45
     m_Data: {fileID: 21300058, guid: c7f9a3d437a0d4adb941aa4f6e5555c2, type: 3}
@@ -59616,10 +59778,10 @@ Tilemap:
     m_Data: {fileID: 21300068, guid: b30a302fe4d81493087462afd13695b2, type: 3}
   - m_RefCount: 2562
     m_Data: {fileID: 21300014, guid: b30a302fe4d81493087462afd13695b2, type: 3}
-  - m_RefCount: 16
+  - m_RefCount: 20
     m_Data: {fileID: 21300018, guid: b30a302fe4d81493087462afd13695b2, type: 3}
   m_TileMatrixArray:
-  - m_RefCount: 2964
+  - m_RefCount: 2970
     m_Data:
       e00: 1
       e01: 0
@@ -59638,12 +59800,12 @@ Tilemap:
       e32: 0
       e33: 1
   m_TileColorArray:
-  - m_RefCount: 2964
+  - m_RefCount: 2970
     m_Data: {r: 1, g: 1, b: 1, a: 1}
   m_AnimationFrameRate: 1
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_Origin: {x: -36, y: -18, z: 0}
-  m_Size: {x: 97, y: 57, z: 1}
+  m_Size: {x: 97, y: 58, z: 1}
   m_TileAnchor: {x: 0.5, y: 0.5, z: 0}
   m_TileOrientation: 0
   m_TileOrientationMatrix:
@@ -59807,6 +59969,7 @@ MonoBehaviour:
   waitAtEndsTime: 3
   oneWay: 0
   loop: 0
+  startOnPlayerTouch: 0
 --- !u!120 &1519928822
 LineRenderer:
   m_ObjectHideFlags: 0
@@ -59923,6 +60086,7 @@ MonoBehaviour:
   waitAtEndsTime: 0
   oneWay: 0
   loop: 0
+  startOnPlayerTouch: 0
 --- !u!120 &1541625952
 LineRenderer:
   m_ObjectHideFlags: 0
@@ -60382,6 +60546,7 @@ MonoBehaviour:
   waitAtEndsTime: 0
   oneWay: 0
   loop: 0
+  startOnPlayerTouch: 0
 --- !u!120 &1673256443
 LineRenderer:
   m_ObjectHideFlags: 0
@@ -60764,6 +60929,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: da6b8cf2f402748378ed0ac08143da1e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  playerOn: 0
 --- !u!61 &1732654543
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -62231,6 +62397,7 @@ MonoBehaviour:
   waitAtEndsTime: 0
   oneWay: 0
   loop: 0
+  startOnPlayerTouch: 0
 --- !u!120 &2080097241
 LineRenderer:
   m_ObjectHideFlags: 0
@@ -62660,6 +62827,7 @@ MonoBehaviour:
   waitAtEndsTime: 0
   oneWay: 0
   loop: 0
+  startOnPlayerTouch: 0
 --- !u!120 &2102011007
 LineRenderer:
   m_ObjectHideFlags: 0
@@ -62880,11 +63048,11 @@ Prefab:
     m_Modifications:
     - target: {fileID: 4595807250168196, guid: de4367565dddb4b5abc33eb543234a09, type: 2}
       propertyPath: m_LocalPosition.x
-      value: -4.8
+      value: 9.23
       objectReference: {fileID: 0}
     - target: {fileID: 4595807250168196, guid: de4367565dddb4b5abc33eb543234a09, type: 2}
       propertyPath: m_LocalPosition.y
-      value: 36.4
+      value: 41.84
       objectReference: {fileID: 0}
     - target: {fileID: 4595807250168196, guid: de4367565dddb4b5abc33eb543234a09, type: 2}
       propertyPath: m_LocalPosition.z

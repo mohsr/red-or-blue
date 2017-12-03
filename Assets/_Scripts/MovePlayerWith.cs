@@ -4,6 +4,9 @@ using UnityEngine;
 
 public class MovePlayerWith : MonoBehaviour {
 
+	[HideInInspector]
+	public bool playerOn = false;
+
 	private Transform otherInitParent;
 
 	void OnTriggerEnter2D(Collider2D other)
@@ -12,6 +15,7 @@ public class MovePlayerWith : MonoBehaviour {
 			return;
 
 		otherInitParent = other.transform.parent;
+		playerOn = true;
 		
 		if (other.GetComponent<Rigidbody2D> () != null)
 			other.transform.parent = gameObject.transform;
@@ -23,5 +27,6 @@ public class MovePlayerWith : MonoBehaviour {
 			return;
 		
 		other.transform.parent = otherInitParent;
+		playerOn = false;
 	}
 }
