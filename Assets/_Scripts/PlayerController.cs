@@ -19,6 +19,8 @@ public class PlayerController : MonoBehaviour {
 	public float wallJumpHandicap = 0.25f;
 	public float wallsSlideModifier = 1.4f;
 	public bool allowSwitch = true;
+	[HideInInspector]
+	public int checkPointNum = -1;
 
 	private float jump_buffer_counter = 0;
 	private float postWallJumpDelayBuffer_counter = 0;
