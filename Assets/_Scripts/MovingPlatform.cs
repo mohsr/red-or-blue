@@ -9,6 +9,7 @@ public class MovingPlatform : MonoBehaviour {
 	public float waitAtEndsTime = 2.0f;
 	public bool oneWay = false;
 	public bool loop = false;
+	public bool startOnPlayerTouch = false;
 
 	private Vector3 initLoc;
 	private Vector3 currLoc;
@@ -17,17 +18,37 @@ public class MovingPlatform : MonoBehaviour {
 	private bool ascending;
 	private bool fin = false;
 	private bool moving = true;
+	private bool playerOn = false;
 
 	void Start()
 	{
+		LineRenderer lr;
+
 		ascending = true;
 
 		movementPath [0] = new Vector3 (0, 0, 0);
 		initLoc = transform.position;
+
+		lr = GetComponent<LineRenderer> ();
+		if (lr != null) {
+			lr.loop = loop;
+
+			lr.positionCount = movementPath.Length;
+			for (int i = 0; i < movementPath.Length; i++) {
+				lr.SetPosition (i, movementPath [i] + transform.position);
+			}
+		}
 	}
 
 	void Update()
 	{
+		currLoc = transform.position;
+
+//		if (startOnPlayerTouch) {
+//			PlayerOnMovement ();
+//			return;
+//		}
+
 		/* Handle edge cases. */
 		if (movementPath.Length == 0)
 			return;
@@ -39,8 +60,6 @@ public class MovingPlatform : MonoBehaviour {
 					fin = true;
 			}
 		}
-			
-		currLoc = transform.position;
 
 		/* Check for loop or shifts in direction. */
 		/* TODO: The following chunk of code isn't great and is not modular.
@@ -94,6 +113,59 @@ public class MovingPlatform : MonoBehaviour {
 		}
 
 		/* Perform the move B) */
+		transform.position = Vector2.MoveTowards (currLoc, initLoc + movementPath [nextSpot], speed * Time.deltaTime);
+	}
+
+	void PlayerOnMovement()
+	{
+		bool changed = false;
+		bool ascend;
+
+		/* Check if player is on. */
+		playerOn = GetComponentInChildren<MovePlayerWith> ().playerOn;
+
+		if (!playerOn) {
+			ascend = true;
+
+			/* Stop if at start. */
+			if (currLoc == initLoc) {
+				return;
+			}
+			/* Move back along the path. */
+			if (currLoc == initLoc + movementPath [currSpot]) {
+				nextSpot = currSpot - 1;
+				changed = true;
+			}
+			if (currLoc == initLoc + movementPath [nextSpot]) {
+				currSpot = nextSpot;
+				nextSpot = currSpot - 1;
+				changed = true;
+			}
+
+			if (!changed) {
+				nextSpot = currSpot - 1;
+				if (nextSpot < 0)
+					nextSpot = 0;
+			}
+		} else {
+			ascend = false;
+
+			if (currLoc == initLoc + movementPath [movementPath.Length - 1]) {
+				return;
+			}
+			if (currLoc == initLoc + movementPath [nextSpot]) {
+				currSpot = nextSpot;
+				nextSpot++;
+				changed = true;
+			}
+
+			if (!changed) {
+				nextSpot = currSpot + 1;
+				if (nextSpot >= movementPath.Length)
+					nextSpot = movementPath.Length - 1;
+			}
+		}
+
 		transform.position = Vector2.MoveTowards (currLoc, initLoc + movementPath [nextSpot], speed * Time.deltaTime);
 	}
 

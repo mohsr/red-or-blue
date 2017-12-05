@@ -73,8 +73,13 @@ public class EnemyController : MonoBehaviour {
 
         stomped = false;
 
-        Physics2D.IgnoreCollision(gameObject.GetComponent<Collider2D>(), GameObject.FindGameObjectWithTag("Ground").GetComponent<Collider2D>());
         Physics2D.IgnoreCollision(gameObject.GetComponent<Collider2D>(), GameObject.FindGameObjectWithTag("Player").GetComponent<Collider2D>());
+
+        GameObject[] grounds = GameObject.FindGameObjectsWithTag("Ground");
+        foreach (GameObject ground in grounds)
+        {
+            Physics2D.IgnoreCollision(gameObject.GetComponent<Collider2D>(), ground.GetComponent<Collider2D>());
+        }
 
         falling = true;
         Vector2 newVelocity = myBody.velocity;
