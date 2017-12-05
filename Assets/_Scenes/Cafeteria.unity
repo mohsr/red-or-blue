@@ -630,7 +630,7 @@ Prefab:
     - target: {fileID: 114050222522249276, guid: d4458adf525334b30a3016aff2c79822,
         type: 2}
       propertyPath: movementPath.Array.size
-      value: 3
+      value: 4
       objectReference: {fileID: 0}
     - target: {fileID: 4999942046721198, guid: d4458adf525334b30a3016aff2c79822, type: 2}
       propertyPath: m_LocalPosition.x
@@ -671,32 +671,32 @@ Prefab:
     - target: {fileID: 114050222522249276, guid: d4458adf525334b30a3016aff2c79822,
         type: 2}
       propertyPath: movementPath.Array.data[1].x
-      value: 6
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 114050222522249276, guid: d4458adf525334b30a3016aff2c79822,
         type: 2}
       propertyPath: movementPath.Array.data[1].y
-      value: -6
-      objectReference: {fileID: 0}
-    - target: {fileID: 114050222522249276, guid: d4458adf525334b30a3016aff2c79822,
-        type: 2}
-      propertyPath: movementPath.Array.data[2].x
-      value: 9
-      objectReference: {fileID: 0}
-    - target: {fileID: 114050222522249276, guid: d4458adf525334b30a3016aff2c79822,
-        type: 2}
-      propertyPath: movementPath.Array.data[2].y
       value: -3
       objectReference: {fileID: 0}
     - target: {fileID: 114050222522249276, guid: d4458adf525334b30a3016aff2c79822,
         type: 2}
-      propertyPath: movementPath.Array.data[3].x
+      propertyPath: movementPath.Array.data[2].x
       value: 6
       objectReference: {fileID: 0}
     - target: {fileID: 114050222522249276, guid: d4458adf525334b30a3016aff2c79822,
         type: 2}
+      propertyPath: movementPath.Array.data[2].y
+      value: -6
+      objectReference: {fileID: 0}
+    - target: {fileID: 114050222522249276, guid: d4458adf525334b30a3016aff2c79822,
+        type: 2}
+      propertyPath: movementPath.Array.data[3].x
+      value: 9
+      objectReference: {fileID: 0}
+    - target: {fileID: 114050222522249276, guid: d4458adf525334b30a3016aff2c79822,
+        type: 2}
       propertyPath: movementPath.Array.data[3].y
-      value: -9
+      value: -3
       objectReference: {fileID: 0}
     - target: {fileID: 114050222522249276, guid: d4458adf525334b30a3016aff2c79822,
         type: 2}
