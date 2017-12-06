@@ -83,7 +83,7 @@ public class PlayerController : MonoBehaviour {
         health--;
 		if (health <= 0) {
 			Debug.Log ("dead");
-			GetComponent<PlayerDie> ().Die ();
+			GetComponent<PlayerDie>().Die();
 		}
         else
         {

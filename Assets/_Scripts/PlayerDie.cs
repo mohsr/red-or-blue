@@ -14,20 +14,25 @@ public class PlayerDie : MonoBehaviour {
 
 	private GameObject rc;
 	private RespawnCoordinator rc_comp;
+    private bool dead = false;
 
 	public void Hurt()
 	{
-		Die ();
+		Die();
 	}
 
 	public void Die()
 	{
-		rc = Instantiate (respawnCoordinator, new Vector3(0, 0, 0), Quaternion.identity);
-		rc_comp = rc.GetComponent<RespawnCoordinator>();
+        if (!dead)
+        {
+            dead = true;
+            rc = Instantiate(respawnCoordinator, new Vector3(0, 0, 0), Quaternion.identity);
+            rc_comp = rc.GetComponent<RespawnCoordinator>();
 
-		PassVals ();
+            PassVals();
 
-		Destroy (gameObject);
+            Destroy(gameObject);
+        }
 	}
 
 	private void Start()
