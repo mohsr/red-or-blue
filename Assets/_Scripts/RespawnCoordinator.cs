@@ -12,7 +12,7 @@ public class RespawnCoordinator : MonoBehaviour {
 
 	void Awake()
 	{
-		StartCoroutine(WaitToSpawnPlayer ());
+		StartCoroutine(WaitToSpawnPlayer());
 	}
 
 	private IEnumerator WaitToSpawnPlayer()

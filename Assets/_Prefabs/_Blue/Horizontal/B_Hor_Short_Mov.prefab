@@ -148,6 +148,7 @@ MonoBehaviour:
   waitAtEndsTime: 0
   oneWay: 0
   loop: 1
+  startOnPlayerTouch: 0
 --- !u!114 &114961311770340140
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -159,6 +160,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: da6b8cf2f402748378ed0ac08143da1e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  playerOn: 0
 --- !u!120 &120729957828707130
 LineRenderer:
   m_ObjectHideFlags: 1
@@ -192,7 +194,7 @@ LineRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 0
+  m_SortingOrder: -5
   m_Positions:
   - {x: 0, y: 0, z: 0}
   - {x: 0, y: 0, z: 0}
