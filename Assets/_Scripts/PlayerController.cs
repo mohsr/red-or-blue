@@ -282,8 +282,15 @@ public class PlayerController : MonoBehaviour {
 
 		_velocity.y += grav * Time.deltaTime;
 
-		if (isWallSliding)
+		if (isWallSliding) {
+			_animator.SetBool ("Sliding", true);
+			_animator.SetBool ("Idle", false);
+			_animator.SetBool ("Jumping", false);
+			_animator.SetBool ("Walking", false);
 			_velocity.y /= wallsSlideModifier;
+		} else {
+			_animator.SetBool ("Sliding", false);
+		}
 
         _controller.move(_velocity * Time.deltaTime);
 
