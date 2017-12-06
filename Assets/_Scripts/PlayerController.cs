@@ -56,6 +56,8 @@ public class PlayerController : MonoBehaviour {
 		_controller.onControllerCollidedEvent += onControllerCollider;
 		_controller.onTriggerEnterEvent += onTriggerEnterEvent;
 		_controller.onTriggerExitEvent += onTriggerExitEvent;
+
+        gameObject.GetComponent<SpriteRenderer>().sortingLayerName = "Player";
     }
 
 	#region Event Listeners

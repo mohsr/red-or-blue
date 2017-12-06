@@ -18,14 +18,15 @@ public class EnemySwitchReceiver : MonoBehaviour {
 		mov = GetComponent<EnemyController> ();
 	}
 
-	public void SwitchEnemy(bool value)
+	public void SwitchEnemy(bool active)
 	{
-		on = value;
-		anim.SetBool (offAnimParameter, !value);
-		if (!value) {
+		on = active;
+		anim.SetBool (offAnimParameter, !active);
+		if (!active) {
 			anim.SetBool ("Idle", false);
 			anim.SetBool ("Walking", false);
-		}
-		mov.embarrassed = !value;
-	}
+        }
+		mov.embarrassed = !active;
+        Physics2D.IgnoreCollision(gameObject.GetComponent<Collider2D>(), GameObject.FindGameObjectWithTag("Player").GetComponent<Collider2D>(), !active);
+    }
 }

@@ -138216,10 +138216,6 @@ Prefab:
       propertyPath: m_Name
       value: Table_ShortLeg (1)
       objectReference: {fileID: 0}
-    - target: {fileID: 4778687362008854, guid: 7698d5befe0374647a0169ef76c2a2bb, type: 2}
-      propertyPath: m_LocalScale.y
-      value: 2
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 7698d5befe0374647a0169ef76c2a2bb, type: 2}
   m_IsPrefabParent: 0

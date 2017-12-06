@@ -36,6 +36,7 @@ public class EnemyController : MonoBehaviour {
         myBody = GetComponent<Rigidbody2D>();
         myTrans = transform;
         myWidth = GetComponent<SpriteRenderer>().bounds.extents.x;
+        gameObject.GetComponent<SpriteRenderer>().sortingLayerName = "Enemy";
     }
 
     private void FixedUpdate()
