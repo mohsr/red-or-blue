@@ -21399,11 +21399,11 @@ Prefab:
     m_Modifications:
     - target: {fileID: 4207399881208638, guid: 18e4c7872996d49faa4edc0019dc8447, type: 2}
       propertyPath: m_LocalPosition.x
-      value: -55
+      value: -54.8
       objectReference: {fileID: 0}
     - target: {fileID: 4207399881208638, guid: 18e4c7872996d49faa4edc0019dc8447, type: 2}
       propertyPath: m_LocalPosition.y
-      value: -4
+      value: -2.1
       objectReference: {fileID: 0}
     - target: {fileID: 4207399881208638, guid: 18e4c7872996d49faa4edc0019dc8447, type: 2}
       propertyPath: m_LocalPosition.z
@@ -21428,6 +21428,41 @@ Prefab:
     - target: {fileID: 4207399881208638, guid: 18e4c7872996d49faa4edc0019dc8447, type: 2}
       propertyPath: m_RootOrder
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 114126967470157150, guid: 18e4c7872996d49faa4edc0019dc8447,
+        type: 2}
+      propertyPath: bounds
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 114126967470157150, guid: 18e4c7872996d49faa4edc0019dc8447,
+        type: 2}
+      propertyPath: minCameraPosition.x
+      value: -56.9
+      objectReference: {fileID: 0}
+    - target: {fileID: 114126967470157150, guid: 18e4c7872996d49faa4edc0019dc8447,
+        type: 2}
+      propertyPath: minCameraPosition.y
+      value: -4
+      objectReference: {fileID: 0}
+    - target: {fileID: 114126967470157150, guid: 18e4c7872996d49faa4edc0019dc8447,
+        type: 2}
+      propertyPath: maxCameraPosition.x
+      value: 110.56
+      objectReference: {fileID: 0}
+    - target: {fileID: 114126967470157150, guid: 18e4c7872996d49faa4edc0019dc8447,
+        type: 2}
+      propertyPath: maxCameraPosition.y
+      value: 7.96
+      objectReference: {fileID: 0}
+    - target: {fileID: 114126967470157150, guid: 18e4c7872996d49faa4edc0019dc8447,
+        type: 2}
+      propertyPath: minCameraPosition.z
+      value: -500
+      objectReference: {fileID: 0}
+    - target: {fileID: 114126967470157150, guid: 18e4c7872996d49faa4edc0019dc8447,
+        type: 2}
+      propertyPath: maxCameraPosition.z
+      value: 500
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 18e4c7872996d49faa4edc0019dc8447, type: 2}
