@@ -12,6 +12,10 @@ public class CameraFollow : MonoBehaviour {
 	public float lookSmoothTimeX;
 	public float verticalSmoothTime;
 	public Vector2 focusAreaSize = new Vector2(3.0f, 4.0f);
+	public bool bounds;
+	public Vector3 minCameraPosition;
+	public Vector3 maxCameraPosition;
+
 
 	FocusArea focusArea;
 
@@ -61,6 +65,10 @@ public class CameraFollow : MonoBehaviour {
 		focusPosition.y = Mathf.SmoothDamp (transform.position.y, focusPosition.y, ref smoothVelocityY, verticalSmoothTime);
 		focusPosition += Vector2.right * currentLookAheadX;
 		transform.position = (Vector3)focusPosition + Vector3.forward * -10;
+
+		if (bounds) {
+			transform.position = new Vector3 (Mathf.Clamp (transform.position.x, minCameraPosition.x, maxCameraPosition.x), Mathf.Clamp (transform.position.y, minCameraPosition.y, maxCameraPosition.y), Mathf.Clamp (transform.position.z, minCameraPosition.z, maxCameraPosition.z));
+		}
 	}
 
 	void OnDrawGizmos() {
