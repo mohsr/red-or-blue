@@ -11,3 +11,6 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/_Scenes/Cafeteria.unity
     guid: 9ceb0bbc12ba5479a8faf0d3081c03fa
+  - enabled: 1
+    path: Assets/_Scenes/Bathroom.unity
+    guid: 115f364bc0823440490a94dca3fe3ffa
