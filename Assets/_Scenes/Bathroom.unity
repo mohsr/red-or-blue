@@ -689,6 +689,48 @@ Transform:
   m_Father: {fileID: 1908490645}
   m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1001 &197984601
+Prefab:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 4822501272689040, guid: ec75e55bf08d64b8e9a1d4d731781ea1, type: 2}
+      propertyPath: m_LocalPosition.x
+      value: -30
+      objectReference: {fileID: 0}
+    - target: {fileID: 4822501272689040, guid: ec75e55bf08d64b8e9a1d4d731781ea1, type: 2}
+      propertyPath: m_LocalPosition.y
+      value: 12.65
+      objectReference: {fileID: 0}
+    - target: {fileID: 4822501272689040, guid: ec75e55bf08d64b8e9a1d4d731781ea1, type: 2}
+      propertyPath: m_LocalPosition.z
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 4822501272689040, guid: ec75e55bf08d64b8e9a1d4d731781ea1, type: 2}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4822501272689040, guid: ec75e55bf08d64b8e9a1d4d731781ea1, type: 2}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4822501272689040, guid: ec75e55bf08d64b8e9a1d4d731781ea1, type: 2}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4822501272689040, guid: ec75e55bf08d64b8e9a1d4d731781ea1, type: 2}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4822501272689040, guid: ec75e55bf08d64b8e9a1d4d731781ea1, type: 2}
+      propertyPath: m_RootOrder
+      value: 9
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_ParentPrefab: {fileID: 100100000, guid: ec75e55bf08d64b8e9a1d4d731781ea1, type: 2}
+  m_IsPrefabParent: 0
 --- !u!1 &241210675
 GameObject:
   m_ObjectHideFlags: 0
@@ -8849,6 +8891,9 @@ MonoBehaviour:
   lookSmoothTimeX: 0
   verticalSmoothTime: 0
   focusAreaSize: {x: 3, y: 4}
+  bounds: 0
+  minCameraPosition: {x: 0, y: 0, z: 0}
+  maxCameraPosition: {x: 0, y: 0, z: 0}
 --- !u!1 &1995730367
 GameObject:
   m_ObjectHideFlags: 0
