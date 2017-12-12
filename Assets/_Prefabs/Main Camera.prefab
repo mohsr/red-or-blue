@@ -22,7 +22,7 @@ GameObject:
   - component: {fileID: 20066457255089800}
   - component: {fileID: 124055204426676494}
   - component: {fileID: 81403699546421156}
-  - component: {fileID: 114126967470157150}
+  - component: {fileID: 114729404446135530}
   m_Layer: 0
   m_Name: Main Camera
   m_TagString: MainCamera
@@ -37,7 +37,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1236087745563224}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -54.8, y: -2.1, z: -20}
+  m_LocalPosition: {x: 111.8, y: 11.93, z: -20}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
@@ -73,7 +73,7 @@ Camera:
   m_TargetDisplay: 0
   m_TargetEye: 3
   m_HDR: 1
-  m_AllowMSAA: 1
+  m_AllowMSAA: 0
   m_ForceIntoRT: 0
   m_OcclusionCulling: 1
   m_StereoConvergence: 10
@@ -85,7 +85,7 @@ AudioListener:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1236087745563224}
   m_Enabled: 1
---- !u!114 &114126967470157150
+--- !u!114 &114729404446135530
 MonoBehaviour:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
@@ -97,14 +97,14 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   target: {fileID: 0}
-  verticalOffset: -2
+  verticalOffset: 0
   lookAheadDstX: 0
-  lookSmoothTimeX: 2
+  lookSmoothTimeX: 0
   verticalSmoothTime: 0
-  focusAreaSize: {x: 2, y: 4}
+  focusAreaSize: {x: 3, y: 4}
   bounds: 1
-  minCameraPosition: {x: -56.9, y: -4, z: -500}
-  maxCameraPosition: {x: 110.56, y: 7.96, z: 500}
+  minCameraPosition: {x: -57, y: -3.9, z: -500}
+  maxCameraPosition: {x: 111.8, y: 11.93, z: 500}
 --- !u!124 &124055204426676494
 Behaviour:
   m_ObjectHideFlags: 1
