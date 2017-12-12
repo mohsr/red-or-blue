@@ -364,7 +364,7 @@ Prefab:
       value: 3
       objectReference: {fileID: 0}
     m_RemovedComponents:
-    - {fileID: 114028622090764322, guid: 907999f32223343159889898e6dad482, type: 2}
+    - {fileID: 114105794169230154, guid: 907999f32223343159889898e6dad482, type: 2}
   m_ParentPrefab: {fileID: 100100000, guid: 907999f32223343159889898e6dad482, type: 2}
   m_IsPrefabParent: 0
 --- !u!1 &765707104
@@ -687,26 +687,6 @@ SpriteRenderer:
   m_SpriteTileMode: 0
   m_WasSpriteAssigned: 0
   m_MaskInteraction: 0
---- !u!1 &1359735241 stripped
-GameObject:
-  m_PrefabParentObject: {fileID: 1285983965624108, guid: 907999f32223343159889898e6dad482,
-    type: 2}
-  m_PrefabInternal: {fileID: 709910242}
---- !u!114 &1359735242
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 1359735241}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 1c98bac30b44d4704b5a5121ceb67c8a, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  selectorOffsetToExit: {x: 0, y: -264, z: 0}
-  switcher: switch
-  firstLevelName: Bathroom
-  selectorName: SelectorArrow
 --- !u!1 &1591570493
 GameObject:
   m_ObjectHideFlags: 0

@@ -20,6 +20,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4185488851304936}
   - component: {fileID: 114105794169230154}
+  - component: {fileID: 114152733467129484}
   m_Layer: 0
   m_Name: GameStarter
   m_TagString: GameStarter
@@ -41,6 +42,21 @@ Transform:
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &114105794169230154
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1285983965624108}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1c98bac30b44d4704b5a5121ceb67c8a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  selectorOffsetToExit: {x: 0, y: -264, z: 0}
+  switcher: switch
+  firstLevelName: Bathroom
+  selectorName: SelectorArrow
+--- !u!114 &114152733467129484
 MonoBehaviour:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
