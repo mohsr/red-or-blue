@@ -21429,41 +21429,6 @@ Prefab:
       propertyPath: m_RootOrder
       value: 1
       objectReference: {fileID: 0}
-    - target: {fileID: 114126967470157150, guid: 18e4c7872996d49faa4edc0019dc8447,
-        type: 2}
-      propertyPath: bounds
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 114126967470157150, guid: 18e4c7872996d49faa4edc0019dc8447,
-        type: 2}
-      propertyPath: minCameraPosition.x
-      value: -56.9
-      objectReference: {fileID: 0}
-    - target: {fileID: 114126967470157150, guid: 18e4c7872996d49faa4edc0019dc8447,
-        type: 2}
-      propertyPath: minCameraPosition.y
-      value: -4
-      objectReference: {fileID: 0}
-    - target: {fileID: 114126967470157150, guid: 18e4c7872996d49faa4edc0019dc8447,
-        type: 2}
-      propertyPath: maxCameraPosition.x
-      value: 110.56
-      objectReference: {fileID: 0}
-    - target: {fileID: 114126967470157150, guid: 18e4c7872996d49faa4edc0019dc8447,
-        type: 2}
-      propertyPath: maxCameraPosition.y
-      value: 7.96
-      objectReference: {fileID: 0}
-    - target: {fileID: 114126967470157150, guid: 18e4c7872996d49faa4edc0019dc8447,
-        type: 2}
-      propertyPath: minCameraPosition.z
-      value: -500
-      objectReference: {fileID: 0}
-    - target: {fileID: 114126967470157150, guid: 18e4c7872996d49faa4edc0019dc8447,
-        type: 2}
-      propertyPath: maxCameraPosition.z
-      value: 500
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 18e4c7872996d49faa4edc0019dc8447, type: 2}
   m_IsPrefabParent: 0
