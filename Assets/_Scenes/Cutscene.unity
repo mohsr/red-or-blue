@@ -193,6 +193,11 @@ Prefab:
       propertyPath: m_RootOrder
       value: 2
       objectReference: {fileID: 0}
+    - target: {fileID: 114123696423847978, guid: 74e5d6e7f9fd942909287a3f9c23a9ea,
+        type: 2}
+      propertyPath: levelName
+      value: Cafeteria
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 74e5d6e7f9fd942909287a3f9c23a9ea, type: 2}
   m_IsPrefabParent: 0
