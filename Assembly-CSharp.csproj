@@ -75,6 +75,8 @@
      <Compile Include="Assets\_Scripts\Switch.cs" />
      <Compile Include="Assets\_Scripts\switchScene.cs" />
      <Compile Include="Assets\_Scripts\TimedDespawn.cs" />
+     <Compile Include="Assets\_Scripts\WaitThenLoadScene.cs" />
+     <Compile Include="Assets\Transparent.cs" />
  <Reference Include="UnityEngine.UI">
  <HintPath>/Applications/Unity/Unity.app/Contents/UnityExtensions/Unity/GUISystem/UnityEngine.UI.dll</HintPath>
  </Reference>
