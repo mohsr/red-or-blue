@@ -18448,11 +18448,11 @@ Prefab:
     m_Modifications:
     - target: {fileID: 4207399881208638, guid: 18e4c7872996d49faa4edc0019dc8447, type: 2}
       propertyPath: m_LocalPosition.x
-      value: -4
+      value: -7.4
       objectReference: {fileID: 0}
     - target: {fileID: 4207399881208638, guid: 18e4c7872996d49faa4edc0019dc8447, type: 2}
       propertyPath: m_LocalPosition.y
-      value: 5.6
+      value: -31.6
       objectReference: {fileID: 0}
     - target: {fileID: 4207399881208638, guid: 18e4c7872996d49faa4edc0019dc8447, type: 2}
       propertyPath: m_LocalPosition.z
@@ -18477,6 +18477,26 @@ Prefab:
     - target: {fileID: 4207399881208638, guid: 18e4c7872996d49faa4edc0019dc8447, type: 2}
       propertyPath: m_RootOrder
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 114287693334372338, guid: 18e4c7872996d49faa4edc0019dc8447,
+        type: 2}
+      propertyPath: maxCameraPosition.x
+      value: 16.6
+      objectReference: {fileID: 0}
+    - target: {fileID: 114287693334372338, guid: 18e4c7872996d49faa4edc0019dc8447,
+        type: 2}
+      propertyPath: maxCameraPosition.y
+      value: 25.6
+      objectReference: {fileID: 0}
+    - target: {fileID: 114287693334372338, guid: 18e4c7872996d49faa4edc0019dc8447,
+        type: 2}
+      propertyPath: minCameraPosition.x
+      value: -7.4
+      objectReference: {fileID: 0}
+    - target: {fileID: 114287693334372338, guid: 18e4c7872996d49faa4edc0019dc8447,
+        type: 2}
+      propertyPath: minCameraPosition.y
+      value: -31.6
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 18e4c7872996d49faa4edc0019dc8447, type: 2}

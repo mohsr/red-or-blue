@@ -21399,11 +21399,11 @@ Prefab:
     m_Modifications:
     - target: {fileID: 4207399881208638, guid: 18e4c7872996d49faa4edc0019dc8447, type: 2}
       propertyPath: m_LocalPosition.x
-      value: 111.8
+      value: 121
       objectReference: {fileID: 0}
     - target: {fileID: 4207399881208638, guid: 18e4c7872996d49faa4edc0019dc8447, type: 2}
       propertyPath: m_LocalPosition.y
-      value: 11.93
+      value: 14.8
       objectReference: {fileID: 0}
     - target: {fileID: 4207399881208638, guid: 18e4c7872996d49faa4edc0019dc8447, type: 2}
       propertyPath: m_LocalPosition.z
@@ -21461,8 +21461,8 @@ MonoBehaviour:
   verticalSmoothTime: 0
   focusAreaSize: {x: 3, y: 4}
   bounds: 1
-  minCameraPosition: {x: -57, y: -3.9, z: -500}
-  maxCameraPosition: {x: 111.8, y: 11.93, z: 500}
+  minCameraPosition: {x: -61.5, y: -9.7, z: -500}
+  maxCameraPosition: {x: 121, y: 14.8, z: 500}
 --- !u!1001 &1977857233
 Prefab:
   m_ObjectHideFlags: 0
