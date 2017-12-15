@@ -43,7 +43,6 @@ public class Switch : MonoBehaviour {
 			return;
 		}
 
-		Debug.Log (_playerController.allowSwitch);
 		if ((Input.GetButtonDown(switcher) || (last_trigger != 1 && Mathf.Round(Input.GetAxisRaw(switcher)) == 1)) && _playerController.allowSwitch) {
 			_playerController.allowSwitch = false;
 			SwitchColors ();

@@ -25,7 +25,8 @@ public class MovingPlatform : MonoBehaviour {
 		LineRenderer lr;
 
 		ascending = true;
-
+		if (movementPath.Length == 0)
+			return;
 		movementPath [0] = new Vector3 (0, 0, 0);
 		initLoc = transform.position;
 
