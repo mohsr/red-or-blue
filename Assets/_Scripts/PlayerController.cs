@@ -21,6 +21,10 @@ public class PlayerController : MonoBehaviour {
 	public bool allowSwitch = true;
 	[HideInInspector]
 	public int checkPointNum = -1;
+	public AudioClip jumpSound;
+	public AudioClip walkSound;
+	public AudioClip stompSound;
+	public AudioClip hurtSound;
 
 	private float jump_buffer_counter = 0;
 	private float postWallJumpDelayBuffer_counter = 0;
@@ -30,6 +34,8 @@ public class PlayerController : MonoBehaviour {
 
 	private bool isCollidingWall = false;
 	private bool isWallSliding = false;
+	private bool playingJump = false;
+	private bool playingWalk = false;
 
 	private float normalizedHorizontalSpeed = 0;
 	private CharacterController2D _controller;
@@ -124,6 +130,9 @@ public class PlayerController : MonoBehaviour {
 					_velocity = new Vector2(_velocity.x, Mathf.Sqrt(2f * jumpHeight * -gravity));
                     if (enemy != null)
                         enemy.stomped = true;
+					if (stompSound != null) {
+						AudioSource.PlayClipAtPoint (stompSound, transform.position);
+					}
                 }
                 else {
                     if (!alreadyHurt) {
@@ -136,6 +145,9 @@ public class PlayerController : MonoBehaviour {
                         if (dir.x > 0)
                             knockBack = -knockBack;
                         StartCoroutine(Knockback(0.02f, knockBack));
+						if (hurtSound != null) {
+							AudioSource.PlayClipAtPoint (hurtSound, transform.position);
+						}
                     }
                 }
             }
@@ -174,6 +186,10 @@ public class PlayerController : MonoBehaviour {
 			if (_controller.isGrounded) {
 				_animator.SetBool ("Idle", false);
 				_animator.SetBool ("Walking", true);
+				if (walkSound != null && !playingWalk) {
+					AudioSource.PlayClipAtPoint (walkSound, transform.position);
+					StartCoroutine(ReplayWalkSound ());
+				}
 			}
 			normalizedHorizontalSpeed = horAxis;
 
@@ -196,6 +212,10 @@ public class PlayerController : MonoBehaviour {
 			if (_controller.isGrounded) {
 				_animator.SetBool ("Idle", false);
 				_animator.SetBool ("Walking", true);
+				if (walkSound != null && !playingWalk) {
+					AudioSource.PlayClipAtPoint (walkSound, transform.position);
+					StartCoroutine(ReplayWalkSound ());
+				}
 			}
 			normalizedHorizontalSpeed = horAxis;
 
@@ -219,6 +239,7 @@ public class PlayerController : MonoBehaviour {
 			if (!_animator.GetBool("Idle"))
 				_animator.SetBool ("Idle", true);
 			normalizedHorizontalSpeed = 0;
+			playingWalk = false;
 
 			// if( _controller.isGrounded )
 			// 	_animator.Play( Animator.StringToHash( "Idle" ) );
@@ -228,8 +249,13 @@ public class PlayerController : MonoBehaviour {
 			_animator.SetBool ("Jumping", true);
 			_animator.SetBool ("Walking", false);
 			_animator.SetBool ("Idle", false);
+			if (!playingJump && jumpSound != null) {
+				AudioSource.PlayClipAtPoint (jumpSound, transform.position);
+				playingJump = true;
+			}
 		} else {
 			_animator.SetBool ("Jumping", false);
+			playingJump = false;
 		}
 			
 		//check if not wallsliding
@@ -307,6 +333,15 @@ public class PlayerController : MonoBehaviour {
 			isWallSliding = false;
 			isPostWallJumpDelayBuffer = true;
 			postWallJumpDir = -sign;
+		}
+	}
+
+	IEnumerator ReplayWalkSound()
+	{
+		if (walkSound != null) {
+			playingWalk = true;
+			yield return new WaitForSeconds (walkSound.length);
+			playingWalk = false;
 		}
 	}
 }
