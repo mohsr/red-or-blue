@@ -22,7 +22,6 @@ public class PlayerController : MonoBehaviour {
 	[HideInInspector]
 	public int checkPointNum = -1;
 	public AudioClip jumpSound;
-	public AudioClip walkSound;
 	public AudioClip stompSound;
 	public AudioClip hurtSound;
 
@@ -35,7 +34,6 @@ public class PlayerController : MonoBehaviour {
 	private bool isCollidingWall = false;
 	private bool isWallSliding = false;
 	private bool playingJump = false;
-	private bool playingWalk = false;
 
 	private float normalizedHorizontalSpeed = 0;
 	private CharacterController2D _controller;
@@ -186,10 +184,6 @@ public class PlayerController : MonoBehaviour {
 			if (_controller.isGrounded) {
 				_animator.SetBool ("Idle", false);
 				_animator.SetBool ("Walking", true);
-				if (walkSound != null && !playingWalk) {
-					AudioSource.PlayClipAtPoint (walkSound, transform.position);
-					StartCoroutine(ReplayWalkSound ());
-				}
 			}
 			normalizedHorizontalSpeed = horAxis;
 
@@ -212,10 +206,6 @@ public class PlayerController : MonoBehaviour {
 			if (_controller.isGrounded) {
 				_animator.SetBool ("Idle", false);
 				_animator.SetBool ("Walking", true);
-				if (walkSound != null && !playingWalk) {
-					AudioSource.PlayClipAtPoint (walkSound, transform.position);
-					StartCoroutine(ReplayWalkSound ());
-				}
 			}
 			normalizedHorizontalSpeed = horAxis;
 
@@ -239,7 +229,6 @@ public class PlayerController : MonoBehaviour {
 			if (!_animator.GetBool("Idle"))
 				_animator.SetBool ("Idle", true);
 			normalizedHorizontalSpeed = 0;
-			playingWalk = false;
 
 			// if( _controller.isGrounded )
 			// 	_animator.Play( Animator.StringToHash( "Idle" ) );
@@ -333,15 +322,6 @@ public class PlayerController : MonoBehaviour {
 			isWallSliding = false;
 			isPostWallJumpDelayBuffer = true;
 			postWallJumpDir = -sign;
-		}
-	}
-
-	IEnumerator ReplayWalkSound()
-	{
-		if (walkSound != null) {
-			playingWalk = true;
-			yield return new WaitForSeconds (walkSound.length);
-			playingWalk = false;
 		}
 	}
 }
