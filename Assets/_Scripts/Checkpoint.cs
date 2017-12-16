@@ -11,6 +11,12 @@ public class Checkpoint : MonoBehaviour {
 
 	private GameObject player = null;
 	private PlayerController pc;
+	private AudioSource aud;
+
+	void Start()
+	{
+		aud = GetComponent<AudioSource> ();
+	}
 
 	void Update()
 	{
@@ -39,6 +45,7 @@ public class Checkpoint : MonoBehaviour {
 			if (pc.checkPointNum >= orderInLevel) {
 				return;
 			} else {
+				aud.Play ();
 				other.GetComponent<PlayerDie> ().respawnLocation = transform.position;
 				pc.checkPointNum = orderInLevel;
 				used = true;
