@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class showTutorial : MonoBehaviour {
 
-	public int ztransform = -5;
+	public float ztransform = -5.5f;
 
 	// Use this for initialization
 	void Start () {
@@ -25,7 +25,7 @@ public class showTutorial : MonoBehaviour {
 
 	IEnumerator playvid() {
 		gameObject.GetComponentInChildren<UnityEngine.Video.VideoPlayer> ().Play ();
-		yield return new WaitForSeconds(.2f);
+		yield return new WaitForSeconds(.4f);
 		Vector3 loc = gameObject.transform.position;
 		loc.z = 1;
 		Quaternion rot = gameObject.transform.rotation;
