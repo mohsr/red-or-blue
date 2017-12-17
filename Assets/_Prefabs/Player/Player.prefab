@@ -40,7 +40,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1779883190055022}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -8.51, y: -3.34, z: 0}
+  m_LocalPosition: {x: -24.86, y: 7.98, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
@@ -135,11 +135,13 @@ MonoBehaviour:
   allowSwitch: 1
   checkPointNum: -1
   jumpSound: {fileID: 8300000, guid: 5cab25901ba2543b890e3200cb6aa286, type: 3}
-  walkSound: {fileID: 8300000, guid: a1438aa12c09340fcb1560f1d0b28fd8, type: 3}
   stompSound: {fileID: 8300000, guid: 1c26a85cedfc94f2eba3337ef76985f9, type: 3}
   hurtSound: {fileID: 8300000, guid: e96ac452f99a14da9865e474e86d92f3, type: 3}
-  health: 3
+  health: 2
   invincibleTimeAfterHurt: 2
+  activeHealthSprite: {fileID: 21300000, guid: a21145fd6cf624f6997ee20e0781f5ca, type: 3}
+  inactiveHealthSprite: {fileID: 21300002, guid: a21145fd6cf624f6997ee20e0781f5ca,
+    type: 3}
 --- !u!114 &114460122972715500
 MonoBehaviour:
   m_ObjectHideFlags: 1

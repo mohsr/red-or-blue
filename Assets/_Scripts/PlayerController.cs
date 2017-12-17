@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 using UnityEngine.SceneManagement;
 using Prime31;
 
@@ -48,13 +49,21 @@ public class PlayerController : MonoBehaviour {
     [HideInInspector]
     bool alreadyHurt = false;
 
+	/* 
+	 * This is hard coded, but we don't have enough time to make it more
+	 * modular right now.
+	 */
+	public Sprite activeHealthSprite;
+	public Sprite inactiveHealthSprite;
+	private Image UIHeart0;
+	private Image UIHeart1;
     
     void Awake()
 	{
 		_controller = GetComponent<CharacterController2D>();
 		_animator = GetComponent<Animator> ();
 
-		health = 3;
+		health = 2;
 
 		// Subscribe to event listners
 		_controller.onControllerCollidedEvent += onControllerCollider;
@@ -62,6 +71,12 @@ public class PlayerController : MonoBehaviour {
 		_controller.onTriggerExitEvent += onTriggerExitEvent;
 
         gameObject.GetComponent<SpriteRenderer>().sortingLayerName = "Player";
+
+		UIHeart0 = GameObject.FindGameObjectWithTag ("UI_Heart0").GetComponent<Image> ();
+		UIHeart1 = GameObject.FindGameObjectWithTag ("UI_Heart1").GetComponent<Image> ();
+
+		UIHeart0.sprite = activeHealthSprite;
+		UIHeart1.sprite = activeHealthSprite;
     }
 
 	#region Event Listeners
@@ -85,7 +100,11 @@ public class PlayerController : MonoBehaviour {
     {
         Debug.Log("hurt");
         health--;
+		if (health == 1)
+			UIHeart1.sprite = inactiveHealthSprite;
 		if (health <= 0) {
+			UIHeart1.sprite = inactiveHealthSprite;
+			UIHeart0.sprite = inactiveHealthSprite;
 			Debug.Log ("dead");
 			GetComponent<PlayerDie>().Die();
 		}
