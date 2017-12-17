@@ -203,6 +203,7 @@ public class PlayerController : MonoBehaviour {
 			if (_controller.isGrounded) {
 				_animator.SetBool ("Idle", false);
 				_animator.SetBool ("Walking", true);
+				_animator.SetBool ("Sliding", false);
 			}
 			normalizedHorizontalSpeed = horAxis;
 
@@ -225,6 +226,7 @@ public class PlayerController : MonoBehaviour {
 			if (_controller.isGrounded) {
 				_animator.SetBool ("Idle", false);
 				_animator.SetBool ("Walking", true);
+				_animator.SetBool ("Sliding", false);
 			}
 			normalizedHorizontalSpeed = horAxis;
 
@@ -247,6 +249,7 @@ public class PlayerController : MonoBehaviour {
 			_animator.SetBool ("Walking", false);
 			if (!_animator.GetBool("Idle"))
 				_animator.SetBool ("Idle", true);
+			_animator.SetBool ("Sliding", false);
 			normalizedHorizontalSpeed = 0;
 
 			// if( _controller.isGrounded )
@@ -317,14 +320,16 @@ public class PlayerController : MonoBehaviour {
 		_velocity.y += grav * Time.deltaTime;
 
 		if (isWallSliding) {
-			_animator.SetBool ("Sliding", true);
 			_animator.SetBool ("Idle", false);
 			_animator.SetBool ("Jumping", false);
 			_animator.SetBool ("Walking", false);
+			_animator.SetBool ("Sliding", true);
 			_velocity.y /= wallsSlideModifier;
 		} else {
 			_animator.SetBool ("Sliding", false);
 		}
+
+		Debug.Log (_animator.GetBool("Sliding"));
 
         _controller.move(_velocity * Time.deltaTime);
 
