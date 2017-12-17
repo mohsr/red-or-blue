@@ -1,4 +1,4 @@
 sceneSetups:
-- path: Assets/_Scenes/Hallway.unity
+- path: Assets/_Scenes/Bathroom.unity
   isLoaded: 1
   isActive: 1
