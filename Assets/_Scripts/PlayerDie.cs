@@ -12,6 +12,7 @@ public class PlayerDie : MonoBehaviour {
 	public Vector3 respawnLocation = new Vector3 (0, 0, 0);
 	
 	public GameObject respawnCoordinator;
+	public AudioClip deathSound;
 
 	private GameObject rc;
 	private RespawnCoordinator rc_comp;
@@ -32,6 +33,9 @@ public class PlayerDie : MonoBehaviour {
 				GameObject.FindGameObjectWithTag ("UI_Heart0").GetComponent<Image> ().sprite = inactiveHealthSprite;
 				GameObject.FindGameObjectWithTag ("UI_Heart1").GetComponent<Image> ().sprite = inactiveHealthSprite;
 			}
+
+			if (deathSound != null)
+				AudioSource.PlayClipAtPoint (deathSound, transform.position);
 
             dead = true;
             rc = Instantiate(respawnCoordinator, new Vector3(0, 0, 0), Quaternion.identity);

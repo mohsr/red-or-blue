@@ -158,6 +158,7 @@ MonoBehaviour:
   respawnLocation: {x: 0, y: 0, z: 0}
   respawnCoordinator: {fileID: 1350419427602268, guid: d7ff7f88b538b41918982c62535c9a83,
     type: 2}
+  deathSound: {fileID: 8300000, guid: d086f85dccc4b4846b54f83431b0b460, type: 3}
 --- !u!114 &114968060112955040
 MonoBehaviour:
   m_ObjectHideFlags: 1
