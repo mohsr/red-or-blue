@@ -26,7 +26,6 @@ public class Switch : MonoBehaviour {
 	void Start()
 	{
 		mainCamera = Camera.main;
-		SwitchColorsHelper (R, B);
 		mainCamera.backgroundColor = blueBackground;
 		nextColor = blueBackground;
 		_playerController = GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerController>();

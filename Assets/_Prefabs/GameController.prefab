@@ -50,7 +50,7 @@ AudioSource:
   m_Enabled: 1
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
-  m_audioClip: {fileID: 8300000, guid: 1f5350a01e97847e0bf26266aea764a3, type: 3}
+  m_audioClip: {fileID: 8300000, guid: a1ff8bc915a47439fbeba5cecf528f36, type: 3}
   m_PlayOnAwake: 0
   m_Volume: 0.41
   m_Pitch: 1
@@ -135,10 +135,10 @@ MonoBehaviour:
   switcher: switch
   redBackground:
     serializedVersion: 2
-    rgba: 4285032666
+    rgba: 23619802
   blueBackground:
     serializedVersion: 2
-    rgba: 4293833475
+    rgba: 32420611
   backgroundFadeSpeed: 0.25
   red: 1
   blue: 0
