@@ -763,8 +763,8 @@ LineRenderer:
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: 0
-  m_SortingLayer: 0
+  m_SortingLayerID: -385474827
+  m_SortingLayer: 2
   m_SortingOrder: -5
   m_Positions:
   - {x: 0, y: 0, z: 0}
@@ -927,6 +927,16 @@ Prefab:
         type: 2}
       propertyPath: m_SortingOrder
       value: -1
+      objectReference: {fileID: 0}
+    - target: {fileID: 120908081981637312, guid: d4458adf525334b30a3016aff2c79822,
+        type: 2}
+      propertyPath: m_SortingLayerID
+      value: -385474827
+      objectReference: {fileID: 0}
+    - target: {fileID: 120908081981637312, guid: d4458adf525334b30a3016aff2c79822,
+        type: 2}
+      propertyPath: m_SortingLayer
+      value: 2
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: d4458adf525334b30a3016aff2c79822, type: 2}
@@ -1235,6 +1245,16 @@ Prefab:
       propertyPath: m_SortingOrder
       value: -1
       objectReference: {fileID: 0}
+    - target: {fileID: 120908081981637312, guid: d4458adf525334b30a3016aff2c79822,
+        type: 2}
+      propertyPath: m_SortingLayerID
+      value: -385474827
+      objectReference: {fileID: 0}
+    - target: {fileID: 120908081981637312, guid: d4458adf525334b30a3016aff2c79822,
+        type: 2}
+      propertyPath: m_SortingLayer
+      value: 2
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: d4458adf525334b30a3016aff2c79822, type: 2}
   m_IsPrefabParent: 0
@@ -1293,8 +1313,8 @@ LineRenderer:
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: 0
-  m_SortingLayer: 0
+  m_SortingLayerID: -385474827
+  m_SortingLayer: 2
   m_SortingOrder: -5
   m_Positions:
   - {x: 0, y: 0, z: 0}
@@ -3502,8 +3522,8 @@ LineRenderer:
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: 0
-  m_SortingLayer: 0
+  m_SortingLayerID: -385474827
+  m_SortingLayer: 2
   m_SortingOrder: -5
   m_Positions:
   - {x: 0, y: 0, z: 0}
@@ -4518,6 +4538,16 @@ Prefab:
       propertyPath: m_SortingOrder
       value: -1
       objectReference: {fileID: 0}
+    - target: {fileID: 120811332342475542, guid: 09560f48f439a4ad9bd303b91a103efc,
+        type: 2}
+      propertyPath: m_SortingLayerID
+      value: -385474827
+      objectReference: {fileID: 0}
+    - target: {fileID: 120811332342475542, guid: 09560f48f439a4ad9bd303b91a103efc,
+        type: 2}
+      propertyPath: m_SortingLayer
+      value: 2
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 09560f48f439a4ad9bd303b91a103efc, type: 2}
   m_IsPrefabParent: 0
@@ -5197,8 +5227,8 @@ LineRenderer:
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: 0
-  m_SortingLayer: 0
+  m_SortingLayerID: -385474827
+  m_SortingLayer: 2
   m_SortingOrder: -5
   m_Positions:
   - {x: 0, y: 0, z: 0}
@@ -5505,8 +5535,8 @@ LineRenderer:
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: 0
-  m_SortingLayer: 0
+  m_SortingLayerID: -385474827
+  m_SortingLayer: 2
   m_SortingOrder: -5
   m_Positions:
   - {x: 0, y: 0, z: 0}
@@ -33880,6 +33910,16 @@ Prefab:
       propertyPath: m_SortingOrder
       value: -1
       objectReference: {fileID: 0}
+    - target: {fileID: 120729957828707130, guid: 6b6b804a239b144e6a5ccd9155af9893,
+        type: 2}
+      propertyPath: m_SortingLayerID
+      value: -385474827
+      objectReference: {fileID: 0}
+    - target: {fileID: 120729957828707130, guid: 6b6b804a239b144e6a5ccd9155af9893,
+        type: 2}
+      propertyPath: m_SortingLayer
+      value: 2
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 6b6b804a239b144e6a5ccd9155af9893, type: 2}
   m_IsPrefabParent: 0
@@ -35569,8 +35609,8 @@ LineRenderer:
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: 0
-  m_SortingLayer: 0
+  m_SortingLayerID: -385474827
+  m_SortingLayer: 2
   m_SortingOrder: -5
   m_Positions:
   - {x: 0, y: 0, z: 0}
@@ -140883,8 +140923,8 @@ LineRenderer:
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: 0
-  m_SortingLayer: 0
+  m_SortingLayerID: -385474827
+  m_SortingLayer: 2
   m_SortingOrder: -5
   m_Positions:
   - {x: 0, y: 0, z: 0}
@@ -141050,8 +141090,8 @@ LineRenderer:
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: 0
-  m_SortingLayer: 0
+  m_SortingLayerID: -385474827
+  m_SortingLayer: 2
   m_SortingOrder: -5
   m_Positions:
   - {x: 0, y: 0, z: 0}
@@ -141636,6 +141676,16 @@ Prefab:
       propertyPath: m_SortingOrder
       value: -1
       objectReference: {fileID: 0}
+    - target: {fileID: 120061108825431512, guid: cc4137fd2e5f246d4a420766447b25b7,
+        type: 2}
+      propertyPath: m_SortingLayerID
+      value: -385474827
+      objectReference: {fileID: 0}
+    - target: {fileID: 120061108825431512, guid: cc4137fd2e5f246d4a420766447b25b7,
+        type: 2}
+      propertyPath: m_SortingLayer
+      value: 2
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: cc4137fd2e5f246d4a420766447b25b7, type: 2}
   m_IsPrefabParent: 0
@@ -141925,8 +141975,8 @@ LineRenderer:
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: 0
-  m_SortingLayer: 0
+  m_SortingLayerID: -385474827
+  m_SortingLayer: 2
   m_SortingOrder: -5
   m_Positions:
   - {x: 0, y: 0, z: 0}
@@ -142665,6 +142715,16 @@ Prefab:
         type: 2}
       propertyPath: m_SortingOrder
       value: -1
+      objectReference: {fileID: 0}
+    - target: {fileID: 120908081981637312, guid: d4458adf525334b30a3016aff2c79822,
+        type: 2}
+      propertyPath: m_SortingLayerID
+      value: -385474827
+      objectReference: {fileID: 0}
+    - target: {fileID: 120908081981637312, guid: d4458adf525334b30a3016aff2c79822,
+        type: 2}
+      propertyPath: m_SortingLayer
+      value: 2
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: d4458adf525334b30a3016aff2c79822, type: 2}
@@ -144809,6 +144869,16 @@ Prefab:
       propertyPath: m_SortingOrder
       value: -1
       objectReference: {fileID: 0}
+    - target: {fileID: 120061108825431512, guid: cc4137fd2e5f246d4a420766447b25b7,
+        type: 2}
+      propertyPath: m_SortingLayerID
+      value: -385474827
+      objectReference: {fileID: 0}
+    - target: {fileID: 120061108825431512, guid: cc4137fd2e5f246d4a420766447b25b7,
+        type: 2}
+      propertyPath: m_SortingLayer
+      value: 2
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: cc4137fd2e5f246d4a420766447b25b7, type: 2}
   m_IsPrefabParent: 0
@@ -145402,6 +145472,16 @@ Prefab:
       propertyPath: m_SortingOrder
       value: -1
       objectReference: {fileID: 0}
+    - target: {fileID: 120729957828707130, guid: 6b6b804a239b144e6a5ccd9155af9893,
+        type: 2}
+      propertyPath: m_SortingLayerID
+      value: -385474827
+      objectReference: {fileID: 0}
+    - target: {fileID: 120729957828707130, guid: 6b6b804a239b144e6a5ccd9155af9893,
+        type: 2}
+      propertyPath: m_SortingLayer
+      value: 2
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 6b6b804a239b144e6a5ccd9155af9893, type: 2}
   m_IsPrefabParent: 0
@@ -145460,8 +145540,8 @@ LineRenderer:
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: 0
-  m_SortingLayer: 0
+  m_SortingLayerID: -385474827
+  m_SortingLayer: 2
   m_SortingOrder: -5
   m_Positions:
   - {x: 0, y: 0, z: 0}
@@ -146037,8 +146117,8 @@ LineRenderer:
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: 0
-  m_SortingLayer: 0
+  m_SortingLayerID: -385474827
+  m_SortingLayer: 2
   m_SortingOrder: -5
   m_Positions:
   - {x: 0, y: 0, z: 0}
