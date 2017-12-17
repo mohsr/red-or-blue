@@ -16,8 +16,7 @@ public class LoopMusic : MonoBehaviour {
 
 	void Update()
 	{
-		if (aud.time == aud.clip.length) {
-			aud.Play ();
+		if (aud.time >= aud.clip.length - .05f) {
 			aud.time = loopToTime;
 		}
 	}
