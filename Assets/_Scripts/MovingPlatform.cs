@@ -24,6 +24,8 @@ public class MovingPlatform : MonoBehaviour {
 	{
 		LineRenderer lr;
 
+//		transform.position = new Vector3 (transform.position.x, transform.position.y, 15);
+
 		ascending = true;
 		if (movementPath.Length == 0)
 			return;
@@ -36,7 +38,8 @@ public class MovingPlatform : MonoBehaviour {
 
 			lr.positionCount = movementPath.Length;
 			for (int i = 0; i < movementPath.Length; i++) {
-				lr.SetPosition (i, movementPath [i] + transform.position);
+				lr.SetPosition(i, new Vector3(movementPath[i].x + transform.position.x, movementPath[i].y + transform.position.y, -1));
+//				lr.SetPosition (i, movementPath [i] + transform.position);
 			}
 		}
 	}
