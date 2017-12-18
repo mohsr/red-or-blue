@@ -26,10 +26,12 @@ public class Switch : MonoBehaviour {
 	void Start()
 	{
 		mainCamera = Camera.main;
-		mainCamera.backgroundColor = blueBackground;
-		nextColor = blueBackground;
 		_playerController = GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerController>();
 		aud = GetComponent<AudioSource> ();
+
+		mainCamera.backgroundColor = redBackground;
+		nextColor = redBackground;
+		SwitchColors ();
 	}
 
 	public void Update()
