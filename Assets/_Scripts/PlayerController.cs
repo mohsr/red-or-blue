@@ -270,11 +270,13 @@ public class PlayerController : MonoBehaviour {
 		}
 			
 		//check if not wallsliding
-		if (isWallSliding && 
-			(((!_controller.isCollidingRight && !_controller.isCollidingLeft)
-				|| Input.GetKeyUp( KeyCode.RightArrow ) || Input.GetKeyUp( KeyCode.LeftArrow ))
-				|| _controller.isGrounded))
-				isWallSliding = false;
+		if (isWallSliding &&
+		    (((!_controller.isCollidingRight && !_controller.isCollidingLeft)
+		    || Input.GetKeyUp (KeyCode.RightArrow) || Input.GetKeyUp (KeyCode.LeftArrow))
+		    || _controller.isGrounded)) {
+			isWallSliding = false;
+			_animator.SetBool ("Idle", true);
+		}
 
 		if (isPostWallJumpDelayBuffer) {
 			postWallJumpDelayBuffer_counter += Time.deltaTime;
