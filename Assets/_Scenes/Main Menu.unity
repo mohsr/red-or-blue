@@ -395,7 +395,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   width: 2560
   height: 1440
-  fullscreen: 0
+  fullscreen: 1
   refreshRate: 60
 --- !u!4 &636636736
 Transform:
