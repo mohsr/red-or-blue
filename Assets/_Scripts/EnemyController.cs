@@ -51,7 +51,8 @@ public class EnemyController : MonoBehaviour {
             Fall();
         }
         else if (embarrassed)*/
-        Physics2D.IgnoreCollision(gameObject.GetComponent<Collider2D>(), GameObject.FindGameObjectWithTag("Player").GetComponent<Collider2D>(), embarrassed);
+        if (GameObject.FindGameObjectWithTag("Player"))
+            Physics2D.IgnoreCollision(gameObject.GetComponent<Collider2D>(), GameObject.FindGameObjectWithTag("Player").GetComponent<Collider2D>(), embarrassed);
         if (embarrassed)
         {
             Vector2 myVelocity = myBody.velocity;
