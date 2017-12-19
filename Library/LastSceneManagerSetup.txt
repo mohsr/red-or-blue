@@ -1,4 +1,8 @@
 sceneSetups:
+<<<<<<< HEAD
 - path: Assets/_Scenes/Vent2.unity
+=======
+- path: Assets/_Scenes/Hallway.unity
+>>>>>>> 72a42f1dfa96b25d39ba913a1e3ad5ccb3c1f027
   isLoaded: 1
   isActive: 1
