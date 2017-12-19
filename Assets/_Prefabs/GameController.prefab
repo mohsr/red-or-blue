@@ -21,7 +21,8 @@ GameObject:
   - component: {fileID: 4543043486501932}
   - component: {fileID: 114494839995406356}
   - component: {fileID: 82627198131418894}
-  m_Layer: 0
+  - component: {fileID: 114459544761039356}
+  m_Layer: 5
   m_Name: GameController
   m_TagString: GameController
   m_Icon: {fileID: 0}
@@ -108,7 +109,7 @@ AudioSource:
       tangentMode: 0
     m_PreInfinity: 2
     m_PostInfinity: 2
-    m_RotationOrder: 4
+    m_RotationOrder: 0
   reverbZoneMixCustomCurve:
     serializedVersion: 2
     m_Curve:
@@ -121,6 +122,18 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 0
+--- !u!114 &114459544761039356
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1990298206126542}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f10cd47f989ef1f4f995a9ab160d0338, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  pauseMenu: {fileID: 0}
 --- !u!114 &114494839995406356
 MonoBehaviour:
   m_ObjectHideFlags: 1

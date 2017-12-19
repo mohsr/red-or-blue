@@ -2,7 +2,7 @@
 using System.Collections;
 using UnityEngine.UI;
 
-public class fadeout : MonoBehaviour {
+public class FadeOut : MonoBehaviour {
 
 	public Texture2D fadeTexture;
 	public float waitforfade = 5f;

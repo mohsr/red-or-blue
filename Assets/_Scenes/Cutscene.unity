@@ -299,7 +299,7 @@ AudioSource:
   OutputAudioMixerGroup: {fileID: 0}
   m_audioClip: {fileID: 8300000, guid: 5f8cff4fa66c540fa90ff979d1a3d56e, type: 3}
   m_PlayOnAwake: 1
-  m_Volume: 1
+  m_Volume: 0.494
   m_Pitch: 1
   Loop: 0
   Mute: 0
@@ -379,7 +379,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e15ae9bf64f8e427c8880a29d5f59ef6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  fadeTexture: {fileID: 2800000, guid: a6cfe8af25b9f462586865cffbfc71d8, type: 3}
+  fadeTexture: {fileID: 2800000, guid: 1f61b77a7b84c42e991fc10de87c89c3, type: 3}
   waitforfade: 5
   fadein: 0
   fadespeed: 0.1
