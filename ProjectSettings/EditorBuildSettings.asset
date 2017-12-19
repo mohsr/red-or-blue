@@ -26,3 +26,6 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/_Scenes/Hallway.unity
     guid: 9bd0f9b349cabab4a970e9898d6d6cf6
+  - enabled: 1
+    path: Assets/_Scenes/Final.unity
+    guid: 83b11c3538600446fbd2eb6baee81ddf
