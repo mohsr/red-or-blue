@@ -8,6 +8,7 @@ public class MovePlayerWith : MonoBehaviour {
 	public bool playerOn = false;
 
 	private Transform otherInitParent;
+	private float otherZ;
 
 	void OnTriggerEnter2D(Collider2D other)
 	{
@@ -15,10 +16,13 @@ public class MovePlayerWith : MonoBehaviour {
 			return;
 
 		otherInitParent = other.transform.parent;
+		otherZ = other.transform.position.z;
+
 		playerOn = true;
 		
-		if (other.GetComponent<Rigidbody2D> () != null)
+		if (other.GetComponent<Rigidbody2D> () != null) {
 			other.transform.parent = gameObject.transform;
+		}
 	}
 
 	void OnTriggerExit2D(Collider2D other)
