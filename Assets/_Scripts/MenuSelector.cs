@@ -11,14 +11,16 @@ public class MenuSelector : MonoBehaviour {
 	 */
 
 	public Vector3 selectorOffsetToExit;
-	public string switcher = "switch";
+	public string switcher = "Jump";
 	public string firstLevelName = "Bathroom";
 	public string selectorName = "SelectorArrow";
+	public float waitTime = 1.5f;
 
 	private GameObject selector;
 	private bool isPlay = true;
 	private Vector3 playLocation;
 	private Vector3 exitLocation;
+	private bool waiting = false;
 
 	void Start()
 	{
@@ -33,12 +35,13 @@ public class MenuSelector : MonoBehaviour {
 	{
 		float push = Input.GetAxisRaw ("Vertical");
 
-		if (push > 0) {
-			isPlay = true;
-			selector.transform.position = playLocation;
-		} else if (push < 0) {
-			isPlay = false;
-			selector.transform.position = exitLocation;
+		if (push != 0 && !waiting) {
+			isPlay = !isPlay;
+			if (selector.transform.position == playLocation)
+				selector.transform.position = exitLocation;
+			else
+				selector.transform.position = playLocation;
+			StartCoroutine (Delay ());
 		}
 
 		if (Input.GetButtonDown (switcher)) {
@@ -48,5 +51,12 @@ public class MenuSelector : MonoBehaviour {
 				Application.Quit ();
 			}
 		}
+	}
+
+	IEnumerator Delay()
+	{
+		waiting = true;
+		yield return new WaitForSeconds (waitTime);
+		waiting = false;
 	}
 }
