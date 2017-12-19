@@ -27,6 +27,5 @@ public class EnemySwitchReceiver : MonoBehaviour {
 			anim.SetBool ("Walking", false);
         }
 		mov.embarrassed = !active;
-        Physics2D.IgnoreCollision(gameObject.GetComponent<Collider2D>(), GameObject.FindGameObjectWithTag("Player").GetComponent<Collider2D>(), !active);
     }
 }
