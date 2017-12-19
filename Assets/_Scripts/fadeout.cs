@@ -47,7 +47,4 @@ public class FadeOut : MonoBehaviour {
 		GUI.DrawTexture( new Rect(0,0, Screen.width, Screen.height), fadeTexture);
 
 	}
-
-
-
 }
