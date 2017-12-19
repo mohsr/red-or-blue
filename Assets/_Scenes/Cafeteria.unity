@@ -2965,6 +2965,7 @@ GameObject:
   m_Component:
   - component: {fileID: 311286223}
   - component: {fileID: 311286222}
+  - component: {fileID: 311286221}
   m_Layer: 0
   m_Name: Background 1
   m_TagString: Untagged
@@ -2972,6 +2973,17 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
+--- !u!114 &311286221
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 311286220}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e42147e18793643ff97eccc82319b6e9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!114 &311286222
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -39183,7 +39195,7 @@ TilemapRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 20
+  m_SortingOrder: 1
   m_ChunkSize: {x: 32, y: 32, z: 32}
   m_MaxChunkCount: 16
   m_MaxFrameAge: 16
