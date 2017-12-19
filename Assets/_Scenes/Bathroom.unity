@@ -77842,6 +77842,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e15ae9bf64f8e427c8880a29d5f59ef6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  fadeTexture: {fileID: 0}
+  waitforfade: 5
+  fadein: 0
+  fadespeed: 0
+  drawDepth: -1000
 --- !u!82 &1982686135
 AudioSource:
   m_ObjectHideFlags: 0
@@ -78017,12 +78022,12 @@ Prefab:
     - target: {fileID: 224059820782091208, guid: 437d34d57072b4242a778981d0c448d0,
         type: 2}
       propertyPath: m_LocalPosition.x
-      value: 485
+      value: 749
       objectReference: {fileID: 0}
     - target: {fileID: 224059820782091208, guid: 437d34d57072b4242a778981d0c448d0,
         type: 2}
       propertyPath: m_LocalPosition.y
-      value: 242
+      value: 348
       objectReference: {fileID: 0}
     - target: {fileID: 224059820782091208, guid: 437d34d57072b4242a778981d0c448d0,
         type: 2}
