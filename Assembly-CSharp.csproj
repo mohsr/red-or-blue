@@ -59,6 +59,7 @@
      <Compile Include="Assets\_Scripts\EnemyController.cs" />
      <Compile Include="Assets\_Scripts\EnemySwitchReceiver.cs" />
      <Compile Include="Assets\_Scripts\ExtensionMethods.cs" />
+     <Compile Include="Assets\_Scripts\fadeout.cs" />
      <Compile Include="Assets\_Scripts\FollowPlayer.cs" />
      <Compile Include="Assets\_Scripts\HurtAndDestroyOnTouch.cs" />
      <Compile Include="Assets\_Scripts\KillPlayerOnTouch.cs" />
