@@ -77465,7 +77465,7 @@ MonoBehaviour:
   verticalSmoothTime: 0
   focusAreaSize: {x: 3, y: 4}
   bounds: 1
-  minCameraPosition: {x: -3.36, y: 0, z: -500}
+  minCameraPosition: {x: -0.4552202, y: 0, z: -500}
   maxCameraPosition: {x: 278.1, y: 26.1, z: 500}
 --- !u!114 &1982686134
 MonoBehaviour:
@@ -77492,7 +77492,7 @@ AudioSource:
   m_Enabled: 1
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
-  m_audioClip: {fileID: 8300000, guid: 77fd921f948374e9bb974d54ce0c6441, type: 3}
+  m_audioClip: {fileID: 8300000, guid: 71bf5edaff78b46188dfa25f84982317, type: 3}
   m_PlayOnAwake: 0
   m_Volume: 0.1
   m_Pitch: 1
@@ -77574,7 +77574,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c243559dccbe446479be04d6cb15dde5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  loopToTime: 7.5
+  loopToTime: 16
 --- !u!1 &2003389518
 GameObject:
   m_ObjectHideFlags: 0
