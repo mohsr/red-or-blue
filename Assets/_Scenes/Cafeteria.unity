@@ -3315,16 +3315,6 @@ Prefab:
       propertyPath: m_Pivot.y
       value: 0.5
       objectReference: {fileID: 0}
-    - target: {fileID: 224020644301159978, guid: 437d34d57072b4242a778981d0c448d0,
-        type: 2}
-      propertyPath: m_LocalPosition.x
-      value: -626
-      objectReference: {fileID: 0}
-    - target: {fileID: 224020644301159978, guid: 437d34d57072b4242a778981d0c448d0,
-        type: 2}
-      propertyPath: m_LocalPosition.y
-      value: 323
-      objectReference: {fileID: 0}
     - target: {fileID: 224939415004163328, guid: 437d34d57072b4242a778981d0c448d0,
         type: 2}
       propertyPath: m_LocalPosition.x
@@ -3335,34 +3325,15 @@ Prefab:
       propertyPath: m_LocalPosition.y
       value: 323
       objectReference: {fileID: 0}
-    - target: {fileID: 1741960110893892, guid: 437d34d57072b4242a778981d0c448d0, type: 2}
-      propertyPath: m_IsActive
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 224939415004163328, guid: 437d34d57072b4242a778981d0c448d0,
+    - target: {fileID: 224020644301159978, guid: 437d34d57072b4242a778981d0c448d0,
         type: 2}
-      propertyPath: m_SizeDelta.x
-      value: 200
-      objectReference: {fileID: 0}
-    - target: {fileID: 224939415004163328, guid: 437d34d57072b4242a778981d0c448d0,
-        type: 2}
-      propertyPath: m_SizeDelta.y
-      value: 200
+      propertyPath: m_LocalPosition.x
+      value: -626
       objectReference: {fileID: 0}
     - target: {fileID: 224020644301159978, guid: 437d34d57072b4242a778981d0c448d0,
         type: 2}
-      propertyPath: m_SizeDelta.x
-      value: 200
-      objectReference: {fileID: 0}
-    - target: {fileID: 224020644301159978, guid: 437d34d57072b4242a778981d0c448d0,
-        type: 2}
-      propertyPath: m_SizeDelta.y
-      value: 200
-      objectReference: {fileID: 0}
-    - target: {fileID: 224020644301159978, guid: 437d34d57072b4242a778981d0c448d0,
-        type: 2}
-      propertyPath: m_AnchoredPosition.x
-      value: 125
+      propertyPath: m_LocalPosition.y
+      value: 323
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 437d34d57072b4242a778981d0c448d0, type: 2}
