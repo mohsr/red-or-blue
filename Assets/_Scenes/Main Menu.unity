@@ -457,11 +457,6 @@ Prefab:
       propertyPath: m_RootOrder
       value: 3
       objectReference: {fileID: 0}
-    - target: {fileID: 114152733467129484, guid: 907999f32223343159889898e6dad482,
-        type: 2}
-      propertyPath: selectorOffsetToExit.y
-      value: -2.05
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 907999f32223343159889898e6dad482, type: 2}
   m_IsPrefabParent: 0
