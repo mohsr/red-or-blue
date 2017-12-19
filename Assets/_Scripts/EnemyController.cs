@@ -41,6 +41,7 @@ public class EnemyController : MonoBehaviour {
 
     private void FixedUpdate()
     {
+        /*
         if (stomped)
         {
             Stomp();
@@ -49,7 +50,8 @@ public class EnemyController : MonoBehaviour {
         {
             Fall();
         }
-        else if (embarrassed)
+        else if (embarrassed)*/
+        if (embarrassed)
         {
             Vector2 myVelocity = myBody.velocity;
             myVelocity.x = 0;
