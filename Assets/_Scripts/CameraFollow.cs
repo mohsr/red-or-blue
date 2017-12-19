@@ -13,6 +13,7 @@ public class CameraFollow : MonoBehaviour {
 	public float verticalSmoothTime;
 	public Vector2 focusAreaSize = new Vector2(3.0f, 4.0f);
 	public bool bounds;
+
 	public Vector3 minCameraPosition;
 	public Vector3 maxCameraPosition;
 

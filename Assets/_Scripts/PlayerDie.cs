@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class PlayerDie : MonoBehaviour {
 
@@ -11,10 +12,13 @@ public class PlayerDie : MonoBehaviour {
 	public Vector3 respawnLocation = new Vector3 (0, 0, 0);
 	
 	public GameObject respawnCoordinator;
+	public AudioClip deathSound;
 
 	private GameObject rc;
 	private RespawnCoordinator rc_comp;
     private bool dead = false;
+
+	private Sprite inactiveHealthSprite;
 
 	public void Hurt()
 	{
@@ -25,6 +29,14 @@ public class PlayerDie : MonoBehaviour {
 	{
         if (!dead)
         {
+			if (inactiveHealthSprite != null) {
+				GameObject.FindGameObjectWithTag ("UI_Heart0").GetComponent<Image> ().sprite = inactiveHealthSprite;
+				GameObject.FindGameObjectWithTag ("UI_Heart1").GetComponent<Image> ().sprite = inactiveHealthSprite;
+			}
+
+			if (deathSound != null)
+				AudioSource.PlayClipAtPoint (deathSound, transform.position);
+
             dead = true;
             rc = Instantiate(respawnCoordinator, new Vector3(0, 0, 0), Quaternion.identity);
             rc_comp = rc.GetComponent<RespawnCoordinator>();
@@ -38,6 +50,7 @@ public class PlayerDie : MonoBehaviour {
 	private void Start()
 	{
 		respawnLocation = transform.position;
+		inactiveHealthSprite = GetComponent<PlayerController> ().inactiveHealthSprite;
 	}
 
 	private void PassVals()

@@ -6,8 +6,20 @@ EditorBuildSettings:
   serializedVersion: 2
   m_Scenes:
   - enabled: 1
+    path: Assets/_Scenes/Main Menu.unity
+    guid: 3a5fd0480451b47da8f2532b4faded45
+  - enabled: 1
+    path: Assets/_Scenes/Cutscene.unity
+    guid: 1e85caafb1ee74c978029f082d82b746
+  - enabled: 1
+    path: Assets/_Scenes/Bathroom.unity
+    guid: 115f364bc0823440490a94dca3fe3ffa
+  - enabled: 1
     path: Assets/_Scenes/Vent2.unity
     guid: c1b0da68551394e71bc4695704ad2c3f
   - enabled: 1
     path: Assets/_Scenes/Cafeteria.unity
     guid: 9ceb0bbc12ba5479a8faf0d3081c03fa
+  - enabled: 1
+    path: Assets/_Scenes/Hallway.unity
+    guid: 9bd0f9b349cabab4a970e9898d6d6cf6

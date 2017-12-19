@@ -11,6 +11,12 @@ public class Checkpoint : MonoBehaviour {
 
 	private GameObject player = null;
 	private PlayerController pc;
+	private AudioSource aud;
+
+	void Start()
+	{
+		aud = GetComponent<AudioSource> ();
+	}
 
 	void Update()
 	{
@@ -18,12 +24,13 @@ public class Checkpoint : MonoBehaviour {
 			player = GameObject.FindGameObjectWithTag ("Player");
 			if (player != null) {
 				pc = player.GetComponent<PlayerController> ();
+			} else {
+				return;
 			}
-			return;
 		}
 
-		if (!used) {
-			if (pc.checkPointNum >= orderInLevel) {
+		if (used) {
+			if (pc.checkPointNum > orderInLevel) {
 				Destroy (gameObject);
 			}
 		}
@@ -37,10 +44,12 @@ public class Checkpoint : MonoBehaviour {
 		if (other.tag == "Player") {
 			if (pc.checkPointNum >= orderInLevel) {
 				return;
+			} else {
+				aud.Play ();
+				other.GetComponent<PlayerDie> ().respawnLocation = transform.position;
+				pc.checkPointNum = orderInLevel;
+				used = true;
 			}
-			other.GetComponent<PlayerDie> ().respawnLocation = transform.position;
-			pc.checkPointNum = orderInLevel;
-			used = true;
 		}
 	}
 }

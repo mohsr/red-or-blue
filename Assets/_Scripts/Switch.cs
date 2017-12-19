@@ -20,15 +20,18 @@ public class Switch : MonoBehaviour {
 	private Color32 nextColor;
 	private Camera mainCamera;
 	private PlayerController _playerController;
+	private AudioSource aud;
 	private int last_trigger = 0;
 
 	void Start()
 	{
 		mainCamera = Camera.main;
-		SwitchColorsHelper (R, B);
-		mainCamera.backgroundColor = blueBackground;
-		nextColor = blueBackground;
 		_playerController = GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerController>();
+		aud = GetComponent<AudioSource> ();
+
+		mainCamera.backgroundColor = redBackground;
+		nextColor = redBackground;
+		SwitchColors ();
 	}
 
 	public void Update()
@@ -43,10 +46,10 @@ public class Switch : MonoBehaviour {
 			return;
 		}
 
-		Debug.Log (_playerController.allowSwitch);
 		if ((Input.GetButtonDown(switcher) || (last_trigger != 1 && Mathf.Round(Input.GetAxisRaw(switcher)) == 1)) && _playerController.allowSwitch) {
 			_playerController.allowSwitch = false;
 			SwitchColors ();
+			aud.Play ();
 		}
 		/* Lerping background color. */
 		mainCamera.backgroundColor = Color.Lerp (mainCamera.backgroundColor,

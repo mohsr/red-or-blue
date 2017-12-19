@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 using UnityEngine.SceneManagement;
 using Prime31;
 
@@ -21,6 +22,9 @@ public class PlayerController : MonoBehaviour {
 	public bool allowSwitch = true;
 	[HideInInspector]
 	public int checkPointNum = -1;
+	public AudioClip jumpSound;
+	public AudioClip stompSound;
+	public AudioClip hurtSound;
 
 	private float jump_buffer_counter = 0;
 	private float postWallJumpDelayBuffer_counter = 0;
@@ -30,6 +34,7 @@ public class PlayerController : MonoBehaviour {
 
 	private bool isCollidingWall = false;
 	private bool isWallSliding = false;
+	private bool playingJump = false;
 
 	private float normalizedHorizontalSpeed = 0;
 	private CharacterController2D _controller;
@@ -44,13 +49,21 @@ public class PlayerController : MonoBehaviour {
     [HideInInspector]
     bool alreadyHurt = false;
 
+	/* 
+	 * This is hard coded, but we don't have enough time to make it more
+	 * modular right now.
+	 */
+	public Sprite activeHealthSprite;
+	public Sprite inactiveHealthSprite;
+	private Image UIHeart0;
+	private Image UIHeart1;
     
     void Awake()
 	{
 		_controller = GetComponent<CharacterController2D>();
 		_animator = GetComponent<Animator> ();
 
-		health = 3;
+		health = 2;
 
 		// Subscribe to event listners
 		_controller.onControllerCollidedEvent += onControllerCollider;
@@ -58,6 +71,12 @@ public class PlayerController : MonoBehaviour {
 		_controller.onTriggerExitEvent += onTriggerExitEvent;
 
         gameObject.GetComponent<SpriteRenderer>().sortingLayerName = "Player";
+
+		UIHeart0 = GameObject.FindGameObjectWithTag ("UI_Heart0").GetComponent<Image> ();
+		UIHeart1 = GameObject.FindGameObjectWithTag ("UI_Heart1").GetComponent<Image> ();
+
+		UIHeart0.sprite = activeHealthSprite;
+		UIHeart1.sprite = activeHealthSprite;
     }
 
 	#region Event Listeners
@@ -81,7 +100,11 @@ public class PlayerController : MonoBehaviour {
     {
         Debug.Log("hurt");
         health--;
+		if (health == 1)
+			UIHeart1.sprite = inactiveHealthSprite;
 		if (health <= 0) {
+			UIHeart1.sprite = inactiveHealthSprite;
+			UIHeart0.sprite = inactiveHealthSprite;
 			Debug.Log ("dead");
 			GetComponent<PlayerDie>().Die();
 		}
@@ -124,6 +147,9 @@ public class PlayerController : MonoBehaviour {
 					_velocity = new Vector2(_velocity.x, Mathf.Sqrt(2f * jumpHeight * -gravity));
                     if (enemy != null)
                         enemy.stomped = true;
+					if (stompSound != null) {
+						AudioSource.PlayClipAtPoint (stompSound, transform.position);
+					}
                 }
                 else {
                     if (!alreadyHurt) {
@@ -136,6 +162,9 @@ public class PlayerController : MonoBehaviour {
                         if (dir.x > 0)
                             knockBack = -knockBack;
                         StartCoroutine(Knockback(0.02f, knockBack));
+						if (hurtSound != null) {
+							AudioSource.PlayClipAtPoint (hurtSound, transform.position);
+						}
                     }
                 }
             }
@@ -174,6 +203,7 @@ public class PlayerController : MonoBehaviour {
 			if (_controller.isGrounded) {
 				_animator.SetBool ("Idle", false);
 				_animator.SetBool ("Walking", true);
+				_animator.SetBool ("Sliding", false);
 			}
 			normalizedHorizontalSpeed = horAxis;
 
@@ -196,6 +226,7 @@ public class PlayerController : MonoBehaviour {
 			if (_controller.isGrounded) {
 				_animator.SetBool ("Idle", false);
 				_animator.SetBool ("Walking", true);
+				_animator.SetBool ("Sliding", false);
 			}
 			normalizedHorizontalSpeed = horAxis;
 
@@ -218,6 +249,7 @@ public class PlayerController : MonoBehaviour {
 			_animator.SetBool ("Walking", false);
 			if (!_animator.GetBool("Idle"))
 				_animator.SetBool ("Idle", true);
+			_animator.SetBool ("Sliding", false);
 			normalizedHorizontalSpeed = 0;
 
 			// if( _controller.isGrounded )
@@ -228,16 +260,23 @@ public class PlayerController : MonoBehaviour {
 			_animator.SetBool ("Jumping", true);
 			_animator.SetBool ("Walking", false);
 			_animator.SetBool ("Idle", false);
+			if (!playingJump && jumpSound != null) {
+				AudioSource.PlayClipAtPoint (jumpSound, transform.position);
+				playingJump = true;
+			}
 		} else {
 			_animator.SetBool ("Jumping", false);
+			playingJump = false;
 		}
 			
 		//check if not wallsliding
-		if (isWallSliding && 
-			(((!_controller.isCollidingRight && !_controller.isCollidingLeft)
-				|| Input.GetKeyUp( KeyCode.RightArrow ) || Input.GetKeyUp( KeyCode.LeftArrow ))
-				|| _controller.isGrounded))
-				isWallSliding = false;
+		if (isWallSliding &&
+		    (((!_controller.isCollidingRight && !_controller.isCollidingLeft)
+		    || Input.GetKeyUp (KeyCode.RightArrow) || Input.GetKeyUp (KeyCode.LeftArrow))
+		    || _controller.isGrounded)) {
+			isWallSliding = false;
+			_animator.SetBool ("Idle", true);
+		}
 
 		if (isPostWallJumpDelayBuffer) {
 			postWallJumpDelayBuffer_counter += Time.deltaTime;
@@ -283,14 +322,16 @@ public class PlayerController : MonoBehaviour {
 		_velocity.y += grav * Time.deltaTime;
 
 		if (isWallSliding) {
-			_animator.SetBool ("Sliding", true);
 			_animator.SetBool ("Idle", false);
 			_animator.SetBool ("Jumping", false);
 			_animator.SetBool ("Walking", false);
+			_animator.SetBool ("Sliding", true);
 			_velocity.y /= wallsSlideModifier;
 		} else {
 			_animator.SetBool ("Sliding", false);
 		}
+
+		Debug.Log (_animator.GetBool("Sliding"));
 
         _controller.move(_velocity * Time.deltaTime);
 
