@@ -393,8 +393,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c40f407c3900046d3b469397d95c2b9e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  width: 1920
-  height: 1080
+  width: 2560
+  height: 1440
   fullscreen: 0
   refreshRate: 60
 --- !u!4 &636636736
@@ -1119,15 +1119,15 @@ RectTransform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1686300146}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 2.9099998, z: 0}
-  m_LocalScale: {x: 0.18, y: 0.036, z: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 0.2, y: 0.1, z: 1}
   m_Children: []
   m_Father: {fileID: 765707108}
   m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0, y: 2.91}
+  m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 100, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1686300148
@@ -1149,7 +1149,7 @@ MonoBehaviour:
       m_Calls: []
     m_TypeName: UnityEngine.UI.MaskableGraphic+CullStateChangedEvent, UnityEngine.UI,
       Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
-  m_Sprite: {fileID: 21300000, guid: cd8bf296eac334768ab149b5975aac1b, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 3518dbdb4657c4a83821305500d6cafe, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
