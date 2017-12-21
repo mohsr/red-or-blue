@@ -77,7 +77,7 @@
      <Compile Include="Assets\_Scripts\ProjectileSpawner.cs" />
      <Compile Include="Assets\_Scripts\RespawnCoordinator.cs" />
      <Compile Include="Assets\_Scripts\SceneBound.cs" />
-     <Compile Include="Assets\_Scripts\SetScreenResolution.cs" />
+     <Compile Include="Assets\_Scripts\SetFrameRate.cs" />
      <Compile Include="Assets\_Scripts\showTutorial.cs" />
      <Compile Include="Assets\_Scripts\Switch.cs" />
      <Compile Include="Assets\_Scripts\switchScene.cs" />

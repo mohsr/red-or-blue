@@ -376,7 +376,7 @@ GameObject:
   - component: {fileID: 636636736}
   - component: {fileID: 636636735}
   m_Layer: 0
-  m_Name: FixScreenSize
+  m_Name: SetFrameRate
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -390,13 +390,9 @@ MonoBehaviour:
   m_GameObject: {fileID: 636636734}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c40f407c3900046d3b469397d95c2b9e, type: 3}
+  m_Script: {fileID: 11500000, guid: a488e75ef8e094e3281e08cdd2546296, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  width: 2560
-  height: 1440
-  fullscreen: 1
-  refreshRate: 60
 --- !u!4 &636636736
 Transform:
   m_ObjectHideFlags: 0
