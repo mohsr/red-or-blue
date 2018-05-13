@@ -232,8 +232,8 @@ public class PlayerController : MonoBehaviour {
 
 			if (_controller.isCollidingLeft && isCollidingWall && !_controller.isGrounded) {
 				checkWallJump (-1);
-				if(_velocity.y < 0) 
-					isWallSliding = true;
+                if (_velocity.y < 0)
+                    isWallSliding = true;
 			}
 			if( transform.localScale.x > 0f)
 				transform.localScale = new Vector3( -transform.localScale.x, transform.localScale.y, transform.localScale.z );
@@ -272,7 +272,8 @@ public class PlayerController : MonoBehaviour {
 		//check if not wallsliding
 		if (isWallSliding &&
 		    (((!_controller.isCollidingRight && !_controller.isCollidingLeft)
-		    || Input.GetKeyUp (KeyCode.RightArrow) || Input.GetKeyUp (KeyCode.LeftArrow))
+		    //|| Input.GetKeyUp (KeyCode.RightArrow) || Input.GetKeyUp (KeyCode.LeftArrow))
+              || Input.GetAxisRaw("Horizontal") == 0)
 		    || _controller.isGrounded)) {
 			isWallSliding = false;
 			_animator.SetBool ("Idle", true);
