@@ -18,7 +18,7 @@ public class PlayerController : MonoBehaviour {
 	public Vector2 wallJumpVelocity = new Vector2(10, 10);
 	public float postWallJumpDelayBuffer = 0.5f;
 	public float wallJumpHandicap = 0.25f;
-	public float wallsSlideModifier = 1.4f;
+	public float wallSlideModifier = 0.9f;
 	public bool allowSwitch = true;
 	[HideInInspector]
 	public int checkPointNum = -1;
@@ -197,6 +197,12 @@ public class PlayerController : MonoBehaviour {
 		}
 
 		float horAxis = Input.GetAxisRaw( "Horizontal" );
+		
+		if (((_controller.isCollidingRight && transform.localScale.x > 0f) || (_controller.isCollidingLeft && transform.localScale.x < 0f)) && isCollidingWall && !_controller.isGrounded) {
+			checkWallJump((transform.localScale.x > 0f) ? 1: -1);
+			if (_velocity.y < 0)
+				isWallSliding = true;
+		}
 
 		if( horAxis > 0 )
 		{
@@ -207,11 +213,6 @@ public class PlayerController : MonoBehaviour {
 			}
 			normalizedHorizontalSpeed = horAxis;
 
-			if (_controller.isCollidingRight && isCollidingWall && !_controller.isGrounded) {
-				checkWallJump (1);
-				if(_velocity.y < 0) 
-					isWallSliding = true;
-			}
 			//flip sprite if necessary
 			if( transform.localScale.x < 0f)
 				transform.localScale = new Vector3( -transform.localScale.x, transform.localScale.y, transform.localScale.z );
@@ -230,11 +231,6 @@ public class PlayerController : MonoBehaviour {
 			}
 			normalizedHorizontalSpeed = horAxis;
 
-			if (_controller.isCollidingLeft && isCollidingWall && !_controller.isGrounded) {
-				checkWallJump (-1);
-                if (_velocity.y < 0)
-                    isWallSliding = true;
-			}
 			if( transform.localScale.x > 0f)
 				transform.localScale = new Vector3( -transform.localScale.x, transform.localScale.y, transform.localScale.z );
 			
@@ -273,7 +269,7 @@ public class PlayerController : MonoBehaviour {
 		if (isWallSliding &&
 		    (((!_controller.isCollidingRight && !_controller.isCollidingLeft)
 		    //|| Input.GetKeyUp (KeyCode.RightArrow) || Input.GetKeyUp (KeyCode.LeftArrow))
-              || Input.GetAxisRaw("Horizontal") == 0)
+			)
 		    || _controller.isGrounded)) {
 			isWallSliding = false;
 			_animator.SetBool ("Idle", true);
@@ -327,7 +323,7 @@ public class PlayerController : MonoBehaviour {
 			_animator.SetBool ("Jumping", false);
 			_animator.SetBool ("Walking", false);
 			_animator.SetBool ("Sliding", true);
-			_velocity.y /= wallsSlideModifier;
+			_velocity.y *= wallSlideModifier;
 		} else {
 			_animator.SetBool ("Sliding", false);
 		}
