@@ -197,9 +197,10 @@ public class PlayerController : MonoBehaviour {
 		}
 
 		float horAxis = Input.GetAxisRaw( "Horizontal" );
-		
+		Debug.Log(_controller.isCollidingRight);
 		if (((_controller.isCollidingRight && transform.localScale.x > 0f) || (_controller.isCollidingLeft && transform.localScale.x < 0f)) && isCollidingWall && !_controller.isGrounded) {
 			checkWallJump((transform.localScale.x > 0f) ? 1: -1);
+			Debug.Log(_velocity.y);
 			if (_velocity.y < 0)
 				isWallSliding = true;
 		}

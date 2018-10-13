@@ -67028,7 +67028,7 @@ Prefab:
     - target: {fileID: 114035398249490194, guid: de4367565dddb4b5abc33eb543234a09,
         type: 2}
       propertyPath: wallSlideModifier
-      value: 0.9
+      value: 0.825
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: de4367565dddb4b5abc33eb543234a09, type: 2}
